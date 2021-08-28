@@ -66,6 +66,12 @@ input{
         border-radius: 5px;
         outline: none;
 }
+.sdd{
+    position: fixed;
+        left:-1%;
+        width:100% ;
+        height:100%;
+}
 
     </style>
         <script type="text/javascript">
@@ -179,7 +185,7 @@ function sub(){
                 az2=az.split("#&#")
   
                 var element=document.getElementById("lb");
-                element.innerHTML="<iframe marginwidth='0' marginheight='0' width='100%' height='95%' src="+sjxr+" frameborder='0'></iframe>"
+                element.innerHTML="<iframe marginwidth='0' marginheight='0' width='101%' height='95%' src="+sjxr+" frameborder='0'></iframe>"
                 var element=document.getElementById("lc");
                 element.innerHTML="<input id='txt' value='" + sjxr+"'style='width:"+kuandu+";height:25px'/>"
                 }
@@ -189,7 +195,7 @@ function sub(){
                 xr=az2[cs]
                 alert (xr)
                 var element=document.getElementById("lb");
-                element.innerHTML="<iframe marginwidth='0' marginheight='0' width='100%' height='95%' src='"+xr+"' frameborder='0'></iframe>"
+                element.innerHTML="<iframe marginwidth='0' marginheight='0' width='101%' height='95%' src='"+xr+"' frameborder='0'></iframe>"
                 var element=document.getElementById("lc");
                 element.innerHTML="<input id='txt' value='" + xr+ "'style='width:"+kuandu+";height:25px'/>"
                 }
@@ -199,7 +205,7 @@ function sub(){
                 xr=az2[cs]
                 alert (xr)
                 var element=document.getElementById("lb");
-                element.innerHTML="<iframe marginwidth='0' marginheight='0' width='100%' height='95%' src='"+xr+"' frameborder='0'></iframe>"
+                element.innerHTML="<iframe marginwidth='0' marginheight='0' width='101%' height='95%' src='"+xr+"' frameborder='0'></iframe>"
                 var element=document.getElementById("lc");
                 element.innerHTML="<input id='txt' value='" + xr+ "'style='width:"+kuandu+";height:25px'/>"
                 }
@@ -210,7 +216,7 @@ function sub(){
                 cs=sjcs
                 az2=az.split("#&#")
                 var element=document.getElementById("lb");
-                element.innerHTML="<iframe marginwidth='0' marginheight='0' width='100%' height='95%' src='https://www.bilibili.com/' frameborder='0'></iframe>"
+                element.innerHTML="<iframe marginwidth='0' marginheight='0' width='101%' height='95%' src='https://www.bilibili.com/' frameborder='0'></iframe>"
                 var element=document.getElementById("lc");
                 element.innerHTML="<input id='txt' value='https://www.bilibili.com/'style='width:"+kuandu+";height:25px'/>"
                 }
@@ -220,7 +226,7 @@ function sub(){
                 cs=sjcs
                 az2=az.split("#&#")
                 var element=document.getElementById("lb");
-                element.innerHTML="<iframe marginwidth='0' marginheight='0' width='100%' height='95%' src='https://bing.com/' frameborder='0'></iframe>"
+                element.innerHTML="<iframe marginwidth='0' marginheight='0' width='101%' height='95%' src='https://bing.com/' frameborder='0'></iframe>"
                 var element=document.getElementById("lc");
                 element.innerHTML="<input id='txt' value='https://bing.com/'style='width:"+kuandu+";height:25px'/>"
                 }
@@ -230,7 +236,7 @@ function sub(){
                 cs=sjcs
                 az2=az.split("#&#")
                 var element=document.getElementById("lb");
-                element.innerHTML="<iframe marginwidth='0' marginheight='0' width='100%' height='95%' src='https://classic.minecraft.net/' frameborder='0'></iframe>"
+                element.innerHTML="<iframe marginwidth='0' marginheight='0' width='101%' height='95%' src='https://classic.minecraft.net/' frameborder='0'></iframe>"
                 var element=document.getElementById("lc");
                 element.innerHTML="<input id='txt' value='https://classic.minecraft.net/'style='width:"+kuandu+";height:25px'/>"
                 }
@@ -270,8 +276,8 @@ function sub(){
 
 </div> 
    </div>
-    <div id="lb">
-        <iframe marginwidth="0" marginheight='0' width="100%" height="95%" src="https://bing.com/" frameborder="0"></iframe>
+    <div id="lb" class="sdd">
+        <iframe marginwidth="0" marginheight='0' width="101%" height="95%" src="https://bing.com/" frameborder="0"></iframe>
     </div>
 </div>
 </body>
