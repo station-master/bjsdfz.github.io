@@ -2,43 +2,264 @@
 	<head>
 		<link rel="shortcut  icon" href="bjsdfz.ico" type="image/x-icon" />
 		<meta charset="utf-8">
-		<title>az-edge</title>
+		<title>啊这浏览器网页版</title>
         <style type="text/css" >
+        body{background-size: cover}
+
+        .jda{
+            position: fixed;
+        top: 0%;
+        left:0%;
+        }
             .sr{
-width: 1800px;
-text-align:center;
-height: 25px;
+width:100%;
+
+height: 1%;
 position: fixed;
-top: 1%;
-left:80px;
-            }
-    .sx{
-        position: fixed;
+
         top: 1%;
-        left:20px;
-    }
+        left:125px;
+            }
+            .kk{
+                top: 0%;
+        left:0%;
+                width: 100%;
+                position: fixed;
+	     height: 48px;
+
+	    background: #ffffffb2;
+	     
+	    
+	       
+	    }
+            
+
+    
     .lb{
     width: 270px;
 	height: 40px;
 	}
+
+.ks{
+    position: fixed;top: 1%;left:70%;
+
+}
+.ht{
+    position: fixed;
+        top: 1%;
+        left:20px;
+}
+.qj{
+    position: fixed;
+        top: 1%;
+        left:55px;
+}
+
+.sx{
+    position: fixed;
+        top: 1%;
+        left:85px;
+}
+input{
+        font-size:13px;    
+        border:#ccc 1px solid;  
+        border-radius: 5px;
+        outline: none;
+}
+
     </style>
         <script type="text/javascript">
+
+
+        az=" "
+        cs=0
+        sjcs=0
+        kuandu="70%"
+        kd=0
+        kd1=0
+        kd2=0
+        ssss=0
+window.onload = function()
+        {
+           
+
+            kd=document.body.clientWidth
+    
+            kd1=kd-100
+    kd2=kd-250
+    kd2=kd2/kd
+   
+    kd2=kd2*100
+    kuandu=kd2+"%"
+    var element=document.getElementById("lc");
+    element.innerHTML="<input id='txt' value='https://bing.com/'style='width:"+kuandu+";height:25px'/>"
+    document.getElementById("ks").style.left=kd1+"px"
+        
+        }
+
+
+window.onresize = function () {
+ var Width = window.innerWidth  
+ || document.documentElement.clientWidth 
+ || document.body.clientWidth; 
+ var Height = window.innerHeight 
+ || document.documentElement.clientWidth 
+ || document.body.clientHeight;
+ console.log(Width, Height);
+ }
+  
+ 
+   window.addEventListener('resize', e => { 
+
+sub()
+
+                    }, false);
+
+   window.removeEventListener('resize', e => { alert ("az") });
+
+
+
+       
+
+        document.onkeydown = function (e) {
+      if (!e) e = window.event;
+      if ((e.keyCode || e.which) == 13) {
+          
+sub()
+      }
+    }
+   
+
 function sub(){
+    kd=document.body.clientWidth
+    
+    kd1=kd-100
+    kd2=kd-250
+    kd2=kd2/kd
+   
+    kd2=kd2*100
+    kuandu=kd2+"%"
+   
+    document.getElementById("ks").style.left=kd1+"px"
+
+    
                 var content = document.getElementById("txt");
+               
+                sjxr=content.value
+                https="https:/"
+                http="http://"
+                dian=sjxr.indexOf(".")
+                dd=sjxr.substring(0,7)
+             
+                if (dd==https) {
+                 
+                }
+                else if (dd==http) {
+              
+                } else if (dian==-1) {
+            
+                    sjxr= "https://bing.com/search?q=" + sjxr
+                } else {
+             
+                    sjxr= "http://" + sjxr
+                }
+               
+                az=az +"#&#" +sjxr
+                cs=sjcs
+                sjcs=sjcs+1
+                az2=az.split("#&#")
+  
                 var element=document.getElementById("lb");
-                element.innerHTML="<iframe marginwidth='0' marginheight='0' width='100%' height='95%' src='"+content.value+"' frameborder='no'></iframe>"
+                element.innerHTML="<iframe marginwidth='0' marginheight='0' width='100%' height='95%' src="+sjxr+" frameborder='0'></iframe>"
+                var element=document.getElementById("lc");
+                element.innerHTML="<input id='txt' value='" + sjxr+"'style='width:"+kuandu+";height:25px'/>"
+                }
+
+                function ht(){
+                cs=cs-1
+                xr=az2[cs]
+                alert (xr)
+                var element=document.getElementById("lb");
+                element.innerHTML="<iframe marginwidth='0' marginheight='0' width='100%' height='95%' src='"+xr+"' frameborder='0'></iframe>"
+                var element=document.getElementById("lc");
+                element.innerHTML="<input id='txt' value='" + xr+ "'style='width:"+kuandu+";height:25px'/>"
+                }
+
+                function qj(){
+                cs=cs+1
+                xr=az2[cs]
+                alert (xr)
+                var element=document.getElementById("lb");
+                element.innerHTML="<iframe marginwidth='0' marginheight='0' width='100%' height='95%' src='"+xr+"' frameborder='0'></iframe>"
+                var element=document.getElementById("lc");
+                element.innerHTML="<input id='txt' value='" + xr+ "'style='width:"+kuandu+";height:25px'/>"
+                }
+
+                function bili(){
+                az=az +"#&#" +"https://www.bilibili.com/"
+                sjcs=sjcs+1
+                az2=az.split("#&#")
+                var element=document.getElementById("lb");
+                element.innerHTML="<iframe marginwidth='0' marginheight='0' width='100%' height='95%' src='https://www.bilibili.com/' frameborder='0'></iframe>"
+                var element=document.getElementById("lc");
+                element.innerHTML="<input id='txt' value='https://www.bilibili.com/'style='width:"+kuandu+";height:25px'/>"
+                }
+                function bing(){
+                az=az +"#&#" +"https://bing.com/"
+                sjcs=sjcs+1
+                az2=az.split("#&#")
+                var element=document.getElementById("lb");
+                element.innerHTML="<iframe marginwidth='0' marginheight='0' width='100%' height='95%' src='https://bing.com/' frameborder='0'></iframe>"
+                var element=document.getElementById("lc");
+                element.innerHTML="<input id='txt' value='https://bing.com/'style='width:"+kuandu+";height:25px'/>"
+                }
+                function minecraft(){
+                az=az +"#&#" +"https://classic.minecraft.net/"
+                sjcs=sjcs+1
+                az2=az.split("#&#")
+                var element=document.getElementById("lb");
+                element.innerHTML="<iframe marginwidth='0' marginheight='0' width='100%' height='95%' src='https://classic.minecraft.net/' frameborder='0'></iframe>"
+                var element=document.getElementById("lc");
+                element.innerHTML="<input id='txt' value='https://classic.minecraft.net/'style='width:"+kuandu+";height:25px'/>"
                 }
 </script>
 <body background="viewfile.jpg">
+
+    
+
+
+    <div class="jsa" id="zd">
+    <div class="kk"></div>
     <div  class="lb">
+
+        <div>
+            
+            <img src="left.png" onclick="ht()" height="16" width="16" class="ht">
+
+            <img src="right.png" onclick="qj()" height="16" width="16" class="qj">
+
+            <img src="sx.png" onclick="sub()" height="16" width="16" class="sx">
+            
+            </div>
+
     <div class="sr">
-    <input id="txt" value="https://bing.com/" style="width:100%;height:25px"/>
+        <div  id="lc" >
+    <input id="txt" value="https://bing.com/" style="width:60%;height:25px"></input>
+</div>
+   <div class="ks" id="ks">
+
+   
+    <img src="bilibili.png"  onclick="bili()" height="24" width="24">
+    <img src="bing.png"  onclick="bing()" height="24" width="24">
+    <img src="minecraft.png"  onclick="minecraft()" height="24" width="24">
+    
+</div>
+
+
 </div> 
-    <div class="sx">
-    <input type="button" value="刷新" onclick="sub()">
-    </div>
    </div>
     <div id="lb">
-        <iframe marginwidth="0" marginheight='0' width="100%" height="95%" src="https://bing.com/" frameborder="no"></iframe>
+        <iframe marginwidth="0" marginheight='0' width="100%" height="95%" src="https://bing.com/" frameborder="0"></iframe>
     </div>
+</div>
 </body>
