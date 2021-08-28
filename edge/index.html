@@ -58,7 +58,7 @@ position: fixed;
 .sx{
     position: fixed;
         top: 0.5%;
-        left:85px;
+        left:90px;
 }
 input{
         font-size:13px;    
@@ -71,6 +71,34 @@ input{
         left:-1%;
         width:100% ;
         height:100%;
+}
+.button { /* 按钮美化 */
+	width: 24px; /* 宽度 */
+	height: 24px; /* 高度 */
+	border-width: 0px; /* 边框宽度 */
+	border-radius: 3px; /* 边框半径 */
+	background: #ffffff; /* 背景颜色 */
+	cursor: pointer; /* 鼠标移入按钮范围时出现手势 */
+	outline: none; /* 不显示轮廓线 */
+
+}
+.button:hover { /* 鼠标移入按钮范围时改变颜色 */
+	background: #afafaf;
+}
+.png{
+    position: fixed;
+        top: 1%;
+        left:23px;
+}
+.png2{
+    position: fixed;
+        top: 1%;
+        left:58px;
+}
+.png3{
+    position: fixed;
+        top: 1%;
+        left:93px;
 }
 
     </style>
@@ -251,13 +279,21 @@ function sub(){
     <div  class="lb">
 
         <div>
-            
-            <img src="left.png" onclick="ht()" height="16" width="16" class="ht">
-
-            <img src="right.png" onclick="qj()" height="16" width="16" class="qj">
-
-            <img src="sx.png" onclick="sub()" height="16" width="16" class="sx">
-            
+            <div class="ht">
+                <div class="button"  onclick="ht()">
+            <img src="left.png" height="16" width="16" class="png"></img>
+            </div>
+        </div>
+        <div class="qj">
+            <div class="button" onclick="qj()">
+            <img src="right.png"  height="16" width="16" class="png2"></img>
+</div>
+</div>
+<div class="sx">
+<div class="button" onclick="sub()">
+            <img src="sx.png"  height="16" width="16" class="png3"></img>
+            </div>
+            </div>
             </div>
 
     <div class="sr">
@@ -267,9 +303,9 @@ function sub(){
    <div class="ks" id="ks">
 
    
-    <img src="bilibili.png"  onclick="bili()" height="24" width="24">
-    <img src="bing.png"  onclick="bing()" height="24" width="24">
-    <img src="minecraft.png"  onclick="minecraft()" height="24" width="24">
+    <img src="bilibili.png"  onclick="bili()" height="24" width="24"></img>
+    <img src="bing.png"  onclick="bing()" height="24" width="24"></img>
+    <img src="minecraft.png"  onclick="minecraft()" height="24" width="24"></img>
     
 </div>
 
