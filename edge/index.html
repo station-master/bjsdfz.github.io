@@ -110,8 +110,17 @@ window.onresize = function () {
   
  
    window.addEventListener('resize', e => { 
+    kd=document.body.clientWidth
+    
+    kd1=kd-100
+kd2=kd-250
+kd2=kd2/kd
 
-sub()
+kd2=kd2*100
+kuandu=kd2+"%"
+var element=document.getElementById("lc");
+element.innerHTML="<input id='txt' value='https://bing.com/'style='width:"+kuandu+";height:25px'/>"
+document.getElementById("ks").style.left=kd1+"px"
 
                     }, false);
 
