@@ -1,39 +1,122 @@
 <html>
 	<head>
-		<link rel="shortcut  icon" href="bjsdfz.ico" type="image/x-icon" />
+		<link rel="shortcut  icon" href="bjsdfzz.ico" type="image/x-icon" />
 		<meta charset="utf-8">
-		<title>bjsdfz.net</title>
+		<title>北京师范大学附属中学</title>
         <style type="text/css">
 			body{background-size: cover}
-            img{position:absolute;
-  left:65%;
-  top:30;}
+            .mcnbpl{
+                position: fixed;
+   top: 0px;
+   left:60%;
+   font-size: 12;
+            }
+.dbbt{width:100%;
+position: fixed;
+top: 0px;
+left:0px;
+height: 110px;
+background: #ffffff; 
 
-               .ddd{	font-size: 26px;
 
   }
-		</style>
-      
-    </head>
-    <body background="viewfile.jpg">
-      
+  .bjsdfz{
+    position: fixed;
+top: 10px;
+left:70px;
 
-    <div id="lc">
-        <img src="bjsdfz.png"height="112" width="640">
+cursor: pointer; 
+  }
+  .top-01{
+    position: fixed;
+top: 0px;
+left:400px;
+  }
+  .bkgrd{
+    width:100%;
+    position: fixed;
+top: 110px;
+left:0px;
+}		
+.gg{
+position: fixed;
+top: 45px;
+left:50%;
+font-size: 8;
+}
+.gg-nb{
+    font-size: 20; 
+}
+</style>
+       <script type="text/javascript">
+       sj=0
+       window.onload = function(){
+        alert("这里不是家！")
+        tpdx()
 
-        <div class="ddd">
-        
-   <h1>这里并不是真的北京师大附中官网 : (</h1>
-   
-    <h4>
-        <a href="https:\\www.bjsdfz.com" target="_blank">
-        点击前往官网
-
-        </a>
-    </h4>
+       }
 
     
+    window.addEventListener('resize', e => {
+        tpdx()
+    }, false);
+    function tpdx(){
+    gd=document.body.clientHeight
+    kd=document.body.clientWidth
+    bjgd=gd-110
+    sj=sj+1
+    bj="tp/1"+sj+".jpg"
+    if (sj==3){
+        sj=0
+    }
+    var element=document.getElementById("bkg");
+    element.innerHTML=" <img src='"+bj+"'height="+bjgd+" width='100%'></img>"     
+    }
+    setInterval(function () {
+         		tpdx()
+    }, 2500); 
+    </script>
+    </head>
+    <body>
+      
+
+<div class="dbbt">
+        <div class="bjsdfz">
+        <a href="https://www.bjsdfz.com/" target="_blank">
+        <img src="tp/20210428042322878.png"height=75 width="246"></img>
+        </a>
+        </div>
+        <div class="top-01">
+        <img  src="tp/top_01.jpg"height=110 width="245"></img>
+        </div>
+        <div class="mcnbpl">
+        <h1>友情提示，北京师大附中官网
+        <a href="https:\\www.bjsdfz.com" target="_blank">点此传送</a></h1>
+        </div>
+        <div class="gg">
+            <h1>快速连接：<a href="edge/index.html" target="_blank" class="gg-nb">网页浏览器</a>
+                <h4>
+                    <a href="gg/index.html" target="_blank" >广告位招租</a>
+                    <a href="gg/index.html" target="_blank" >广告位招租</a>
+                    <a href="gg/index.html" target="_blank" >广告位招租</a>
+                    <a href="gg/index.html" target="_blank" >广告位招租</a>
+                    <a href="gg/index.html" target="_blank" >广告位招租</a>
+                    <a href="gg/index.html" target="_blank" >广告位招租</a>
+                    <a href="gg/index.html" target="_blank" >广告位招租</a>
+                    <a href="gg/index.html" target="_blank" >广告位招租</a>
+                    <a href="gg/index.html" target="_blank" >广告位招租</a>
+                    <a href="gg/index.html" target="_blank" >广告位招租</a>
+                    <a href="gg/index.html" target="_blank" >广告位招租</a>
+
+
+
+                </h1>
+                </h1>
+
+        </div>
 </div>
+<div class="bkgrd" id="bkg">
+    <img src="tp/20210508105544701.jpg"height=750 width="100%"></img>
 </div>
 
     </body>
