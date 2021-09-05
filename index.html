@@ -391,6 +391,11 @@ select{
     left: 72px;
     position: absolute;
 }
+.ddb-02{
+    top: -10px;
+    left: 500px;
+    position: absolute;
+}
 </style>
        <script type="text/javascript">
        sj=0
@@ -419,11 +424,13 @@ select{
     ddbwz = kd-350-80
     bjgd=kd/64
     bjgd=bjgd*31
+    ddb2 = (kd-360)/2
     document.getElementById("rightfr").style.left=csskd+"px"
     document.getElementById("rightfr").style.top=cssgd+"px"
     document.getElementById("top-1").style.left=topkd1+"px"
     document.getElementById("top-2").style.left=topkd2+"px"
     document.getElementById("ddbfr").style.left=ddbwz+"px"
+    document.getElementById("ddb-02").style.left=ddb2+"px"
 
  
     }
@@ -548,7 +555,10 @@ function yqlj(){
         <p class="p3">© 1901-2021 北京师大附中. </p>
         <p class="p4">访问人数：114514</p>
     </div>
-    <div class="fr" id=ddbfr>
+    <div id="ddb-02" style="left: 700px;" class="ddb-02">
+        <img src="./ywy/ddb-01.png" height=320 width="360"></img>
+    </div>
+    <div class="fr" id=ddbfr >
 
             <span>友情链接</span>
             <select style="width: 275px;height:40px;" id=yqlj onchange="yqlj()">
