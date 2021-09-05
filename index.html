@@ -398,6 +398,7 @@ select{
        window.onload = function(){
         alert("这里不是家！")
         tpdx()
+        document.getElementById("aztop").style.display="block"
 
        }
 
@@ -408,6 +409,8 @@ select{
     function tpdx(){
     gd=document.body.clientHeight
     kd=document.body.clientWidth
+    
+
 
     csskd=kd-50
     cssgd=gd-360-200
@@ -457,7 +460,7 @@ function yqlj(){
     </script>
     </head>
     <body id="top">
-      
+      <div id="aztop" style="display: none;">
         <div class="dbbt">
             <div class="bjsdfz">
             <a href="https://www.bjsdfz.com/" target="_blank">
@@ -515,7 +518,7 @@ function yqlj(){
 <div class=bkx-01><img src="ywy/nav_01.png" height="53" width="100%"></img></div>
 
 
-<div class="rightfr" id="rightfr">
+<div class="rightfr" id="rightfr" style="display: block;">
 
     <div class="r1"><div class="r" onclick="gw()"onmouseover="azimg1.src='ywy/r_01_on.png'" onmouseout="azimg1.src='ywy/r_01.png'" alt=""><div class="pxx"></div><a><img src="ywy/r_01.png" height="24" width="24" class="tb" id="azimg1"></img><P class="wz">招生</P><P class="wz2">简章</P></a></div></div>
     <div class="r2"><div class="r" onclick="gw()"onmouseover="azimg2.src='ywy/r_02_on.png'" onmouseout="azimg2.src='ywy/r_02.png'" alt=""><div class="pxx"></div><a><img src="ywy/r_02.png" height="24" width="24" class="tb" id="azimg2"></img><P class="wz">留学生</P></a></div></div>
@@ -524,10 +527,6 @@ function yqlj(){
     <div class="r5"><div class="r" onclick="gw()"onmouseover="azimg5.src='ywy/r_05_on.png'" onmouseout="azimg5.src='ywy/r_05.png'" alt=""><div class="pxx"></div><a><img src="ywy/r_05.png" height="24" width="24" class="tb" id="azimg5"></img><P class="wz">数字</P><P class="wz2">校园</P></a></div></div>
     <div class="r6"><div class="r" onclick="gw()"onmouseover="azimg6.src='ywy/r_06_on.png'" onmouseout="azimg6.src='ywy/r_06.png'" alt=""><div class="pxx"></div><a><img src="ywy/r_06.png" height="24" width="24" class="tb" id="azimg6"></img><P class="wz">办事</P><P class="wz2">指南</P></a></div></div>
     <div class="r7"><div class="r" onmouseover="azimg7.src='ywy/r_07_on.png'" onmouseout="azimg7.src='ywy/r_07.png'" alt="" onclick="aztop()"><div class="pxx"></div><img src="ywy/r_07.png" height="24" width="24" class="tb" id="azimg7"></img><P class="wz">回到</P><P class="wz2">顶部</P></div></div>
-
-
-
-
 
 
 </div>
@@ -566,6 +565,8 @@ function yqlj(){
 </div>
 
 
+
+</div>
 <div class="zzw"></div>
     </body>
 
