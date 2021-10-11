@@ -1,0 +1,291 @@
+<html>
+	<head>
+		<link rel="shortcut  icon" href="bjsdfz.ico" type="image/x-icon" />
+		<meta charset="utf-8">
+		<title></title>
+        <style type="text/css" >
+        .mankuandu{
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    height: 100%;
+
+}
+.baikuang{
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    background-color: white;
+}
+.ck{
+    position: fixed;
+    width: 600px;
+    height: 500px;
+    border-radius: 10px;
+    background-color: #ffffff;
+}
+.ck-cls{
+    position: absolute;
+    right: 0px;
+    height: 20px;
+    width: 40px;
+    background-color: white;
+}
+.ck-cls:hover{
+    transition: 0.1s;
+    background-color: rgb(255, 0, 0);
+    color: #ffffff;
+}
+
+
+
+
+
+
+
+.close{
+    right: 5px;
+    top:3px;
+    position: absolute;
+    border-width: 5px;
+    border-radius: 32px;
+    cursor: pointer; 
+   width: 32px;
+   height: 32px;
+   background-color:rgb(255, 51, 0);
+}
+.close:hover{
+    transition: 0.3s;
+    background-color: rgb(184, 37, 0);
+}
+.max{
+    right: 42px;
+    top:3px;
+    position: absolute;
+    border-width: 5px;
+    border-radius: 32px;
+    cursor: pointer; 
+   width: 32px;
+   height: 32px;
+   background-color:rgb(255, 251, 0);
+}
+.max:hover{
+    transition: 0.3s;
+    background-color:rgb(190, 187, 0);
+}
+.saml{
+    right: 79px;
+    top:3px;
+    position: absolute;
+    border-width: 5px;
+    border-radius: 32px;
+    cursor: pointer; 
+   width: 32px;
+   height: 32px;
+   background-color:rgb(0, 255, 34);
+}
+.saml:hover{
+    transition: 0.3s;
+    background-color:rgb(0, 180, 24);
+}
+.db{
+    position: fixed;
+    left:0px;
+    bottom: 0px;
+    width: 100%;
+    height: 50px;
+    background-color: dimgray;
+}
+.cktb{
+    left: 10px;
+    top:8px;
+    position: absolute;
+   width: 25px;
+   height: 25px;
+}
+.ckbt{
+    left: 45px;
+    top:5px;
+    position: absolute;
+    height: 25px;
+   line-height:25px;
+   font-size: 20;
+}
+.add{
+    position: absolute;
+    left:5px;
+    top: 5px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer; 
+}
+    </style>
+    <script type="text/javascript">
+        var cks=0
+window.onload = function(){
+    ckxs("ck0","700px","500px")
+}
+function ckxs(idm,w,h){
+
+    var wd=w
+    var hd=h
+    var idd=idm
+    cknr=""
+
+document.getElementById(idd).style.width=wd
+document.getElementById(idd).style.height=hd
+document.getElementById("nr-"+idd).style.height=hd.toString().split("px")[0]-40+"px"
+document.getElementById(idm).style.top=    (document.body.clientHeight-500)/2
+document.getElementById(idm).style.left=    (document.body.clientWidth-700)/2
+
+
+}
+function ckgd(idm){
+   // alert(cks)
+    
+    var zdgd=document.getElementById(idm).style.zIndex;
+
+    if (zdgd == ""){
+        
+    }else
+    {
+        var i=1
+            for (i = 1; i < cks+1; i++) {
+              
+var ckmc="ck" + i;
+var xindex=document.getElementById(ckmc).style.zIndex;
+
+if (xindex>zdgd) {
+    
+    document.getElementById(ckmc).style.zIndex=xindex-1;
+}
+ }
+}
+
+    document.getElementById(idm).style.zIndex=cks;
+}
+function ckyd(idm){
+    
+
+var idd=idm
+
+
+var oBox = document.getElementById(idd);
+                oBox.onmousedown = function(ev) {
+                    var disX=ev.clientX-oBox.offsetLeft;
+                    var disY=ev.clientY-oBox.offsetTop;
+                        
+                        
+                    document.onmousemove = function(ev) {
+                        
+                        var l = ev.clientX-disX;
+                        var t = ev.clientY-disY;
+                        console.log(l);
+                        oBox.style.left = l + "px";
+                        oBox.style.top = t + "px";
+                    };
+                    document.onmouseup = function() {
+                    document.onmousemove = null;
+                };
+                
+                    return false;  
+                };
+
+}
+function add(src,bk,dx,tb,bt){
+    cks=cks+1  
+    var sourceNode = document.getElementById("ck0");
+	var clonedNode = sourceNode.cloneNode(true);
+	clonedNode.setAttribute("id", "ck"+cks);
+	sourceNode.parentNode.appendChild(clonedNode);
+    if (bk=="1"){
+    var ynr=document.getElementById("ck"+cks).innerHTML
+    document.getElementById("ck"+cks).innerHTML=ynr+"<div class='baikuang'   onmousemove=ckyd('ck"+cks+"') onmousedown=ckgd('ck"+cks+"')></div>"
+    var ynr=document.getElementById("ck"+cks).innerHTML
+    document.getElementById("ck"+cks).innerHTML=ynr+"<div class='close' onclick=azclose('ck"+cks+"')></div>"
+    var ynr=document.getElementById("ck"+cks).innerHTML
+    document.getElementById("ck"+cks).innerHTML=ynr+"<div class='max' onclick=azmax('ck"+cks+"')></div>"
+    var ynr=document.getElementById("ck"+cks).innerHTML
+    document.getElementById("ck"+cks).innerHTML=ynr+"<div class='saml' onclick=azsaml('ck"+cks+"')></div>"
+    }
+    if (bk=="2"){
+    var ynr=document.getElementById("ck"+cks).innerHTML
+    document.getElementById("ck"+cks).innerHTML=ynr+"<div class='baikuang'   onmousemove=ckyd('ck"+cks+"') onmousedown=ckgd('ck"+cks+"')></div>"+"<div class='close' onclick='close('ck"+cks+"')></div>"
+    }
+    if (bk=="3"){
+    }
+    var ynr=document.getElementById("ck"+cks).innerHTML
+    document.getElementById("ck"+cks).innerHTML=ynr+"<img src='"+tb+"' class='cktb'>"
+    var ynr=document.getElementById("ck"+cks).innerHTML
+    document.getElementById("ck"+cks).innerHTML=ynr+" <div class='ckbt'>"+bt+"</div>"
+
+
+
+
+    var ynr=document.getElementById("ck"+cks).innerHTML
+    document.getElementById("ck"+cks).innerHTML=ynr+"<div id='nr-ck"+cks+"' style='width: 100%;height:0%;'></div>"
+    document.getElementById("nr-ck"+cks).innerHTML="<iframe src='"+src+"' scrolling='no' border='0' frameborder='no' framespacing='0' allowfullscreen='true' width='100%' height='100%'></iframe>"
+    ckxs("ck"+cks,"700px","500px")
+    document.getElementById("ck" + cks).style.display= "block"
+	
+}
+
+
+
+function azclose(idm){
+    /*alert(idm.split("ck")[1]+1)
+    for (i = idm.split("ck")[1]+1; i < cks+1; i++) {
+        alert(i)
+    var sourceNode = document.getElementById("ck"+i);
+	var clonedNode = sourceNode.cloneNode(true);
+	clonedNode.setAttribute("id", "ck"+i-1);
+	sourceNode.parentNode.appendChild(clonedNode);
+
+    }
+*/
+
+    document.getElementById(idm).remove()
+    
+}
+function azmax(idm){
+if (document.getElementById(idm).style.height.split("px")[0]==document.body.clientHeight-50){
+    document.getElementById(idm).style.height="500px"
+    document.getElementById(idm).style.width="700px"
+    document.getElementById(idm).style.top=    (document.body.clientHeight-500)/2
+    document.getElementById(idm).style.left=    (document.body.clientWidth-700)/2
+}else{
+    document.getElementById(idm).style.width="100%"
+    document.getElementById(idm).style.height=document.body.clientHeight-50+"px"
+    document.getElementById(idm).style.top="0px"
+    document.getElementById(idm).style.left= "0px"
+}
+
+
+
+}
+</script>
+</head>
+
+<body style=" background-color:rgb(165, 165, 165)" id="body">
+<div id="ck">
+
+
+
+
+    <div class="ck" id="ck0" style="width: 600px;height: 500px;display: none;">
+
+    </div>
+ 
+
+
+
+
+</div>
+<div id="db" class="db">
+    <img id="add" src="img/add.png" class="add" onclick=add('az.html',1,1,"img/exe.png","az.exe")>
+
+
+
+</div>
+</body>
+</html>
