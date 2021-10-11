@@ -249,17 +249,15 @@ function azclose(idm){
 }
 function azmax(idm){
 if (document.getElementById(idm).style.height.split("px")[0]==document.body.clientHeight-50){
-    document.getElementById(idm).style.height="500px"
-    document.getElementById(idm).style.width="700px"
+    ckxs(idm,"700px","500px")
     document.getElementById(idm).style.top=    (document.body.clientHeight-500)/2
     document.getElementById(idm).style.left=    (document.body.clientWidth-700)/2
 }else{
-    document.getElementById(idm).style.width="100%"
-    document.getElementById(idm).style.height=document.body.clientHeight-50+"px"
+    ckxs("ck"+cks,"100%",document.body.clientHeight-50+"px")
     document.getElementById(idm).style.top="0px"
     document.getElementById(idm).style.left= "0px"
-}
 
+}
 
 
 }
