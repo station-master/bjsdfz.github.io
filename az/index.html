@@ -13,7 +13,7 @@
 }
 .baikuang{
     width: 100%;
-    height: 40px;
+    height: 30px;
     border-radius: 10px;
     background-color: white;
 }
@@ -44,68 +44,66 @@
 
 
 .close{
-    right: 5px;
-    top:3px;
+    right: 0px;
+    top:0px;
     position: absolute;
-    border-width: 5px;
-    border-radius: 32px;
     cursor: pointer; 
-   width: 32px;
-   height: 32px;
-   background-color:rgb(255, 51, 0);
+   width: 40px;
+   height: 30px;
+   border-radius: 0px 10px 0px 0px;
+   background-image: url(img/close.png);
+   background-size: cover
 }
 .close:hover{
     transition: 0.3s;
-    background-color: rgb(184, 37, 0);
+    background-image: url(img/close-r.png);
 }
 .max{
-    right: 42px;
-    top:3px;
+    right: 40px;
+    top:0px;
     position: absolute;
-    border-width: 5px;
-    border-radius: 32px;
     cursor: pointer; 
-   width: 32px;
-   height: 32px;
-   background-color:rgb(255, 251, 0);
+   width: 40px;
+   height: 30px;
+   background-image: url(img/maximize.png);
+   background-size: cover
 }
 .max:hover{
     transition: 0.3s;
-    background-color:rgb(190, 187, 0);
+    background-image: url(img/maximize-r.png);
 }
 .saml{
-    right: 79px;
-    top:3px;
+    right: 80px;
+    top:0px;
     position: absolute;
-    border-width: 5px;
-    border-radius: 32px;
     cursor: pointer; 
-   width: 32px;
-   height: 32px;
-   background-color:rgb(0, 255, 34);
+   width: 40px;
+   height: 30px;
+   background-image: url(img/minimize.png);
+   background-size: cover
 }
 .saml:hover{
     transition: 0.3s;
-    background-color:rgb(0, 180, 24);
+    background-image: url(img/minimize-r.png);
 }
 .db{
     position: fixed;
     left:0px;
     bottom: 0px;
     width: 100%;
-    height: 50px;
-    background-color: dimgray;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.521);
 }
 .cktb{
     left: 10px;
-    top:8px;
+    top:2px;
     position: absolute;
    width: 25px;
    height: 25px;
 }
 .ckbt{
     left: 45px;
-    top:5px;
+    top:2px;
     position: absolute;
     height: 25px;
    line-height:25px;
@@ -114,17 +112,78 @@
 .add{
     position: absolute;
     left:5px;
-    top: 5px;
-    width: 40px;
-    height: 40px;
+    top: 7.5px;
+    width: 25px;
+    height: 25px;
     cursor: pointer; 
 }
 .yjiao{
     border-radius: 0px 0px 10px 10px;
 }
+.dxtjd{
+    position: absolute;
+    bottom: -8px;
+    right: -8px;
+    height: 20px;
+    width: 20px;
+    cursor: nw-resize;
+}
+.dxtjd2{
+    position: absolute;
+    bottom: -8px;
+    left: -8px;
+    height: 20px;
+    width: 20px;
+    cursor: nw-resize;
+}
+.rwl{
+    position: absolute;
+    top:0px;
+    left: 40px;
+    height: 40px;
+    width: 100%;
+}
+.rwltb{
+ position: absolute;
+    top:0px;
+    left: 0px;
+    height: 40px;
+    width: 40px;
+    background-color: #ffffff00;
+}
+.rwltb:hover{
+    transition: 0.3s;
+    background-color: #ffffff67;
+}
+.tb{
+    position: relative;
+    cursor: pointer;
+    height: 40x;
+    width: 40px;
+}
+.rwl-tb{
+    position: relative;
+    left: 7.5px;
+    top:7.5px;
+}
+.yxxx{
+    position: absolute;
+    top:-150px;
+    height: 150px;
+    border-radius: 0px 10px 0px 0px;
+    width: 400px;
+    background-color: rgba(255, 255, 255, 0.521);
+}
+
+
+    </style>
+    <style>
+        @import url(yy.css);
     </style>
     <script type="text/javascript">
         var cks=0
+        var dbc = [];
+
 window.onload = function(){
     ckxs("ck0","700px","500px")
 }
@@ -137,11 +196,22 @@ function ckxs(idm,w,h){
 
 document.getElementById(idd).style.width=wd
 document.getElementById(idd).style.height=hd
-document.getElementById("nr-"+idd).style.height=hd.toString().split("px")[0]-40+"px"
+document.getElementById("nr-"+idd).style.height=hd.toString().split("px")[0]-30+"px"
 document.getElementById(idm).style.top=    (document.body.clientHeight-500)/2
 document.getElementById(idm).style.left=    (document.body.clientWidth-700)/2
 
 
+}
+function ckxsfz(idm,w,h){
+
+var wd=w
+var hd=h
+var idd=idm
+cknr=""
+
+document.getElementById(idd).style.width=wd
+document.getElementById(idd).style.height=hd
+document.getElementById("nr-"+idd).style.height=hd.toString().split("px")[0]-30+"px"
 }
 function ckgd(idm){
    // alert(cks)
@@ -153,19 +223,33 @@ function ckgd(idm){
     }else
     {
         var i=1
-            for (i = 1; i < cks+1; i++) {
+        //alert(cks)
+            for (var i = 1; i <= cks; i++) {
               
-var ckmc="ck" + i;
-var xindex=document.getElementById(ckmc).style.zIndex;
-
-if (xindex>zdgd) {
-    
-    document.getElementById(ckmc).style.zIndex=xindex-1;
+var ckmc="ck" + i
+//alert(isInArray(dbc,ckmc))
+if (isInArray(dbc,ckmc)==true) {
+}else{
+var xindex=document.getElementById(ckmc).style.zIndex
+//alert("az")
+if (xindex>=zdgd) {
+    if(ckmc==idm){}else{
+        document.getElementById(ckmc).style.zIndex=xindex-1;
+    }
 }
+            }
  }
 }
 
     document.getElementById(idm).style.zIndex=cks;
+}
+function isInArray(arr,value){
+    for(var i = 0; i < arr.length; i++){
+        if(value === arr[i]){
+            return true;
+        }
+    }
+    return false;
 }
 function ckyd(idm){
     
@@ -174,19 +258,16 @@ var idd=idm
 
 
 var oBox = document.getElementById(idd);
-                oBox.onmousedown = function(ev) {
-                    var disX=ev.clientX-oBox.offsetLeft;
-                    var disY=ev.clientY-oBox.offsetTop;
-                        
-                        
-                    document.onmousemove = function(ev) {
-                        
-                        var l = ev.clientX-disX;
-                        var t = ev.clientY-disY;
-                        console.log(l);
-                        oBox.style.left = l + "px";
-                        oBox.style.top = t + "px";
-                    };
+    oBox.onmousedown = function(ev) {
+    var disX=ev.clientX-oBox.offsetLeft;
+    var disY=ev.clientY-oBox.offsetTop;   
+    document.onmousemove = function(ev) {
+    var l = ev.clientX-disX;
+    var t = ev.clientY-disY;
+    //console.log(l);
+    oBox.style.left = l + "px";
+    oBox.style.top = t + "px";
+    };
                     document.onmouseup = function() {
                     document.onmousemove = null;
                 };
@@ -195,68 +276,144 @@ var oBox = document.getElementById(idd);
                 };
 
 }
+function ckdx(idm){
+    //alert("az")
+    
+    dxidm=idm
+    oBox = document.getElementById(dxidm);
+oBox.onmousedown = function(ev) {
+  disX2=oBox.style.left.split("px")[0];
+  disY2=oBox.style.top.split("px")[0];   
+
+    document.onmousemove = function(ev) {
+    var l = ev.clientX-disX2;
+    var t = ev.clientY-disY2;
+    //console.log(l);
+//alert(l+"az"+t)
+ckxsfz(idm,l+"px",t+"px")
+
+    };
+                    document.onmouseup = function() {
+                    document.onmousemove = null;
+                };
+                
+                    return false;  
+                };
+                ckgd("ck" + xrcks)
+
+}
+onmousemove=function(){
+}
+function ckdx2(idm){
+    //alert("az")
+    var oBox = document.getElementById(idm);
+    oBox.onmousedown = function(ev) {
+    var disX=oBox.style.left.split("px")[0];
+    var disY=oBox.style.top.split("px")[0];   
+    var disw=oBox.style.width.split("px")[0];   
+
+    document.onmousemove = function(ev) {
+    var l = ev.clientX-disX;
+    var t = ev.clientY-disY;
+    var w=disX+disw-ev.clientX-
+    //console.log(l);
+//alert(t)
+
+
+
+ckxsfz(idm,l+"px",t+"px")
+oBox.style.left = w;
+
+    };
+                    document.onmouseup = function() {
+                    document.onmousemove = null;
+                };
+                
+                    return false;  
+                };
+
+                ckgd("ck" + xrcks)
+
+}
+
 function add(src,bk,dx,tb,bt){
-    cks=cks+1  
+    if (dbc.length>0){
+        var xrcks =dbc[0].split("ck")[1]
+        dbc.splice(0, 1)
+    }else{
+        cks=cks+1
+        var xrcks=cks
+    }
+    
     var sourceNode = document.getElementById("ck0");
 	var clonedNode = sourceNode.cloneNode(true);
-	clonedNode.setAttribute("id", "ck"+cks);
+	clonedNode.setAttribute("id", "ck"+xrcks);
 	sourceNode.parentNode.appendChild(clonedNode);
     if (bk=="1"){
-    var ynr=document.getElementById("ck"+cks).innerHTML
-    document.getElementById("ck"+cks).innerHTML=ynr+"<div class='baikuang'   onmousemove=ckyd('ck"+cks+"') onmousedown=ckgd('ck"+cks+"')></div>"
-    var ynr=document.getElementById("ck"+cks).innerHTML
-    document.getElementById("ck"+cks).innerHTML=ynr+"<div class='close' onclick=azclose('ck"+cks+"')></div>"
-    var ynr=document.getElementById("ck"+cks).innerHTML
-    document.getElementById("ck"+cks).innerHTML=ynr+"<div class='max' onclick=azmax('ck"+cks+"')></div>"
-    var ynr=document.getElementById("ck"+cks).innerHTML
-    document.getElementById("ck"+cks).innerHTML=ynr+"<div class='saml' onclick=azsaml('ck"+cks+"')></div>"
+    var ynr=document.getElementById("ck"+xrcks).innerHTML
+    document.getElementById("ck"+xrcks).innerHTML=ynr+"<div class='baikuang'   onmousemove=ckyd('ck"+xrcks+"') onmousedown=ckgd('ck"+xrcks+"')></div>"
+    var ynr=document.getElementById("ck"+xrcks).innerHTML
+    document.getElementById("ck"+xrcks).innerHTML=ynr+"<div class='close' onclick=azclose('ck"+xrcks+"')></div>"
+    var ynr=document.getElementById("ck"+xrcks).innerHTML
+    document.getElementById("ck"+xrcks).innerHTML=ynr+"<div class='max' onclick=azmax('ck"+xrcks+"')></div>"
+    var ynr=document.getElementById("ck"+xrcks).innerHTML
+    document.getElementById("ck"+xrcks).innerHTML=ynr+"<div class='saml' onclick=azsaml('ck"+xrcks+"')></div>"
     }
     if (bk=="2"){
-    var ynr=document.getElementById("ck"+cks).innerHTML
-    document.getElementById("ck"+cks).innerHTML=ynr+"<div class='baikuang'   onmousemove=ckyd('ck"+cks+"') onmousedown=ckgd('ck"+cks+"')></div>"+"<div class='close' onclick='close('ck"+cks+"')></div>"
+    var ynr=document.getElementById("ck"+xrcks).innerHTML
+    document.getElementById("ck"+xrcks).innerHTML=ynr+"<div class='baikuang'   onmousemove=ckyd('ck"+xrcks+"') onmousedown=ckgd('ck"+xrcks+"')></div>"+"<div class='close' onclick='close('ck"+xrcks+"')></div>"
     }
     if (bk=="3"){
     }
-    var ynr=document.getElementById("ck"+cks).innerHTML
-    document.getElementById("ck"+cks).innerHTML=ynr+"<img src='"+tb+"' class='cktb'>"
-    var ynr=document.getElementById("ck"+cks).innerHTML
-    document.getElementById("ck"+cks).innerHTML=ynr+" <div class='ckbt'>"+bt+"</div>"
+    var ynr=document.getElementById("ck"+xrcks).innerHTML
+    document.getElementById("ck"+xrcks).innerHTML=ynr+"<img src='"+tb+"' class='cktb'>"
+    var ynr=document.getElementById("ck"+xrcks).innerHTML
+    document.getElementById("ck"+xrcks).innerHTML=ynr+" <div class='ckbt'>"+bt+"</div>"
+    if (dx="1"){
+    var ynr=document.getElementById("ck"+xrcks).innerHTML
+    document.getElementById("ck"+xrcks).innerHTML=ynr+"<div class='dxtjd' onmousemove=ckdx('ck"+xrcks+"')></div>"
+    }
 
 
 
-
-    var ynr=document.getElementById("ck"+cks).innerHTML
-    document.getElementById("ck"+cks).innerHTML=ynr+"<div id='nr-ck"+cks+"' style='width: 100%;height:0%;'></div>"
-    document.getElementById("nr-ck"+cks).innerHTML="<iframe src='"+src+"' scrolling='no' border='0' frameborder='no' framespacing='0' allowfullscreen='true' width='100%' height='100%' class='yjiao'></iframe>"
-    ckxs("ck"+cks,"700px","500px")
-    document.getElementById("ck" + cks).style.display= "block"
+    var ynr=document.getElementById("ck"+xrcks).innerHTML
+    document.getElementById("ck"+xrcks).innerHTML=ynr+"<div id='nr-ck"+xrcks+"' style='width: 100%;height:0%;'></div>"
+    document.getElementById("nr-ck"+xrcks).innerHTML="<iframe src='"+src+"' scrolling='no' border='0' frameborder='no' framespacing='0' allowfullscreen='true' width='100%' height='100%' class='yjiao'></iframe>"
+    ckxs("ck"+xrcks,"700px","500px")
+    document.getElementById("ck" + xrcks).style.display= "block"
 	
+
+    ckgd("ck" + xrcks)
+
+
+    var sourceNode = document.getElementById("rwl-ck0");
+	var clonedNode = sourceNode.cloneNode(true);
+	clonedNode.setAttribute("id", "rwl-ck"+xrcks);
+	sourceNode.parentNode.appendChild(clonedNode);
+    var ynr=document.getElementById("rwl-ck"+xrcks).innerHTML
+    document.getElementById("rwl-ck"+xrcks).innerHTML=ynr+"<img src='"+tb+"'' width='25px'height='25px' id='rwl-ck"+xrcks+"' class='rwl-tb'>"
+    var ynr=document.getElementById("rwl-ck"+xrcks).innerHTML
+    document.getElementById("rwl-ck"+xrcks).innerHTML=ynr+"<div onclick=azsaml('ck"+xrcks+"') class='rwltb'></div>"
+    document.getElementById("rwl-ck"+xrcks).style.display= "inline-block"
+
 }
 
 
 
 function azclose(idm){
-    /*alert(idm.split("ck")[1]+1)
-    for (i = idm.split("ck")[1]+1; i < cks+1; i++) {
-        alert(i)
-    var sourceNode = document.getElementById("ck"+i);
-	var clonedNode = sourceNode.cloneNode(true);
-	clonedNode.setAttribute("id", "ck"+i-1);
-	sourceNode.parentNode.appendChild(clonedNode);
-
-    }
-*/
+    dbc.push(idm)
 
     document.getElementById(idm).remove()
+    document.getElementById("rwl-"+idm).remove()
     
 }
 function azmax(idm){
-if (document.getElementById(idm).style.height.split("px")[0]==document.body.clientHeight-50){
+if (document.getElementById(idm).style.height.split("px")[0]==document.body.clientHeight-40){
     ckxs(idm,"700px","500px")
     document.getElementById(idm).style.top=    (document.body.clientHeight-500)/2
     document.getElementById(idm).style.left=    (document.body.clientWidth-700)/2
 }else{
-    ckxs("ck"+cks,"100%",document.body.clientHeight-50+"px")
+    ckxs("ck"+cks,"100%",document.body.clientHeight-40+"px")
     document.getElementById(idm).style.top="0px"
     document.getElementById(idm).style.left= "0px"
 
@@ -264,17 +421,33 @@ if (document.getElementById(idm).style.height.split("px")[0]==document.body.clie
 
 
 }
+function azsaml(idm){
+    if (document.getElementById(idm).style.display=="none"){
+        document.getElementById(idm).style.display="block"
+    }else{
+        document.getElementById(idm).style.display="none"
+    }
+}
+function xslb(){
+    if (document.getElementById("xzlb").style.display=="none"){
+        document.getElementById("xzlb").style.display="block"
+    }else{
+        document.getElementById("xzlb").style.display="none"
+    }
+
+}
 </script>
+<script type="text/javascript" src="yy.js"></script>
 </head>
 
-<body style=" background-color:rgb(165, 165, 165)" id="body">
+<body style=" background-image: url(img/img0.jpg);background-size: cover" id="body">
 <div id="ck">
 
 
 
 
     <div class="ck" id="ck0" style="width: 600px;height: 500px;display: none;">
-
+ 
     </div>
  
 
@@ -283,8 +456,22 @@ if (document.getElementById(idm).style.height.split("px")[0]==document.body.clie
 
 </div>
 <div id="db" class="db">
-    <img id="add" src="img/add.png" class="add" onclick=add('az.html',1,1,"img/exe.png","az.exe")>
+    <img id="add" src="img/win11.png" class="add" onclick="xslb()">
+    <div class="yxxx" id="xzlb" style="display: none;">
+<div class="bilibili" onclick="bilibili()"></div>
+<div class="minecraft" onclick="minecraft()"></div>
 
+
+<input id='lj' value='https://bing.com/'class="srinput"/>
+<div class="sxxxx" onclick="zdyck()">开始</div>
+    </div>
+<div class="rwl" id="rwl">
+<div class="tb" id="rwl-ck0" style="display: none;">
+    
+</div>
+
+
+</div>
 
 
 </div>
