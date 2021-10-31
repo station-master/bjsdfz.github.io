@@ -4,6 +4,9 @@ function bilibili(){
 function minecraft(){
     add('https://classic.minecraft.net/',1,1,"img/grass.png","minecraft")
 }
+function AzVideoplayer(){
+    add('AzVideoplayer.html',1,1,"img/movies.png","Az Videoplayer")
+}
 function zdyck(){
     var sjxr= document.getElementById("lj").value
     var dian=sjxr.indexOf(".")
