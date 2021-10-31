@@ -14,7 +14,7 @@
 .baikuang{
     width: 100%;
     height: 30px;
-    border-radius: 10px;
+    border-radius: 10px 10px 0px 0px;
     background-color: white;
 }
 .ck{
@@ -22,7 +22,7 @@
     width: 600px;
     height: 500px;
     border-radius: 10px;
-    background-color: #ffffff;
+    background-color: #ffffff00;
 }
 .ck-cls{
     position: absolute;
@@ -93,6 +93,7 @@
     width: 100%;
     height: 40px;
     background-color: rgba(255, 255, 255, 0.521);
+ 
 }
 .cktb{
     left: 10px;
@@ -335,7 +336,10 @@ oBox.style.left = w;
                 ckgd("ck" + xrcks)
 
 }
-
+IndexCkback = function(cs1,cs2,cs3,cs4,cs5) {
+    alert("az")
+   add(cs1,cs2,cs3,cs4,cs5)
+}
 function add(src,bk,dx,tb,bt){
     if (dbc.length>0){
         var xrcks =dbc[0].split("ck")[1]
@@ -378,7 +382,7 @@ function add(src,bk,dx,tb,bt){
 
     var ynr=document.getElementById("ck"+xrcks).innerHTML
     document.getElementById("ck"+xrcks).innerHTML=ynr+"<div id='nr-ck"+xrcks+"' style='width: 100%;height:0%;'></div>"
-    document.getElementById("nr-ck"+xrcks).innerHTML="<iframe src='"+src+"'  border='0' frameborder='no' framespacing='0' allowfullscreen='true' width='100%' height='100%' class='yjiao'></iframe>"
+    document.getElementById("nr-ck"+xrcks).innerHTML="<iframe src='"+src+"'  border='0' frameborder='no' framespacing='0' allowfullscreen='true' width='100%' height='100%' class='yjiao' name='if-ck"+xrcks+"'></iframe>"
     ckxs("ck"+xrcks,"700px","500px")
     document.getElementById("ck" + xrcks).style.display= "block"
 	
@@ -460,6 +464,8 @@ function xslb(){
     <div class="yxxx" id="xzlb" style="display: none;">
 <div class="bilibili" onclick="bilibili()"></div>
 <div class="minecraft" onclick="minecraft()"></div>
+<div class="AzVideoplayer" onclick="AzVideoplayer()"></div>
+
 
 
 <input id='lj' value='https://bing.com/'class="srinput"/>

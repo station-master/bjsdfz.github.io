@@ -1,0 +1,124 @@
+<html>
+	<head>
+		<link rel="shortcut  icon" href="bjsdfz.ico" type="image/x-icon" />
+		<meta charset="utf-8">
+		<title></title>
+        <style type="text/css" >
+        .zxz{
+            position: relative;
+            height: 100%;
+            width: 315px;
+        }
+        .sxxxx{
+    position: absolute;
+    top:50px;
+    left: 265px;
+    height:30px;
+    width: 50px;
+    background-size: cover;
+    cursor: pointer;
+    border-radius: 10px;
+    background-color: #ffffff86;
+    font-family: Microsoft YaHei;
+    text-align:center;
+    line-height: 30px;
+
+}
+.srinput{
+    position: absolute;
+    top:50px;
+    left: 0px;
+    height:30px;
+    width: 250px;
+    font-size:13px;    
+    border:rgba(204, 204, 204, 0) 1px solid;  
+    border-radius: 10px;
+    outline: none;
+    background: #ffffff86; 
+    }
+    .srinput2{
+    position: absolute;
+    top:0px;
+    left: 00px;
+    font-size:16px; 
+    color: rgba(255, 255, 255, 0.411);   
+    }
+    .srinput3{
+    position: absolute;
+    top:70px;
+    left: 00px;
+    font-size:16px; 
+    color: rgba(255, 255, 255, 0.411);   
+    }
+    .xzpt{
+        position: relative;
+    
+    top:120px;
+    left: 0px;
+    height:80px;
+    width: 100%;
+    overflow:auto;
+    }
+    .ptxz{
+        position: relative;
+        border-radius: 10px;
+        display: inline-block;
+        height: 50px;
+        width: 50px;
+        background-color: #ffffff00;
+        cursor: pointer;
+    }
+    .ptxz:hover{
+        transition: 0.3s;
+        background-color: #ffffff86;
+    }
+    .ptimg{
+        position: absolute;
+        top:5px;
+        left:5px;
+    }
+        </style>
+        <script type="text/javascript">
+        bfpt=""
+        function ptxz(pt){
+        bfpt=pt
+        document.getElementById("az").innerHTML="选择平台:  "+pt;
+
+        }
+        function zdyck(){
+            var sph=document.getElementById("lj").value
+            if (sph==""){alert("请输入视频ID！")}else{
+            if (bfpt=="bilibili"){
+                xrlj="https://player.bilibili.com/player.html?bvid="+sph+"&page=1"
+                ckname="bilibili"
+                ckimg="img/bilibili.png"
+            }else if(bfpt=="youtube"){
+                xrlj="https://www.youtube.com/embed/"+sph
+                ckname="youtube"
+                ckimg="img/youtube.png"
+            }else{
+                alert("请选择平台！")
+            }
+        }
+
+
+        window. parent.IndexCkback(xrlj,1,1,ckimg,ckname)
+        }
+        </script>
+        </head>
+        <body style="background-color:rgba(255, 255, 255, 0.116);">
+<div style="margin:0px auto;" class="zxz">
+    <p class="srinput2">输入视频ID:</p>
+    <input id='lj' value=''class="srinput"/>
+    <div class="sxxxx" onclick="zdyck()">开始</div>
+    <p class="srinput3" id="az">选择平台:</p>
+    <div class="xzpt">
+<div class="ptxz" onclick=ptxz('bilibili')><img class="ptimg" src="img/bilibili.png" width="40px" height="40px"></div>
+<div class="ptxz" onclick=ptxz('youtube')><img class="ptimg" src="img/youtobe.png" width="40px" height="40px"></div>
+    </div>
+</div>
+
+
+
+        </body>
+        </html>
