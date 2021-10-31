@@ -169,8 +169,8 @@
 }
 .yxxx{
     position: absolute;
-    top:-150px;
-    height: 150px;
+    top:-200px;
+    height: 200px;
     border-radius: 0px 10px 0px 0px;
     width: 400px;
     background-color: rgba(255, 255, 255, 0.521);
@@ -181,6 +181,9 @@
     <style>
         @import url(yy.css);
     </style>
+        <style>
+            @import url(gdt.css);
+        </style>
     <script type="text/javascript">
         var cks=0
         var dbc = [];
@@ -336,11 +339,11 @@ oBox.style.left = w;
                 ckgd("ck" + xrcks)
 
 }
-IndexCkback = function(cs1,cs2,cs3,cs4,cs5) {
+IndexCkback = function(cs1,cs2,cs3,cs4,cs5,cs6,cs7,cs8,cs9) {
     alert("az")
-   add(cs1,cs2,cs3,cs4,cs5)
+   add(cs1,cs2,cs3,cs4,cs5,cs6,cs7,cs8,cs9)
 }
-function add(src,bk,dx,tb,bt){
+function add(src,bk,dx,tb,bt,wzx,wzy,kd,gd){
     if (dbc.length>0){
         var xrcks =dbc[0].split("ck")[1]
         dbc.splice(0, 1)
@@ -348,7 +351,32 @@ function add(src,bk,dx,tb,bt){
         cks=cks+1
         var xrcks=cks
     }
-    
+    var wzzx=0
+    var dxzx=0
+    if (wzx==undefined){
+var wzzx=1
+    }
+    if (wzy==undefined){
+var wzzx=1
+    }
+    if (kd==undefined){
+var dxzx=1
+    }
+    if (gd==undefined){
+var dxzx=1
+    }
+    if (wzx==0){
+var wzzx=1
+    }
+    if (wzy==0){
+var wzzx=1
+    }
+    if (kd==0){
+var dxzx=1
+    }
+    if (gd==0){
+var dxzx=1
+    }
     var sourceNode = document.getElementById("ck0");
 	var clonedNode = sourceNode.cloneNode(true);
 	clonedNode.setAttribute("id", "ck"+xrcks);
@@ -373,7 +401,8 @@ function add(src,bk,dx,tb,bt){
     document.getElementById("ck"+xrcks).innerHTML=ynr+"<img src='"+tb+"' class='cktb'>"
     var ynr=document.getElementById("ck"+xrcks).innerHTML
     document.getElementById("ck"+xrcks).innerHTML=ynr+" <div class='ckbt'>"+bt+"</div>"
-    if (dx="1"){
+    //alert(dx)
+    if (dx=="1"){
     var ynr=document.getElementById("ck"+xrcks).innerHTML
     document.getElementById("ck"+xrcks).innerHTML=ynr+"<div class='dxtjd' onmousemove=ckdx('ck"+xrcks+"')></div>"
     }
@@ -383,7 +412,24 @@ function add(src,bk,dx,tb,bt){
     var ynr=document.getElementById("ck"+xrcks).innerHTML
     document.getElementById("ck"+xrcks).innerHTML=ynr+"<div id='nr-ck"+xrcks+"' style='width: 100%;height:0%;'></div>"
     document.getElementById("nr-ck"+xrcks).innerHTML="<iframe src='"+src+"'  border='0' frameborder='no' framespacing='0' allowfullscreen='true' width='100%' height='100%' class='yjiao' name='if-ck"+xrcks+"'></iframe>"
-    ckxs("ck"+xrcks,"700px","500px")
+    
+    //alert(dxzx)
+    if (wzzx==1){
+        if (dxzx==0){ 
+            ckxs("ck"+xrcks,kd,gd)
+    }else{
+        ckxs("ck"+xrcks,"700px","500px")
+    }
+    }else{
+        if (dxzx==0){ 
+            ckxs("ck"+xrcks,kg,gd)
+    }else{
+        ckxs("ck"+xrcks,"700px","500px")
+    }
+    document.getElementById("ck" + xrcks).style.top=wzy
+    document.getElementById("ck" + xrcks).style.left=wzx
+    }
+    
     document.getElementById("ck" + xrcks).style.display= "block"
 	
 
@@ -432,11 +478,14 @@ function azsaml(idm){
         document.getElementById(idm).style.display="none"
     }
 }
+var kscd="0"
 function xslb(){
-    if (document.getElementById("xzlb").style.display=="none"){
+    if (kscd==0){
         document.getElementById("xzlb").style.display="block"
+        kscd=1
     }else{
         document.getElementById("xzlb").style.display="none"
+        kscd=0
     }
 
 }
@@ -462,12 +511,18 @@ function xslb(){
 <div id="db" class="db">
     <img id="add" src="img/win11.png" class="add" onclick="xslb()">
     <div class="yxxx" id="xzlb" style="display: none;">
-<div class="bilibili" onclick="bilibili()"></div>
-<div class="minecraft" onclick="minecraft()"></div>
-<div class="AzVideoplayer" onclick="AzVideoplayer()"></div>
+        <div class="kjcx">
+            <div class="bilibili" onclick="bilibili()"></div>
+            <div class="minecraft" onclick="minecraft()"></div>
+            <div class="AzVideoplayer" onclick="AzVideoplayer()"></div>
+            <div class="vscode" onclick="vscode()"></div>
+            <div class="WeChat" onclick="WeChat()"></div>
+
+        </div>
 
 
 
+        <div class="kscdsycx" onclick="sycx()">所有程序></div>
 <input id='lj' value='https://bing.com/'class="srinput"/>
 <div class="sxxxx" onclick="zdyck()">开始</div>
     </div>

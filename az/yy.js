@@ -1,3 +1,4 @@
+
 function bilibili(){
     add('https://www.bilibili.com/',1,1,"img/bilibili.png","bilibili")
 }
@@ -5,7 +6,13 @@ function minecraft(){
     add('https://classic.minecraft.net/',1,1,"img/grass.png","minecraft")
 }
 function AzVideoplayer(){
-    add('AzVideoplayer.html',1,1,"img/movies.png","Az Videoplayer")
+    add('AzVideoplayer.html',1,0,"img/movies.png","Az Videoplayer",0,0,"400px","400px")
+}
+function vscode(){
+    add('https://vscode.dev/',1,1,"img/vscode.png","vscode",0,0,0,0)
+}
+function WeChat(){
+    add('https://wx.qq.com/',1,1,"img/WeChat.svg","微信网页版",0,0,0,0)
 }
 function zdyck(){
     var sjxr= document.getElementById("lj").value
@@ -30,4 +37,9 @@ function zdyck(){
         var sjxr= "http://" + sjxr
     }
     add(sjxr,1,1,png,sjxr2)
+}
+function sycx(){
+    alert("该功能完善中……")
+    //document.getElementById("xzlb").style.display="none"
+
 }
