@@ -1,0 +1,85 @@
+
+<html>  
+  <head>  
+
+      
+    <title>杨辉三角</title>  
+      
+<style>
+
+.zifu{
+
+position: fixed;
+top:20px;
+
+}
+#xs{
+    position: fixed;
+top:150px; 
+overflow:auto;
+width: 100%;
+height: 90%;
+}
+
+</style>
+    <script type="text/javascript">  
+        function Combination(m,n){  
+            if(n == 0) return 1;  //第一个数为1  
+            else if(m == n) return 1; //最后为1  
+/*   
+        1 
+
+       1  1
+
+     1  2  1
+      |
+   1  3  3  1  
+1+2=3
+*/
+            else return Combination(m-1,n-1)+Combination(m-1,n);  
+        }  
+        function yhsj(m,n){
+            return Combination(m-1,n-1)
+        }
+
+
+
+
+
+
+function xs(){
+x=document.getElementById("srk").value
+document.getElementById("xs").innerHTML=""
+
+x=Number(x)
+
+var zsysz=""
+
+for (k=0;k<x+1;k++) {
+
+var zsysz=document.getElementById("xs").innerHTML
+document.getElementById("xs").innerHTML=zsysz+yhsj(x+1,k+1)+"<div clsaa='zifu'>a<sup>"+String(x-k)+"</sup></div>"+"<div clsaa='zifu'>b<sup>"+String(k)+"</sup></div>"+"+"         //+yhsj(x+1,k+1)+"<div>a<sup>"+x-k+"</sup></div>"+"<div>b<sup>"+k+"</sup></div>"
+
+
+
+}
+
+
+}
+
+
+
+
+    </script>  
+  </head>  
+  <body>  
+    <div>(a+b) <sup><input value="" id=srk />  </sup></div>
+    <input value="生成" type="button" onclick="xs();" />  
+
+
+    <div id=xs>
+
+
+    </div>
+  </body>  
+</html>
