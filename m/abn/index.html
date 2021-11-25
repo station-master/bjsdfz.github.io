@@ -12,6 +12,17 @@ div{ display:inline}
 
 white-space: nowrap;
 }
+
+
+.an{
+  position: fixed;
+  left:5px;
+ top: 60px;
+
+
+}
+
+
 #xs{
     position: fixed;
     white-space: nowrap;
@@ -61,7 +72,7 @@ height: 60px;
 
 
 window.onload=function(){
-
+  jjianw="0"
 
  //alert(yhsj(5,4))
 }
@@ -79,7 +90,7 @@ return yscs
 
         function yhsj(m,n){
           var lsbl=jx(n-1)*jx(m-n);
-            return parseInt(jx(m-1)/lsbl);
+            return Math.round(jx(m-1)/lsbl);
         }
 
 function xs(){
@@ -132,7 +143,32 @@ bdx=""
 if (x-k==0){
   jhao=""
 }else{
+
+if (jjianw=="0"){
   jhao="+"
+}else{
+  var gvgdvg=k+1
+
+
+
+if ( Number(gvgdvg) %2==1){
+  jhao="-"
+}else{
+  jhao="+"
+}
+
+
+}
+
+
+
+
+
+
+
+
+
+
 }
 
 
@@ -151,13 +187,29 @@ document.getElementById("xs").innerHTML= lssssc
 }
 
 
-
-
+function jia(){
+  document.getElementById("ds").innerHTML= "(a+b)"
+  jjianw="0"
+}
+function jian(){
+  document.getElementById("ds").innerHTML= "(a-b)"
+  jjianw="1"
+}
     </script>  
   </head>  
   <body>  
-    <div>(a+b) <sup><input value="" id=srk />  </sup></div>
-    <input value="运算" type="button" onclick="xs();" />  
+    <div id="ds" >(a+b)</div><sup><input value="" id=srk /></sup>
+
+
+    <div class="an">
+
+
+
+      <input value="加法" type="button" onclick="jia();" />  
+      <input value="减法" type="button" onclick="jian();" />  
+      <input value="运算" type="button" onclick="xs();" />  
+    </div>
+    
 
 
     <div id=xs>
