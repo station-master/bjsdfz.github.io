@@ -1,0 +1,138 @@
+
+<html>  
+  <head>  
+
+    <meta charset="utf-8">
+    <title>已知1260/a²+a-6为正整数，求正整数a</title>  
+      
+<style>
+div{ display:inline} 
+.zifu{
+
+
+white-space: nowrap;
+}
+
+
+.an{
+  position: fixed;
+  left:5px;
+ top: 60px;
+
+
+}
+
+
+#xs{
+    position: fixed;
+    white-space: nowrap;
+top:150px; 
+left: 5px;
+overflow:auto;
+width: 95%;
+height: 60px;
+}
+
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  width: 6px;
+  background: rgba(#101F1C, 0.1);
+  -webkit-border-radius: 2em;
+  -moz-border-radius: 2em;
+  border-radius: 2em;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(144,147,153,.5);
+  background-clip: padding-box;
+  min-height: 28px;
+  -webkit-border-radius: 2em;
+  -moz-border-radius: 2em;
+  border-radius: 2em;
+  transition: background-color .3s;
+  cursor: pointer;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(144,147,153,.3);
+}
+
+
+
+
+</style>
+    <script type="text/javascript"> 
+
+
+
+
+window.onload=function(){
+  jjianw="0"
+
+ //alert(yhsj(5,4))
+}
+     
+function jx(x){
+if (x==0){return 1 }
+var yscs=x
+for (var k=1;k<x;k++){
+var yscs=yscs*k
+}
+return yscs
+}
+function isInteger(obj) {
+ return obj%1 === 0
+}
+
+
+function xs(){
+  lssssc=""
+for (j=-1260;j<1261;j++){
+var hjkl=j*j+j-6
+var hyui=1260/hjkl
+if (isInteger(hyui)==true){
+lssssc=lssssc+String(j)+","
+  
+}
+
+
+
+}
+
+
+
+
+
+
+
+alert("az")
+
+
+document.getElementById("xs").innerHTML= lssssc
+}
+
+
+    </script>  
+  </head>  
+  <body>  
+ 
+<div>已知1260/a²+a-6为正整数，求正整数a</div>
+
+    <div class="an">
+
+      <input value="枚举" type="button" onclick="xs();" />  
+    </div>
+    
+
+
+    <div id=xs>
+
+...
+    </div>
+  </body>  
+</html>
