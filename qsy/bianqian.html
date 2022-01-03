@@ -1,0 +1,67 @@
+<html>
+	<head>
+		<link rel="shortcut  icon" href="" type="image/x-icon" />
+		<meta charset="utf-8">
+		<title></title>
+        <style type="text/css">@import"gdt.css";</style>
+        <style type="text/css" >
+           .beij{
+            position: fixed;
+            top:0px;
+            left:20px;
+
+            height: 100%;
+        background:
+        -webkit-linear-gradient(top, transparent 22px, rgb(80, 80, 80) 23px);
+        background-size: 100% 23px;
+}
+.dges{
+    position: fixed;
+            top:0px;
+            left:20px;
+line-height: 23px;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0);
+            border: 0px;
+            outline: none;
+            font-size: 15;
+            color: white;
+            resize:none
+}
+        </style>
+        <script type="text/javascript">
+            window.onload=function (){
+                ckdx()
+                yjzx()
+            }
+            function yjzx(){
+                var url = window.location.href;
+                if(url==undefined){
+                  
+                }else{
+                var neir=String(url.split("?")[1]);
+                if(neir.substring(0,1)=="."){
+                    document.getElementById("beij").style.display="none";
+                    document.getElementById("wbsrk").innerHTML=neir.substring(1,neir.length) ;
+            }else{
+                    document.getElementById("beij").style.display="block";
+                    document.getElementById("wbsrk").innerHTML=neir;
+                }
+            }
+            }
+            function ckdx(){
+                kd=document.body.clientWidth
+                gd=document.body.clientHeight
+                document.getElementById("beij").style.width=kd-40+"px"
+                document.getElementById("wbsrk").style.width=kd-40+"px"
+            }
+            window.addEventListener('resize', e => { 
+        ckdx()
+                    }, false);
+        </script>
+        </head>
+        <body>
+<div class="beij" id="beij"></div>
+<textarea rows="114514" cols="1919810" class="dges" id="wbsrk"></textarea>
+        </body>
+        </html>
