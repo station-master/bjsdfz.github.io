@@ -112,7 +112,7 @@ function ckxsfz(idm,w,h){                           //调整窗口大小
         
         }}
         function ckydcp(idm2){                                                  //窗口移动（触屏）
-            alert("cp")
+            //alert("cp")
             if(isInArray(ygd,idm2)==true){console.log("az")
             return}else{
         
@@ -237,7 +237,7 @@ function ckxsfz(idm,w,h){                           //调整窗口大小
             sourceNode.parentNode.appendChild(clonedNode);
 
             var ynr=""
-            document.getElementById("ck"+xrcks).innerHTML=ynr+"    <div class='tzk'   onmousemove=ckyd('ck"+xrcks+"') ontouchMove=ckydcp('ck"+xrcks+"') onmousedown=ckgd('ck"+xrcks+"') id='tzk-ck"+xrcks+"'></div><div class='ckbt'>"+ckbt+"</div>"
+            document.getElementById("ck"+xrcks).innerHTML=ynr+"    <div class='tzk'   onmousemove=ckyd('ck"+xrcks+"') ontouchstart=ckydcp('ck"+xrcks+"') onmousedown=ckgd('ck"+xrcks+"') id='tzk-ck"+xrcks+"'></div><div class='ckbt'>"+ckbt+"</div>"
             var ynr=document.getElementById("ck"+xrcks).innerHTML
             document.getElementById("ck"+xrcks).innerHTML=ynr+"    <div class='ckclose' onclick=azclose('ck"+xrcks+"')></div><div class='ckgd' onclick=azgd('ck"+xrcks+"') style='background-image: url(img/bqck/gd.png);' id='gd-ck"+xrcks+"'></div>"
             var ynr=document.getElementById("ck"+xrcks).innerHTML
