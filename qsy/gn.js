@@ -111,7 +111,78 @@ function ckxsfz(idm,w,h){                           //调整窗口大小
                         };
         
         }}
+        function ckydcp(idm2){                                                  //窗口移动（触屏）
+            //alert("cp")
+            if(isInArray(ygd,idm2)==true){console.log("az")
+            return}else{
+        
+    
+            var idd='tzk-ck'+String(idm2.split("ck")[1]) 
+        
+            
+            var oBox2 = document.getElementById(idd);
+            var oBox1919810 = document.getElementById(idm2);
+                oBox2.touchStart = function(ert) {
+                    var touch = ert.touches[0];
+                    ckgd(idm2)
+                var disX=touch.pageX-oBox1919810.offsetLeft;
+                var disY=touch.pagey-oBox1919810.offsetTop;   
+                document.touchMove = function(ev114514) {
+                var l = ev114514.clientX-disX;
+                var t = ev114514.clientY-disY;
+                //console.log(l);
+                if(isInArray(ygd,idm2)==true){//console.log("az")
+                return}else{
+                oBox1919810.style.left = l + "px";
+                oBox1919810.style.top = t + "px";}
+                };
+                                document.touchEnd = function() {
+                                document.touchMove = null;
+                            };
+                            
+                                return false;  
+                            };
+            
+            }}
         function ckdx(idm){                                             //窗口大小（鼠标拖拽）
+            if(isInArray(ygd,idm)==true){
+
+                return}else{
+
+
+            
+            var dxidm='dxk-ck'+String(idm.split("ck")[1]) 
+            //console.log(dxidm)
+            var oBox = document.getElementById(dxidm);
+            var oBox114514 = document.getElementById(idm);
+        oBox.onmousedown = function() {
+            ckgd(idm)
+
+          disX2=oBox114514.style.left.split("px")[0];
+          disY2=oBox114514.style.top.split("px")[0];   
+        
+            document.onmousemove = function(ev) {
+            var l2 = ev.clientX-disX2;
+            var t2 = ev.clientY-disY2;
+            //console.log(l);
+        //alert(l+"az"+t)
+
+
+        if(isInArray(ygd,idm)==true){console.log("az")
+        return}else{
+        ckxsfz(idm,l2+"px",t2+"px")}
+        
+            };
+                            document.onmouseup = function() {
+                            document.onmousemove = null;
+                        };
+                        
+                            return false;  
+                        };
+                        //ckgd("ck" + xrcks)
+                    }
+        }
+        function ckdxcp(idm){                                             //窗口大小（触屏）
             if(isInArray(ygd,idm)==true){
 
                 return}else{
@@ -151,7 +222,6 @@ function ckxsfz(idm,w,h){                           //调整窗口大小
         }
 
 
-
         function add(src,gd,kd,wzx,wzy,bjys,bjbtmd,ckbmh,ckbt){                              //新建窗口？                  add(调用内容,窗口高度,窗口宽度,窗口位置left,窗口位置top,窗口颜色,窗口透明度,窗口标题)
             if (dbc.length>0){
                 var xrcks =dbc[0].split("ck")[1]
@@ -167,7 +237,7 @@ function ckxsfz(idm,w,h){                           //调整窗口大小
             sourceNode.parentNode.appendChild(clonedNode);
 
             var ynr=""
-            document.getElementById("ck"+xrcks).innerHTML=ynr+"    <div class='tzk'   onmousemove=ckyd('ck"+xrcks+"') onmousedown=ckgd('ck"+xrcks+"') id='tzk-ck"+xrcks+"'></div><div class='ckbt'>"+ckbt+"</div>"
+            document.getElementById("ck"+xrcks).innerHTML=ynr+"    <div class='tzk'   onmousemove=ckyd('ck"+xrcks+"') ontouchMove=ckydcp('ck"+xrcks+"') onmousedown=ckgd('ck"+xrcks+"') id='tzk-ck"+xrcks+"'></div><div class='ckbt'>"+ckbt+"</div>"
             var ynr=document.getElementById("ck"+xrcks).innerHTML
             document.getElementById("ck"+xrcks).innerHTML=ynr+"    <div class='ckclose' onclick=azclose('ck"+xrcks+"')></div><div class='ckgd' onclick=azgd('ck"+xrcks+"') style='background-image: url(img/bqck/gd.png);' id='gd-ck"+xrcks+"'></div>"
             var ynr=document.getElementById("ck"+xrcks).innerHTML
@@ -211,3 +281,54 @@ function ckxsfz(idm,w,h){                           //调整窗口大小
         }
      
         }
+
+
+/*触屏事件
+
+touchStart 触屏按下
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
