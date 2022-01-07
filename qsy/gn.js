@@ -112,7 +112,7 @@ function ckxsfz(idm,w,h){                           //调整窗口大小
         
         }}
         function ckydcp(idm2){                                                  //窗口移动（触屏）
-            //alert("cp")
+            alert("cp")
             if(isInArray(ygd,idm2)==true){console.log("az")
             return}else{
         
