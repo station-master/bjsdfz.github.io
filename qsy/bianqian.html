@@ -36,10 +36,11 @@ line-height: 23px;
             }
             function yjzx(){
                 var url = window.location.href;
-                if(url==undefined){
-                  
-                }else{
-                var neir=String(url.split("?")[1]);
+
+                var neir=url.split("?")[1];
+                if(neir==undefined){
+                    neir=""
+                }
                 if(neir.substring(0,1)=="."){
                     document.getElementById("beij").style.display="none";
                     document.getElementById("wbsrk").innerHTML=neir.substring(1,neir.length) ;
@@ -47,7 +48,7 @@ line-height: 23px;
                     document.getElementById("beij").style.display="block";
                     document.getElementById("wbsrk").innerHTML=neir;
                 }
-            }
+            
             }
             function ckdx(){
                 kd=document.body.clientWidth

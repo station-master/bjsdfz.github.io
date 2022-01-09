@@ -116,7 +116,7 @@ function ckxsfz(idm,w,h){                           //调整窗口大小
           
             
             //alert("cp1")
-            if(isInArray(ygd,idm2)==true){console.log("az")
+            if(isInArray(ygd,idm2)==true){//console.log("az")
             return}else{
         
     
@@ -126,20 +126,18 @@ function ckxsfz(idm,w,h){                           //调整窗口大小
             var oBox2 = document.getElementById(idd);
             var oBox1919810 = document.getElementById(idm2);
                 oBox2.ontouchstart = function(ert) {
-                    if  (ert.targetTouches.length == 1) {
-                         ert.preventDefault(); 
-                                 }
+
                     var touch = ert.touches[0];
                     ckgd(idm2)
                 var disX=touch.clientX-oBox1919810.offsetLeft;
                 var disY=touch.clientY-oBox1919810.offsetTop; 
-                console.log("az")
+                //console.log("az")
                 //alert(disX)  
                 document.ontouchmove = function(ev114514) {
                     var touch = ev114514.touches[0];
                     var l = touch.clientX-disX;
                     var t = touch.clientY-disY;
-                console.log(l);
+                //console.log(l);
                 if(isInArray(ygd,idm2)==true){//console.log("az")
                 return}else{
                 oBox1919810.style.left = l + "px";
@@ -177,7 +175,7 @@ function ckxsfz(idm,w,h){                           //调整窗口大小
         //alert(l+"az"+t)
 
 
-        if(isInArray(ygd,idm)==true){console.log("az")
+        if(isInArray(ygd,idm)==true){//console.log("az")
         return}else{
         ckxsfz(idm,l2+"px",t2+"px")}
         
@@ -204,14 +202,12 @@ function ckxsfz(idm,w,h){                           //调整窗口大小
             var oBox = document.getElementById(dxidm);
             var oBox114514 = document.getElementById(idm);
         oBox.ontouchstart = function(erty) {
-            if  (erty.targetTouches.length == 1) {
-                erty.preventDefault(); 
-                        }
+
             ckgd(idm)
 
           disX2=oBox114514.style.left.split("px")[0];
           disY2=oBox114514.style.top.split("px")[0];   
-          console.log("az233")
+          //console.log("az233")
             document.ontouchmove = function(ev) {
                 var touch = ev.touches[0];
             var l2 = touch.clientX-disX2;
