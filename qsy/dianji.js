@@ -12,12 +12,14 @@ var wzy=document.getElementById("fffffbqwzy").value;
 var gd=document.getElementById("fffffbqgd").value;
 var kd=document.getElementById("fffffbqkd").value;
 var bymh=document.getElementById("fffffbqbymh").value;
+var nrys=document.getElementById("fffdssbqys").value;
+
 
 var sjxr=src
 
 var     ddd=sjxr.substring(0,1)
 if (src==""){
-var   sjxr="bianqian.html"
+var   sjxr="bianqian.html?"+nrys+"$$$"
 }else{
 
 if(ddd=="+"){
@@ -26,12 +28,10 @@ var sjxr=     src.substring(1,src.length)
 
 }else{
 
-    var   sjxr="bianqian.html?"+String(src)
+    var   sjxr="bianqian.html?"+nrys+"$$$"+String(src)
 
 }
 }
-
-
 
 
 

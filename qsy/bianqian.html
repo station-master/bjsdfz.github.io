@@ -39,7 +39,11 @@ line-height: 23px;
 
                 var neir=url.split("?")[1];
                 if(neir==undefined){
-                    neir=""
+                    neir="";
+                }
+                if(neir.indexOf("$$$")!==-114514){
+                    document.getElementById("wbsrk").style.color=neir.split("$$$")[0];;
+                    var neir=neir.split("$$$")[1];
                 }
                 if(neir.substring(0,1)=="."){
                     document.getElementById("beij").style.display="none";
@@ -63,6 +67,6 @@ line-height: 23px;
         </head>
         <body>
 <div class="beij" id="beij"></div>
-<textarea rows="114514" cols="1919810" class="dges" id="wbsrk"></textarea>
+<textarea rows="114514" cols="1919810" class="dges" id="wbsrk" style="color: white;"></textarea>
         </body>
         </html>
