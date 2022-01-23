@@ -47,10 +47,10 @@ line-height: 23px;
                 }
                 if(neir.substring(0,1)=="."){
                     document.getElementById("beij").style.display="none";
-                    document.getElementById("wbsrk").innerHTML=neir.substring(1,neir.length) ;
+                    document.getElementById("wbsrk").innerHTML=decodeURIComponent(neir.substring(1,neir.length)) ;
             }else{
                     document.getElementById("beij").style.display="block";
-                    document.getElementById("wbsrk").innerHTML=neir;
+                    document.getElementById("wbsrk").innerHTML=decodeURIComponent(neir);
                 }
             
             }

@@ -2,6 +2,23 @@ var cks=0;
 var dbc = [];
 var ygd=["az","az","az","az"];
 
+
+
+function az(){
+az();
+}
+
+
+
+
+
+
+
+
+
+
+
+
 function ckxs(idm,w,h){          //调整窗口大小+位置
 
     var wd=w
@@ -95,15 +112,17 @@ function ckxsfz(idm,w,h){                           //调整窗口大小
             var disX=ert.clientX-oBox1919810.offsetLeft;
             var disY=ert.clientY-oBox1919810.offsetTop;   
             document.onmousemove = function(ev114514) {
-            var l = ev114514.clientX-disX;
-            var t = ev114514.clientY-disY;
+             l = ev114514.clientX-disX;
+             t = ev114514.clientY-disY;
             //console.log(l);
             if(isInArray(ygd,idm2)==true){//console.log("az")
             return}else{
             oBox1919810.style.left = l + "px";
             oBox1919810.style.top = t + "px";}
+            
             };
                             document.onmouseup = function() {
+                                ckdxwzhy(idm2,l + "px",t + "px",undefined,undefined)
                             document.onmousemove = null;
                         };
                         
@@ -135,8 +154,8 @@ function ckxsfz(idm,w,h){                           //调整窗口大小
                 //alert(disX)  
                 document.ontouchmove = function(ev114514) {
                     var touch = ev114514.touches[0];
-                    var l = touch.clientX-disX;
-                    var t = touch.clientY-disY;
+                     l = touch.clientX-disX;
+                     t = touch.clientY-disY;
                 //console.log(l);
                 if(isInArray(ygd,idm2)==true){//console.log("az")
                 return}else{
@@ -144,6 +163,7 @@ function ckxsfz(idm,w,h){                           //调整窗口大小
                 oBox1919810.style.top = t + "px";}
                 };
                                 document.ontouchend = function() {
+                                    ckdxwzhy(idm2,l + "px",t + "px",undefined,undefined)
                                 document.ontouchmove = null;
                             };
                             
@@ -169,8 +189,8 @@ function ckxsfz(idm,w,h){                           //调整窗口大小
           disY2=oBox114514.style.top.split("px")[0];   
         
             document.onmousemove = function(ev) {
-            var l2 = ev.clientX-disX2;
-            var t2 = ev.clientY-disY2;
+             l2 = ev.clientX-disX2;
+             t2 = ev.clientY-disY2;
             //console.log(l);
         //alert(l+"az"+t)
 
@@ -181,6 +201,7 @@ function ckxsfz(idm,w,h){                           //调整窗口大小
         
             };
                             document.onmouseup = function() {
+                                ckdxwzhy(idm,undefined,undefined,l2+"px",t2+"px")
                             document.onmousemove = null;
                         };
                         
@@ -210,8 +231,8 @@ function ckxsfz(idm,w,h){                           //调整窗口大小
           //console.log("az233")
             document.ontouchmove = function(ev) {
                 var touch = ev.touches[0];
-            var l2 = touch.clientX-disX2;
-            var t2 = touch.clientY-disY2;
+             l2 = touch.clientX-disX2;
+             t2 = touch.clientY-disY2;
             //console.log(l);
         //alert(l+"az"+t)
 
@@ -222,6 +243,7 @@ function ckxsfz(idm,w,h){                           //调整窗口大小
         
             };
                             document.ontouchend = function() {
+                                ckdxwzhy(idm,undefined,undefined,l2+"px",t2+"px")
                             document.ontouchmove = null;
                         };
                         
@@ -232,12 +254,32 @@ function ckxsfz(idm,w,h){                           //调整窗口大小
         }
 
 
-        function add(src,gd,kd,wzx,wzy,bjys,bjbtmd,ckbmh,ckbt){                              //新建窗口？                  add(调用内容,窗口高度,窗口宽度,窗口位置left,窗口位置top,窗口颜色,窗口透明度,窗口标题)
+        function add(src,gd,kd,wzx,wzy,bjys,bjbtmd,ckbmh,ckbt,sfgd,mod,xycks){                              //新建窗口？                  add(调用内容,窗口高度,窗口宽度,窗口位置left,窗口位置top,窗口颜色,窗口透明度,窗口标题,是否固定,恢复模式,指定窗口ID)
+            console.log(src,gd,kd,wzx,wzy,bjys,bjbtmd,ckbmh,ckbt,sfgd,mod,xycks)
+
+
+
             if (dbc.length>0){
                 var xrcks =dbc[0].split("ck")[1]
                 dbc.splice(0, 1)
             }else{
-                cks=cks+1
+                if(mod=="hf"){
+                    console.log(cks)
+                    if(xycks>cks){
+                        var lsxhs=xycks-cks
+                        var fejhhef=cks
+    for(var heg=0;heg<lsxhs-1;heg++){
+    cks++
+    console.log("ck"+String(heg+fejhhef+1))
+    dbc.push("ck"+String(heg+fejhhef+1))
+    if(isInArray(ygd,"ck"+String(heg+fejhhef+1))==true){
+        arrremove(ygd,"ck"+String(heg+fejhhef+1))
+    }
+    }
+
+                    }
+                }
+                cks++
                 var xrcks=cks
             }
 
@@ -262,8 +304,14 @@ function ckxsfz(idm,w,h){                           //调整窗口大小
 
             document.getElementById("ck" + xrcks).style.display= "block"
             ckgd("ck" + xrcks)
-
-
+            if(mod=="hf"){
+                
+            }else{
+                jiluck(src,gd,kd,wzx,wzy,bjys,bjbtmd,ckbmh,ckbt,xrcks)
+            }
+            if(sfgd=="true"){
+                azgd("ck" + xrcks,"hf")
+            }
         
         }
 
@@ -274,22 +322,30 @@ function ckxsfz(idm,w,h){                           //调整窗口大小
                 arrremove(ygd,idm)
             }
             document.getElementById(idm).remove()
-            
+            jilucksc(idm)
         }
 
-        function azgd(idm){
-          
-        if(isInArray(ygd,idm)==true){                            //窗口固定切换
+        function azgd(idm,mod){                                    //窗口固定切换
+
+        if(isInArray(ygd,idm)==true){                          
             arrremove(ygd,idm)
             document.getElementById('gd-ck'+String(idm.split("ck")[1]) ).style.backgroundImage="url(img/bqck/gd.png)"
-
+            if(mod=="hf"){}else{
+                ckdxwzhy(idm,undefined,undefined,undefined,undefined,"??????")
+            }
+            
 
 
         }else{
             ygd.push(idm)
             document.getElementById('gd-ck'+String(idm.split("ck")[1]) ).style.backgroundImage="url(img/bqck/gd-r.png)"
+            if(mod=="hf"){}else{
+                ckdxwzhy(idm,undefined,undefined,undefined,undefined,true)
+            }
+           
         }
      
+
         }
 
 
