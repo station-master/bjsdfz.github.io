@@ -1,0 +1,137 @@
+<html style="touch-action: none;">
+	<head>
+		<link rel="shortcut  icon" href="" type="image/x-icon" />
+		<meta charset="utf-8">
+		<title></title>
+        <style type="text/css" >
+        </style>
+       
+        </head>
+        <body>
+           
+
+            <canvas id="hb" width="1000" height="1000" style="border:1px solid #d3d3d3;position:fixed;">
+
+
+
+        </body>
+
+     <script type="text/javascript">
+
+var canvas = document.getElementById('hb');
+ var   hbck = canvas.getContext('2d');
+// canvas.addEventListener('mousemove', mousemove);
+hbck.strokeStyle = '#000000';
+hbck.lineJoin = 'round';
+hbck.lineCap = 'round';
+
+        window.onload=function(){
+            hblx=0
+            sc=1 
+            points = [];
+        sdls=[1,1,1,1,1];
+        hbkd=5
+        
+        
+        
+        
+        
+        
+        
+            
+        }
+        window.onmousedown=function(){
+            hblx=1
+            console.log("鼠标按下")
+        }
+        window.ontouchstart=function(){
+            hblx=1
+        }
+        window.onmouseup=function(){
+            hblx=0
+            console.log("鼠标松开")
+            points = [];
+        }
+        window.ontouchend=function(){
+            hblx=0
+            points = [];
+        }
+        window.ontouchmove=function(az){
+            var touch = az.touches[0];
+            sbx=touch.clientX
+            sby=touch.clientY
+            scszsbxy()
+         jlxt()
+        }
+        window.onmousemove=function(az){
+            sbx=az.clientX
+            sby=az.clientY
+            scszsbxy()
+         jlxt()
+        }
+        function scszsbxy(){
+        if(sc==1){
+            sc=0 
+            jiudex=sbx
+            jiudey=sby
+           // setInterval("jlxt()","10");
+        }
+        }
+        
+        
+        
+        function jlxt() {
+            var lsyy=(sbx-jiudex)*(sbx-jiudex)+(sby-jiudey)*(sby-jiudey)
+            //console.log(lsyy)
+          var ydjl=  Math.sqrt(lsyy)          //勾股定理算移动距离
+var jisuankd=hbkd*hbkd*((ydjl+9)/(ydjl+1))*0.05
+sdls.push(jisuankd)
+sdls.shift()
+var yuanss=0
+for(var i=0;i<sdls.length;i++){
+   var yuanss=yuanss+Number(sdls[i])
+}
+
+console.log(yuanss/5)
+console.log(sdls)
+
+
+
+hbck.lineWidth= (yuanss/5)
+            
+            if(hblx==1){
+                draw()
+            }
+        
+        
+        jiudex=sbx
+        jiudey=sby
+        }
+        
+        function draw() {
+            var mousex=sbx
+            var mousey=sby
+            points.push({ x: mousex, y: mousey });
+            hbck.beginPath();
+            let x = (points[points.length - 2].x + points[points.length - 1].x) / 2,
+                y = (points[points.length - 2].y + points[points.length - 1].y) / 2;
+            if (points.length == 2) {
+                hbck.moveTo(points[points.length - 2].x, points[points.length - 2].y);
+                hbck.lineTo(x, y);
+            } else {
+                let lastX = (points[points.length - 3].x + points[points.length - 2].x) / 2,
+                    lastY = (points[points.length - 3].y + points[points.length - 2].y) / 2;
+                hbck.moveTo(lastX, lastY);
+                hbck.quadraticCurveTo(points[points.length - 2].x, points[points.length - 2].y, x, y);
+            }
+            hbck.stroke();
+            points.slice(0, 1);
+
+        }
+      
+        
+        
+        
+        
+                </script>
+        </html>
