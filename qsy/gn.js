@@ -293,12 +293,14 @@ function ckxsfz(idm,w,h){                           //调整窗口大小
             var ynr=document.getElementById("ck"+xrcks).innerHTML
             document.getElementById("ck"+xrcks).innerHTML=ynr+"    <div class='ckclose' onclick=azclose('ck"+xrcks+"')></div><div class='ckgd' onclick=azgd('ck"+xrcks+"') style='background-image: url(img/bqck/gd.png);' id='gd-ck"+xrcks+"'></div>"
             var ynr=document.getElementById("ck"+xrcks).innerHTML
-            document.getElementById("ck"+xrcks).innerHTML=ynr+"<div class='beijin' style='background: "+bjys+";opacity: "+bjbtmd+";filter: blur("+ckbmh+");'></div>"
+            document.getElementById("ck"+xrcks).innerHTML=ynr+"<div class='beijin' style='background: "+bjys+";opacity: "+bjbtmd+";'></div>"
             var ynr=document.getElementById("ck"+xrcks).innerHTML
             document.getElementById("ck"+xrcks).innerHTML=ynr+"<div id='nr-ck"+xrcks+"' style='width: 100%;height:0%;' class='xsbq'></div><div class='dxtjd' ontouchmove=ckdxcp('ck"+xrcks+"') onmousemove=ckdx('ck"+xrcks+"')  id='dxk-ck"+xrcks+"'></div>"
             document.getElementById("nr-ck"+xrcks).innerHTML="<iframe src='"+src+"' border='0' frameborder='no' framespacing='0' allowfullscreen='true' width='100%' height='100%' class='yjiao'></iframe>"
 
             ckxs("ck"+xrcks,kd,gd)
+            document.getElementById("ck" + xrcks).style.backdropFilter="blur("+ckbmh+")"
+            document.getElementById("ck" + xrcks).style.borderRadius=" 10px 10px 10px 10px"
             document.getElementById("ck" + xrcks).style.top=wzy
             document.getElementById("ck" + xrcks).style.left=wzx
 

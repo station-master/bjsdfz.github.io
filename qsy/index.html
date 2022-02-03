@@ -119,8 +119,7 @@ z-index: 114514;
   overflow:auto;
 
 }
-.lshbvchs{
-}
+
 .shurukuang{
     position: relative;
 width: 100%;
@@ -226,12 +225,12 @@ function tiaozdaxiao(){
         </head>
         <body>
 
-<div>
+<div>              <!--所有窗口的div-->
 <div id="ck0" style="position: fixed;width: 230px;height: 270px;display: none;">
-    <div class='tzk'   onmousemove=ckyd('ck0') onmousedown=ckgd('ck0')></div>
+    <div class='tzk'   onmousemove="ckyd('ck0')" onmousedown="ckgd('ck0')"></div>
     <div class="ckbt">2333333</div>
-    <div class="ckclose" onclick=azclose('ck0')></div>
-    <div class="ckgd" onclick=azgd('ck0') style="background-image: url(img/bqck/gd.png);" id="gd-ck0"></div>
+    <div class="ckclose" onclick="azclose('ck0')"></div>
+    <div class="ckgd" onclick="azgd('ck0')" style="background-image: url(img/bqck/gd.png);" id="gd-ck0"></div>
 
     <div class="beijin" style="background: rgb(100, 100, 100);opacity: 0.5;">
     </div>
@@ -239,7 +238,7 @@ function tiaozdaxiao(){
     <div id='nr-ck0' style='width: 100%;height:0%;' class="xsbq">
         <iframe src="" border='0' frameborder='no' framespacing='0' allowfullscreen='true' width='100%' height='100%' class='yjiao'></iframe>
     </div>
-    <div class='dxtjd' onmousemove=ckdx('ck0')></div>
+    <div class='dxtjd' onmousemove="ckdx('ck0')"></div>
 
 
 
@@ -249,10 +248,10 @@ function tiaozdaxiao(){
 
 
 <div class="tianjiaanniu" onclick="xslb()"></div>
-<div id="xjckym" style="display: none;">
+<div id="xjckym" style="display: none;">                  <!--新建窗口的窗口-->
 
 <div class="shangmian">
-新建便签页
+新建便捷窗口
 <div class="vfhyrhgb" onclick="xslb()"></div>
 </div>
 
@@ -283,15 +282,15 @@ function tiaozdaxiao(){
     <input value="rgb(255, 255, 255)" id="fffdssbqys" class="bqxxsjk">
 </div><div class="shurukuang">
     &ensp;&ensp;&ensp;窗口不透明度
-    <input value="0.5" id="fffffbqbtmd" class="bqxxsjk">
+    <input value="0.3" id="fffffbqbtmd" class="bqxxsjk">
 </div><div class="shurukuang">
-    &ensp;&ensp;&ensp;窗口边缘模糊
-    <input value="0px" id="fffffbqbymh" class="bqxxsjk">
+    &ensp;&ensp;&ensp;窗口背景模糊
+    <input value="5px" id="fffffbqbymh" class="bqxxsjk">
 </div><div class="shurukuang">
-    &ensp;&ensp;&ensp;便签标题
-    <input value="新建便签" id="fffffbqbt" class="bqxxsjk">
+    &ensp;&ensp;&ensp;窗口标题
+    <input value="New Notes" id="fffffbqbt" class="bqxxsjk">
 </div><div class="shurukuang">
-    &ensp;&ensp;&ensp;便签内容
+    &ensp;&ensp;&ensp;窗口内容
     <input value="" id="fffffbqnr" class="bqxxsjk2">
 </div>
 </div>
@@ -336,6 +335,6 @@ function tiaozdaxiao(){
 
 
 
-<div id="ymbeijin" class="ymbeijin" style="background-image: url(img/bkg/01.jpg);"></div>
+<div id="ymbeijin" class="ymbeijin" style="background-image: url(img/bkg/01.jpg);"></div>       <!--背景层-->
         </body>
         </html>
