@@ -28,19 +28,33 @@ line-height: 23px;
             color: white;
             resize:none
 }
+#hbqh{
+    position: fixed;
+    top: 10px;
+    right: 0px;
+    background-color: rgb(70, 70, 70);
+z-index:1;
+border:1px solid rgb(128, 128, 128);
+border-radius: 10px 0px 0px 10px;
+height:30px;
+    width: 30px;
+    background-image: url(img/bqhtml/personalize.png);
+    background-size: contain;
+    cursor: pointer;
+}
+#hbqh:hover{
+    transition: 0.2s;
+    background-color: rgb(255, 255, 255);
+}
         </style>
         <script type="text/javascript">
-            window.onload=function (){
-                ckdx()
-                yjzx()
-            }
-            function yjzx(){
-                var url = window.location.href;
+            function yjzx(gh){
+               // var url = gh
 
-                var neir=url.split("?")[1];
+                var neir=gh
                 if(neir==undefined){
-                    neir="";
-                }
+                   
+                }else{
                 if(neir.indexOf("$$$")!==-114514){
                     document.getElementById("wbsrk").style.color=neir.split("$$$")[0];;
                     var neir=neir.split("$$$")[1];
@@ -52,21 +66,723 @@ line-height: 23px;
                     document.getElementById("beij").style.display="block";
                     document.getElementById("wbsrk").innerHTML=decodeURIComponent(neir);
                 }
-            
+                }
             }
-            function ckdx(){
-                kd=document.body.clientWidth
+        
+          
+        </script>
+
+
+
+
+<script type="text/javascript">
+    window.addEventListener('resize', e => { 
+           ckdx()
+       })
+           function ckdx(){
+   
+               kd=document.body.clientWidth
+            
+                   kd=document.body.clientWidth
                 gd=document.body.clientHeight
                 document.getElementById("beij").style.width=kd-40+"px"
                 document.getElementById("wbsrk").style.width=kd-40+"px"
-            }
-            window.addEventListener('resize', e => { 
-        ckdx()
-                    }, false);
-        </script>
+           }
+           function zfc_to_sz2(lb){             //字符串转数组
+       var lssz=[];
+       //console.log(lb)
+       if(lb.indexOf("*::*")>-1){
+           for(var tgh=0;tgh<lb.split("*::*").length;tgh++) {
+               lssz.push(lb.split("*::*")[tgh])
+           }
+       }else{
+           lssz.push(lb)
+   
+   }
+       return lssz
+   }
+   
+   
+   function sz_to_zfc2(sz){            //数组转字符串
+       var lssz="";
+       for(var tgh=0;tgh<sz.length-1;tgh++) {
+          var lssz=lssz+sz[tgh]+"*::*"
+       }
+       var lssz=lssz+sz[sz.length-1]
+   return lssz
+   }
+   
+   function saveall(){                             //导出画面
+   
+  
+
+                 var edwhbed4wn=document.getElementById("wbsrk").value
+                 var cccloer=document.getElementById("wbsrk").style.color
+                 sfyx=""
+if(document.getElementById("beij").style.display=="none"){
+    sfyx="."
+}
+
+
+              var zgscdm=   String(cccloer)+"$$$"+sfyx+String(edwhbed4wn)+"|*&^|"+sz_to_zfc2(hbjl)
+              console.log(zgscdm)
+
+      }
+   
+   
+   
+   
+   
+function daoru(d){
+
+
+yjzx(d.split("|*&^|")[0])
+if(d.split("|*&^|")[1]==undefined){}else{
+    huifhb(d.split("|*&^|")[1])
+}
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+   
+   
+   
+   
+   
+   function hbmsqh(){
+    //console.log(hbmsss)
+if(hbmsss==1){
+document.getElementById("htxg").style.display="none"
+document.getElementById("hb").style.zIndex=-1
+
+    hbmsss=0
+    return
+}
+if(hbmsss==0){
+document.getElementById("htxg").style.display="block"
+document.getElementById("hb").style.zIndex=1
+
+    hbmsss=1
+    return
+}
+
+
+
+   }
+   
+   
+   
+           </script>
+
+
+
+
+
+
+
+
         </head>
         <body>
 <div class="beij" id="beij"></div>
 <textarea rows="114514" cols="1919810" class="dges" id="wbsrk" style="color: white;"></textarea>
+<canvas id="hb" width="10000" height="10000" style="z-index:-1;display: block;" class="hb"></canvas>
+
+
+
+<div id="hbqh" onclick="hbmsqh()"></div>
+
+
+<div id="htxg" style="display: none;">
+    <div id="xp" style="width: 10px;height: 10px;display: none;" draggable="false"></div>
+    <div id="gnl">
+        <input type="color" id="color"  onchange=gys() />
+        <div id="msqh" onclick="msqh()"></div>
+        <div class="sett" onclick="zgcxgb()"></div>
+        <div class="jdzx" id="zgsz" style="display: none;">
+             <div id="zgszclose" onclick="zgcxgb()"></div>
+             <div class="xvanx">
+                 <div class=sthkj>画笔大小</div>
+                 <input id="hbdx1" class="snhxu2" value="5" onchange="gb_hbdx('hbdx',1)">
+                 <input id="hbdx2" type="range" min="0" max="100" step="0.01" value="5" class="snhxu" onchange="gb_hbdx('hbdx',2)"/>
+                </div>
+                <div class="xvanx">
+                    <div class=sthkj>橡皮大小</div>
+                    <input id="xpdx1" class="snhxu2" value="60" onchange="gb_hbdx('xpdx',1)">
+                    <input id="xpdx2" type="range" min="0" max="1000" step="1" value="60" class="snhxu" onchange="gb_hbdx('xpdx',2)"/>
+                   </div>
+                   <div class="xvanx">
+                    <div class=sthkj>间隔毫秒</div>
+                    <input id="jghm1" class="snhxu2" value="20" onchange="gb_hbdx('jghm',1)">
+                    <input id="jghm2" type="range" min="0" max="100" step="1" value="20" class="snhxu" onchange="gb_hbdx('jghm',2)"/>
+                   </div>
+                   <div class="xvanx">
+                   <div class=sthkj>函数指数</div>
+                   <input id="fblzs1" class="snhxu2" value="1" onchange="gb_hbdx('fblzs',1)">
+                   <input id="fblzs2" type="range" min="0" max="10" step="1" value="1" class="snhxu" onchange="gb_hbdx('fblzs',2)"/>
+                  </div>
+                  <div class="xvanx">
+                      <div class=sthkj>Y轴偏移</div>
+                      <input id="fblxj1" class="snhxu2" value="0.1" onchange="gb_hbdx('fblxj',1)">
+                      <input id="fblxj2" type="range" min="0" max="1" step="0.01" value="0.1" class="snhxu" onchange="gb_hbdx('fblxj',2)"/>
+                     </div>
+                     <div class="xvanx">
+                        <div class=sthkj>X轴偏移</div>
+                        <input id="fblxpy1" class="snhxu2" value="1" onchange="gb_hbdx('fblxpy',1)">
+                        <input id="fblxpy2" type="range" min="0" max="2" step="0.01" value="1" class="snhxu" onchange="gb_hbdx('fblxpy',2)"/>
+                       </div>
+                     <div class="xvanx">
+                      <div class=sthkj>函数因数</div>
+                      <input id="fblys1" class="snhxu2" value="1" onchange="gb_hbdx('fblys',1)">
+                      <input id="fblys2" type="range" min="0" max="5" step="0.01" value="1" class="snhxu" onchange="gb_hbdx('fblys',2)"/>
+                     </div>
+        </div>
+    </div>
+</div>
         </body>
+        <style type="text/css" >
+            ::-webkit-scrollbar {
+              width: 0px;
+              height: 0px;
+            }
+            
+            ::-webkit-scrollbar-track {
+              width: 0px;
+              background: rgba(#101F1C, 0.1);
+              -webkit-border-radius: 2em;
+              -moz-border-radius: 2em;
+              border-radius: 2em;
+            }
+            
+            ::-webkit-scrollbar-thumb {
+              background-color: rgba(144,147,153,.5);
+              background-clip: padding-box;
+              min-height: 28px;
+              -webkit-border-radius: 2em;
+              -moz-border-radius: 2em;
+              border-radius: 2em;
+              transition: background-color .3s;
+              cursor: pointer;
+            }
+            
+            ::-webkit-scrollbar-thumb:hover {
+              background-color: rgba(144,147,153,.3);
+            }
+                        
+                    </style>
+                    <style type="text/css" >
+                        .hb{
+                            position:fixed;
+                            top:0px;
+                            left: 0px;
+                        }
+            #color{
+                position:absolute;
+                            top:5px;
+                            right:0px;
+                            width: 100%;
+                            height: 30px;
+                            border:0px solid rgba(0, 0, 0, 0);
+                            background-color: rgba(0, 0, 0, 0);
+            
+            }
+            #msqh{
+                position:absolute;
+                            top:36px;
+                            right:0px;
+                            width: 100%;
+                            height: 30px;
+                            border:0px solid rgba(0, 0, 0, 0);
+                            background-color: rgba(0, 0, 0, 0);
+                            background-size: cover;
+                            background-image: url(img/bqhtml/pen.png);
+            }
+            #msqh:hover{
+                transition: 0.3s;
+                border-radius: 5px 5px 5px 5px;
+                            background-color: rgb(107, 107, 107);
+            }
+            .sett{
+                position:absolute;
+                            top:72px;
+                            right:0px;
+                            width: 100%;
+                            height: 30px;
+                            border:0px solid rgba(0, 0, 0, 0);
+                            background-color: rgba(0, 0, 0, 0);
+                            background-size: cover;
+                            background-image: url(img/bqhtml/settings.png);
+            }
+            .sett:hover{
+                transition: 0.3s;
+                border-radius: 5px 5px 5px 5px;
+                            background-color: rgb(107, 107, 107);
+            }
+            #xp{
+            position: fixed;
+            background-color: rgba(255, 255, 255, 0);
+            z-index:1;
+            border:1px solid rgb(128, 128, 128);
+            -webkit-user-drag: none;
+            
+            }
+            #gnl{
+                position: fixed;
+                top:50px;
+                height:105px;
+                width: 30px;
+                right: 0px;
+            background-color: rgb(70, 70, 70);
+            z-index:1;
+            border:1px solid rgb(128, 128, 128);
+            border-radius: 10px 0px 0px 10px;
+            z-index: 114514;
+            }
+            .jdzx{
+                position: fixed;
+                margin: auto;
+                top: 0px;
+                left: 0px;
+                right: 0px;
+                bottom: 0px;
+                width: 200px;
+                height: 150px;
+                background-color: rgba(80, 80, 90, 0.9);
+                border-radius: 10px 10px 10px 10px;
+                overflow: auto;
+            }
+            #zgszclose{
+                position: absolute;
+                top:5px;
+                right: 5px;
+                width: 20px;
+                height: 20px;
+                background-image: url(img/797.png);
+                background-size: cover;
+                cursor: pointer;
+                border-radius: 5px 5px 5px 5px;
+            }
+            #zgszclose:hover{
+                transition: 0.1s;
+                background-color: rgba(255, 0, 0, 0.5);
+            }
+            .xvanx{
+                position: relative;
+                top:25px;
+                left: 10px;
+                width: 180px;
+                height: 35px;
+            }
+            .snhxu{
+                position: absolute;
+                top:2px;
+                right:0px;
+                width: 80px;
+                height: 26px;
+                outline: none;
+                background-color: #ffffff00; 
+                border:rgb(80, 80, 80) 1px solid;  
+                border-radius: 5px 5px 5px 5px;
+            }
+            .snhxu2{
+                position: absolute;
+                top:2px;
+                right:80px;
+                width: 25px;
+                height: 26px;
+                outline: none;
+                background-color: #ffffff00; 
+                border:none;
+                border-radius: 5px 5px 5px 5px;
+            }
+            .sthkj{
+                font-size:15px;  
+            color: white;
+            line-height: 30px;
+            position: absolute;
+                margin: auto;
+                top: 0px;
+                bottom: 0px;
+            }
+            
+            
+                    </style>
+                         <script type="text/javascript">
+
+                            var canvas = document.getElementById('hb');
+                            var xpys=document.getElementById("xp")
+                             var   hbck = canvas.getContext('2d');
+                            hbck.strokeStyle = '#000000';
+                            hbck.lineJoin = 'round';
+                            hbck.lineCap = 'round';
+                            
+                            function gb_hbdx(gn,x){
+                            var a=document.getElementById(gn+"1")
+                            var b=document.getElementById(gn+"2")
+                            
+                            if(x==2){
+                                var szhbdx=b.value
+                            }
+                            if(x==1){
+                                var szhbdx=a.value
+                            }
+                            a.value=szhbdx
+                            b.value=szhbdx
+                            
+                            if(gn=="hbdx"){
+                                hbkd=szhbdx
+                            }
+                            if(gn=="xpdx"){
+                                xpcs=szhbdx
+                            }
+                            if(gn=="jghm"){
+                                sxsj=szhbdx
+                                xpsj=szhbdx
+                                clearInterval(xpxh)
+                                clearInterval(hbxh)
+                                 hbxh=setInterval("jlxt()",sxsj);
+                                 xpxh=setInterval("xpjlxt()",xpsj);
+                            }
+                            if(gn=="fblzs"){
+                                fblzs=szhbdx
+                            }
+                            if(gn=="fblxj"){
+                                fblxjia=szhbdx
+                            }
+                            if(gn=="fblys"){
+                                fblyshu=szhbdx
+                            }
+                            if(gn=="fblxpy"){
+                                fblxpy=szhbdx
+                            }
+                            
+                            }
+                            
+                            function zgcxgb(){
+                            var sahx=document.getElementById("zgsz").style.display
+                            if(sahx=="block"){
+                                document.getElementById("zgsz").style.display="none"
+                            }
+                            if(sahx=="none"){
+                                document.getElementById("zgsz").style.display="block"
+                            }
+                            }
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            var sc=1    //第一次
+                            var hblx=0    //画笔落下
+                            var xplx=0    //橡皮落下
+                                     
+                            var          points = [];7
+                            var            hbjl=[];    //画笔记录
+                            var        hbkd=5                //线条粗细
+                            var        xpcs=60               //橡皮粗细
+                            var       xpms=0          //橡皮模式
+                                       
+                                    var      fblzs=1             //反比例指数             y=(fblyshu/Math.pow(x,  fblzs))+fblxjia 
+                                    var     fblxjia=0.1              //反比例相加
+                                    var        fblyshu=1              //反比例因数
+                                    var         fblxpy=5            //反比例x轴偏移
+                                    var      sxsj=20                            //刷新次数 毫秒
+                                    var    xpsj=20                     //橡皮刷新次数 毫秒
+                                    var  sdls=[hbkd/2,hbkd/2,hbkd/2,hbkd/2,hbkd/2,hbkd/2,hbkd/2,hbkd/2,hbkd/2,hbkd/2];         //平均粗细 十次采样
+                                    window.onload=function(){
+
+
+
+
+
+                                        hbmsss=0
+
+
+                                        ckdx()
+                yjzx(window.location.href.split("?")[1])
+
+
+
+
+
+
+
+                                        /*一下是画板区JS*/
+                            
+                                    
+                                         
+                                    }
+                                   canvas.onmousedown=function(){
+                                        hblx=1
+                                        //console.log("鼠标按下")
+                                        points.push({ x: sbx, y: sby });
+                                        hbjl.push(hbkd+"`"+sbx+"`"+sby,"ax")
+                                       
+                                      
+                                    }
+                                    xpys.onmousedown=function(){
+                                           xplx=1
+                                           xpys.style.border="2px solid rgb(34, 34, 34)"
+                                    }
+                                    xpys.ontouchstart=function(){
+                                           xplx=1
+                                           xpys.style.border="2px solid rgb(34, 34, 34)"
+                                    }
+                                    canvas.ontouchstart=function(f){
+                                        var ftg = f.touches[0];
+                                        sbx=f.clientX
+                                        sby=f.clientY
+                            
+                                        hblx=1
+                                        points.push({ x: ftg.clientX, y: ftg.clientY });
+                                        hbjl.push(hbkd+"`"+ftg.clientX+"`"+ftg.clientY,"ax")
+                                        scszsbxy()
+                                    }
+                                    canvas.onmouseup=function(){
+                                        hblx=0
+                                        //console.log("鼠标松开")
+                                        points = [];
+                                        hbjl.push("sk")
+                                       
+                                    }
+                                    xpys.onmouseup=function(){
+                                           xplx=0
+                                           xpys.style.border="1px solid rgb(128, 128, 128)"
+                                    }
+                                    xpys.ontouchend=function(){
+                                           xplx=0
+                                           xpys.style.border="1px solid rgb(128, 128, 128)"
+                                    }
+                                    canvas.ontouchend=function(){
+                                        hblx=0
+                                        points = [];
+                                        hbjl.push("sk")
+                            
+                                    }
+                                    window.ontouchmove=function(az){
+                                        var touch = az.touches[0];
+                                        sbx=touch.clientX
+                                        sby=touch.clientY
+                                        
+                                    // jlxt()
+                                    }
+                                    window.onmousemove=function(az){
+                                        sbx=az.clientX
+                                        sby=az.clientY
+                                        scszsbxy()
+                                    // jlxt()
+                                    }
+                                    function scszsbxy(){
+                                    if(sc==1){
+                                        sc=0 
+                                        jiudex=sbx
+                                        jiudey=sby
+                                         hbxh=setInterval("jlxt()",sxsj);
+                                         xpxh=setInterval("xpjlxt()",xpsj);
+                                    }
+                                    }
+                                    
+                                    function xpjlxt(){               //橡皮画
+                                        if(xpms==1){
+                                            xpys.style.width=xpcs+"px"
+                                        xpys.style.height=xpcs+"px"
+                                        xpys.style.left=String(sbx-(xpcs/2))+"px"
+                                        xpys.style.top=String(sby-(xpcs/2))+"px"
+                                        //console.log(sbx,sby)
+                                        if(xplx==1){
+                                            hbck.clearRect(sbx-(xpcs/2),sby-(xpcs/2),xpcs,xpcs);
+                                            hbjl.push("xp`"+String(sbx-(xpcs/2))+"`"+String(sby-(xpcs/2))+"`"+String(xpcs))
+                                            
+                                        }
+                                        }
+                                  
+                                    }
+                            
+                            function msqh(){
+                            if(xpms==1){
+                                xpms=0
+                                document.getElementById("msqh").style.backgroundImage="url(img/bqhtml/pen.png)";
+                                document.getElementById("xp").style.display="none";
+                            }else{
+                                xpms=1
+                                document.getElementById("msqh").style.backgroundImage="url(img/bqhtml/rubber.png)";
+                                document.getElementById("xp").style.display="block";
+                            }
+                            }
+                            
+                            
+                            
+                            
+                                    
+                                    function jlxt() {                      //画
+                                        var lsyy=(sbx-jiudex)*(sbx-jiudex)+(sby-jiudey)*(sby-jiudey)
+                                        //console.log(lsyy)
+                                      var ydjl=  Math.sqrt(lsyy)          //勾股定理算移动距离
+                                      if(ydjl==0){}else{
+                                      var fdcs=(fblyshu/(Math.pow(ydjl/sxsj,  fblzs)+1))+fblxjia 
+                                      //console.log(fdcs)
+                                      if(fdcs>1){fdcs=1}
+                                      if(fdcs<1/hbkd){fdcs=1/hbkd}
+                            var jisuankd=hbkd*fdcs
+                            //console.log(ydjl)
+                            sdls.push(jisuankd)
+                            sdls.shift()
+                            var yuanss=0
+                            for(var i=0;i<sdls.length;i++){
+                               var yuanss=yuanss+Number(sdls[i])
+                            }
+                            
+                            //console.log(yuanss/5)
+                            //console.log(Math.pow(ydjl/sxsj,  fblzs))
+                            
+                            
+                            
+                            hbck.lineWidth= (yuanss/10)
+                                      if(xpms==0){
+                                        if(hblx==1){
+                                            hbjl.push((yuanss/10).toFixed(2)+"`"+Math.floor(sbx)+"`"+Math.floor(sby))
+                                            draw()
+                                        }
+                                      }  
+                            
+                                      }
+                                    
+                                    jiudex=sbx
+                                    jiudey=sby
+                                    }
+                                    
+                            
+                                    function huifhb(s){                       //恢复画面
+                                      var shuz=  zfc_to_sz2(s)
+                                      points=[]
+                                      var hblx=0
+                                      for(var i=0;i<shuz.length;i++){
+                               var adh=shuz[i]
+                            
+                               if(adh=="sk"){
+                                var hblx=0
+                                points = [];
+                            }
+                            if(adh.indexOf(";")!==-1){
+                            if(adh.split(";")[0]=="cler"){
+                                hbck.strokeStyle = adh.split(";")[1];
+                            }
+                            }
+                            if(adh.split("`")[0]=="xp"){
+                                hbck.clearRect(Number(adh.split("`")[1]),Number(adh.split("`")[2]),Number(adh.split("`")[3]),Number(adh.split("`")[3]));
+                            }
+                            
+                            
+                            
+                            if(hblx==1){
+                                hbck.lineWidth=Number( adh.split("`")[0])
+                               sbx=adh.split("`")[1]
+                               sby=adh.split("`")[2]
+                                draw(Number(sbx),Number(sby))
+                                console.log(sbx,sby)
+                            }
+                               if(adh=="ax"){
+                                var hblx=1
+                                points.push({ x: Number(shuz[i-1].split("`")[1]), y: Number(shuz[i-1].split("`")[2]) });
+                            }
+                            
+                            }      
+                            
+                            }
+                            
+                            
+                            function gys() {                //改颜色
+                                   hbck.strokeStyle = document.getElementById('color').value;
+                                   hbjl.push("cler;"+document.getElementById('color').value)
+                                };
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                                    function draw(x1,y1) {                              //贝塞尔曲线绘制
+                                        if(x1==undefined){
+                                            var mousex=sbx
+                                        }else{
+                                            var mousex=x1
+                                        }
+                            
+                                        if(y1==undefined){
+                                            var mousey=sby
+                                        }else{
+                                            var mousey=y1
+                                        }
+                                        points.push({ x: mousex, y: mousey });
+                                        hbck.beginPath();
+                                        let x = (points[points.length - 2].x + points[points.length - 1].x) / 2,
+                                            y = (points[points.length - 2].y + points[points.length - 1].y) / 2;
+                                        if (points.length == 2) {
+                                            hbck.moveTo(points[points.length - 2].x, points[points.length - 2].y);
+                                            hbck.lineTo(x, y);
+                                        } else {
+                                            let lastX = (points[points.length - 3].x + points[points.length - 2].x) / 2,
+                                                lastY = (points[points.length - 3].y + points[points.length - 2].y) / 2;
+                                            hbck.moveTo(lastX, lastY);
+                                            hbck.quadraticCurveTo(points[points.length - 2].x, points[points.length - 2].y, x, y);
+                                        }
+                                        hbck.stroke();
+                                        points.slice(0, 1);
+                            
+                                    }
+                                  
+                                    
+                                    
+                                    
+                                    
+                                            </script>
         </html>
