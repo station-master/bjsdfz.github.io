@@ -370,7 +370,7 @@ if(sahx=="none"){
         fblyshu=0.2              //反比例因数
         sxsj=20                            //刷新次数 毫秒
         xpsj=20                     //橡皮刷新次数 毫秒
-        sdls=[0,0,0,0,0,0,0,0,0,0];         //平均粗细 十次采样
+        sdls=[hbkd/2,hbkd/2,hbkd/2,hbkd/2,hbkd/2,hbkd/2,hbkd/2,hbkd/2,hbkd/2,hbkd/2];         //平均粗细 十次采样
         
              
         }
@@ -480,6 +480,7 @@ if(xpms==1){
             var lsyy=(sbx-jiudex)*(sbx-jiudex)+(sby-jiudey)*(sby-jiudey)
             //console.log(lsyy)
           var ydjl=  Math.sqrt(lsyy)          //勾股定理算移动距离
+          if(ydjl==0){}else{
           var fdcs=(fblyshu/Math.pow(ydjl/sxsj,  fblzs))+fblxjia 
           if(fdcs>1){fdcs=1}
           if(fdcs<1/hbkd){fdcs=1/hbkd}
@@ -493,7 +494,7 @@ for(var i=0;i<sdls.length;i++){
 }
 
 //console.log(yuanss/5)
-//console.log(sdls)
+console.log(jisuankd)
 
 
 
@@ -505,7 +506,7 @@ hbck.lineWidth= (yuanss/10)
             }
           }  
 
-        
+          }
         
         jiudex=sbx
         jiudey=sby
