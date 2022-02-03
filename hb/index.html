@@ -258,14 +258,19 @@ function savehb(){                             //导出画面
                            <input id="fblzs2" type="range" min="0" max="10" step="1" value="1" class="snhxu" onchange="gb_hbdx('fblzs',2)"/>
                           </div>
                           <div class="xvanx">
-                              <div class=sthkj>函数相加</div>
+                              <div class=sthkj>Y轴偏移</div>
                               <input id="fblxj1" class="snhxu2" value="0.1" onchange="gb_hbdx('fblxj',1)">
                               <input id="fblxj2" type="range" min="0" max="1" step="0.01" value="0.1" class="snhxu" onchange="gb_hbdx('fblxj',2)"/>
                              </div>
                              <div class="xvanx">
+                                <div class=sthkj>X轴偏移</div>
+                                <input id="fblxpy1" class="snhxu2" value="1" onchange="gb_hbdx('fblxpy',1)">
+                                <input id="fblxpy2" type="range" min="0" max="2" step="0.01" value="1" class="snhxu" onchange="gb_hbdx('fblxpy',2)"/>
+                               </div>
+                             <div class="xvanx">
                               <div class=sthkj>函数因数</div>
-                              <input id="fblys1" class="snhxu2" value="0.2" onchange="gb_hbdx('fblys',1)">
-                              <input id="fblys2" type="range" min="0" max="1" step="0.01" value="0.2" class="snhxu" onchange="gb_hbdx('fblys',2)"/>
+                              <input id="fblys1" class="snhxu2" value="1" onchange="gb_hbdx('fblys',1)">
+                              <input id="fblys2" type="range" min="0" max="5" step="0.01" value="1" class="snhxu" onchange="gb_hbdx('fblys',2)"/>
                              </div>
                 </div>
             </div>
@@ -320,6 +325,9 @@ if(gn=="fblxj"){
 if(gn=="fblys"){
     fblyshu=szhbdx
 }
+if(gn=="fblxpy"){
+    fblxpy=szhbdx
+}
 
 }
 
@@ -367,7 +375,8 @@ if(sahx=="none"){
         
         fblzs=1             //反比例指数             y=(fblyshu/Math.pow(x,  fblzs))+fblxjia 
         fblxjia=0.1              //反比例相加
-        fblyshu=0.2              //反比例因数
+        fblyshu=1              //反比例因数
+        fblxpy=5            //反比例x轴偏移
         sxsj=20                            //刷新次数 毫秒
         xpsj=20                     //橡皮刷新次数 毫秒
         sdls=[hbkd/2,hbkd/2,hbkd/2,hbkd/2,hbkd/2,hbkd/2,hbkd/2,hbkd/2,hbkd/2,hbkd/2];         //平均粗细 十次采样
@@ -481,7 +490,8 @@ if(xpms==1){
             //console.log(lsyy)
           var ydjl=  Math.sqrt(lsyy)          //勾股定理算移动距离
           if(ydjl==0){}else{
-          var fdcs=(fblyshu/Math.pow(ydjl/sxsj,  fblzs))+fblxjia 
+          var fdcs=(fblyshu/(Math.pow(ydjl/sxsj,  fblzs)+1))+fblxjia 
+          //console.log(fdcs)
           if(fdcs>1){fdcs=1}
           if(fdcs<1/hbkd){fdcs=1/hbkd}
 var jisuankd=hbkd*fdcs
@@ -494,7 +504,7 @@ for(var i=0;i<sdls.length;i++){
 }
 
 //console.log(yuanss/5)
-console.log(jisuankd)
+//console.log(Math.pow(ydjl/sxsj,  fblzs))
 
 
 
