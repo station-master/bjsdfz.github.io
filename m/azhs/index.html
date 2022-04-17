@@ -1,0 +1,166 @@
+<html>
+	<head>
+		<link rel="shortcut  icon" href="" type="image/x-icon" />
+		<meta charset="utf-8">
+		<title>啊这函数</title>
+        <style type="text/css" >
+            #zbx{
+                position: fixed;
+                width: 800px;
+                height: 800px;
+                left: 20px;
+                top: 100px;
+                box-shadow:0 0 30px #7c0a21;
+                overflow: hidden;
+            }
+            #divdis{
+                position: absolute;
+                width: 0px;
+                height: 0px;
+            }
+
+            #yzhou{
+position: absolute;
+width: 2px;
+top: 0px;
+height: 100%;
+background-color: black;
+            }
+            #xzhou{
+position: absolute;
+width: 100%;
+left: 0px;
+height: 2px;
+background-color: black;
+            }
+            #edafs{
+                position: fixed;
+width: 1000px;
+left: 20px;
+top:10px;
+height: 80px;
+            }
+            .vfr{
+                position: absolute;
+            }
+            #az{
+                position: fixed;
+width: 1000px;
+left: 1020px;
+top:10px;
+height: 80px;
+color: #7c0a21;
+font-size: 50;
+font-weight:bolder
+            }
+        </style>
+                <script type="text/javascript" src="dc.JS"></script>
+                <script type="text/javascript" src="../s.js"></script>
+        <script type="text/javascript">
+
+            window.onload=function(){
+
+
+                var hy=document.getElementById("divdis");
+                
+hbck=hy.getContext("2d");
+hbck.fillStyle="#FF0000"
+hbck.lineWidth=2
+
+bianhau()
+    huizhi()
+
+            }
+            function gh(){
+                var c=""
+                for(var x=0;x<document.body.clientWidth/xrjqd;x++){
+                    var x0=x*xrjqd
+                    for(var y=0;y<document.body.clientHeight/xrjqd;y++){
+                        var y0=y*xrjqd
+                        var c=c+"<div id='disdiv-"+x0+"-"+y0+"' class='disdiv' style='left: "+x0+"px;top: "+y0+"px;width: "+xrjqd+"px;height: "+xrjqd+"px; background-color: black;'></div>"
+                    }
+                }
+                document.getElementById("divdis").innerHTML=c
+            }
+
+            function zbxyd(){
+                var cs=1
+                var disX
+                var disY
+                xsy=(document.getElementById("xzhou").style.top).split("px")[0]     //坐标系显示位置 x
+                xsx=(document.getElementById("yzhou").style.left).split("px")[0]     //坐标系显示位置 y
+                //console.log(xsx,xsy)
+                var fede=0
+                var fede2=0
+                window.onmousemove=function(h){
+                    fsdcds(h)
+                    fede++
+                    fede2+++10
+        if(cs==1){
+            cs=0
+            disX=h.clientX-xsx
+            disY=h.clientY-xsy
+            
+        }else{
+            var x = h.clientX-disX
+            var y = h.clientY-disY
+            ydisX=x
+            ydisY=y
+
+            if(fede==fede2){
+                bianhau()
+                //huizhi()
+            }
+
+           // console.log(ydisX,ydisY)
+            document.getElementById("yzhou").style.left=x+"px"
+            document.getElementById("xzhou").style.top=y+"px"
+        }
+    }
+    window.onmouseup = function() {
+        bianhau()
+        huizhi()
+    window.onmousemove = function(h){fsdcds(h)};
+ }
+            }
+
+            function gt(){
+                xianshi
+            }
+        </script>
+        </head>
+        <body>
+            <div id="edafs">
+                <div class="vfr" style="top:0px;left:0px; width: 40px; height: 20px;">缩放:</div> 
+                <input id="fvfrv" class="vfr" style="top:0px;left:45px; width: 100px; height: 20px;" value="20" onchange="zhudbianhua()"/>
+                <div class="vfr" style="top:25px;left:0px; width: 85px; height: 20px;">绘制精度:</div> 
+                <input id="gdrft" class="vfr" style="top:25px;left:85px; width: 60px; height: 20px;" value="100" onchange="zhudbianhua()"/>
+                <div class="vfr" style="top:0px;left:150px; width: 100px; height: 20px;">坐标系位置x:</div> 
+                <input id="decsx" class="vfr" style="top:0px;left:245px; width: 45px; height: 20px;" value="500" onchange="zhudbianhua()"/>
+                <div class="vfr" style="top:25px;left:150px; width: 100px; height: 20px;">坐标系位置y:</div> 
+                <input id="decsy" class="vfr" style="top:25px;left:245px; width: 45px; height: 20px;" value="500" onchange="zhudbianhua()"/>
+                <div class="vfr" style="top:0px;left:300px; width: 100px; height: 20px;">显示宽度:</div> 
+                <input id="bhcv" class="vfr" style="top:0px;left:390px; width: 45px; height: 20px;" value="1000" onchange="zhudbianhua()"/>
+                <div class="vfr" style="top:25px;left:300px; width: 100px; height: 20px;">显示高度:</div> 
+                <input id="edsde" class="vfr" style="top:25px;left:390px; width: 45px; height: 20px;" value="800" onchange="zhudbianhua()"/>
+                <div class="vfr" style="top:0px;left:440px; width: 80px; height: 20px;">鼠标x坐标</div> 
+                <input id="gbftr" class="vfr" style="top:0px;left:520px; width: 60px; height: 20px;" value="0.000"/>
+                <div class="vfr" style="top:25px;left:440px; width: 80px; height: 20px;">鼠标y坐标</div> 
+                <input id="oi9l" class="vfr" style="top:25px;left:520px; width: 60px; height: 20px;" value="0.000"/>
+
+
+
+                <div class="vfr" style="top:0px;left:650px; width: 85px; height: 20px;">新建函数  y=</div> 
+                <input id="grdgr" class="vfr" style="top:0px;left:750px; width: 200px; height: 20px;" value="" placeholder="解析式"/>
+                <input id="wadwd" class="vfr" style="top:25px;left:650px; width: 60px; height: 20px;" value="" placeholder="颜色"/>
+                <input id="" class="vfr" type="button" style="top:25px;left:730px; width: 60px; height: 20px;" value="绘制" onclick="cjxhs()" />
+            </div>
+            <div id="zbx" onmousedown="zbxyd()" oneve>
+      <div id="yzhou" style="left: 500px;"></div>
+      <div id="xzhou" style="top: 500px;"></div>
+      <canvas id="divdis"></canvas>
+    </div>
+<div id="az"> 啊这函数画板</div>
+
+        </body>
+        </html>
