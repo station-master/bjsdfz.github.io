@@ -1,15 +1,16 @@
 var xrjqd=100           //分成几份
-var xsx=500     //坐标系显示位置 x
-var xsy=500     //坐标系显示位置 y
+var xsx=400     //坐标系显示位置 x
+var xsy=400     //坐标系显示位置 y
 var hxxianshi=20     //横向显示多少
 var xianshikuandu=1000    //坐标系显示宽度
 var xianshigaodu=800    //坐标系显示高度
-var ydisX=500
-var ydisY=500
+var ydisX=400
+var ydisY=400
 var points = []
 var hbck
 var hslb=[]
-
+var pxtonum=hxxianshi/xianshikuandu
+var numtopx=xianshikuandu/hxxianshi
 
 
 function draw(x1,y1) {                              //贝塞尔曲线绘制
@@ -44,46 +45,100 @@ function draw(x1,y1) {                              //贝塞尔曲线绘制
 
 
 
-function hzqx(jxs){
-var pxtonum=hxxianshi/xianshikuandu
-var numtopx=xianshikuandu/hxxianshi
+function hzqx(jxs,q,z){
+pxtonum=hxxianshi/xianshikuandu
+pxtonum=Number(pxtonum.toFixed(xrjqd/20))
+numtopx=xianshikuandu/hxxianshi
+numtopx=Number(numtopx.toFixed(xrjqd/20))
+
 points = []
-var dyc=0
-//console.log(-1*ydisX*pxtonum)
-for(var jt=-1*ydisX*pxtonum;jt<=(xianshikuandu- ydisX)*pxtonum+(xianshikuandu/xrjqd)*pxtonum;jt=jt+(xianshikuandu/xrjqd)*pxtonum){
+var qh=1
+var isnone=true
+l(jxs,q,z)
+var dancizjia=(xianshikuandu/xrjqd)*pxtonum//每次增加
+var dancizjia=Number(dancizjia.toFixed(xrjqd/20))
+if(q==undefined||q==""){
+    var xsqd=-1*ydisX*pxtonum //循环起点
+}else{
+    var xsqd=Number(q)
+}
+if(z==undefined||z==""){
+    var xhzd=(xianshikuandu- ydisX)*pxtonum//循环终点
+}else{
+    var xhzd=Number(z)
+}
+
+
+
+
+
+for(var jt=xsqd;jt<=xhzd+dancizjia;jt=jt+dancizjia){
+    jt =Number( jt.toFixed(xrjqd/20))
+
     //console.log("az",jt)
-    var hf=jiexiys(jxs,jt)
+if(jt>0){
+    if(jt-dancizjia<0){
+        //l(jt)
+        var hk=0
+        var jt=0
+    }else{
+        var hk=jt
+    }
+}else{
+    var hk=jt
+}
+if(jt>xhzd){
+    var hk=xhzd
+}
+//
+var hg=zhixhuiz(hk,jxs)
+//console.log(hg,hk)
+if(hg[1]==NaN||hg[1]==Infinity||hg[1]==-Infinity||hg[1]>xianshigaodu*2||hg[1]<-1*xianshigaodu){
+    
+    isnone=false
+    qh=1
+    points = []
+}else{
+    isnone=true
+}
+if(qh==1){
+    if(isnone==true){
+        qh=0
+        points.push({ x: xxx, y: yyy });
+    }
+}
+var xxx=hg[0]
+var  yyy=hg[1]
+  //console.log(xxx,yyy)
+if(isnone==true){
+    draw(xxx,yyy)
+    //console.log(xxx,yyy)
+}
+
+}
+}
+
+
+function zhixhuiz(hm,jxs){
+    var hf=jiexiys(jxs,hm)
+    if(hf==NaN){
+        return NaN
+    }
 var hf1=xianshigaodu- (hf*numtopx+xianshigaodu-ydisY)
 
-    //console.log((hf*numtopx+xianshigaodu-ydisY))
-    if( dyc==0){
-        var dyc=1
-        //console.log(1)
-        points.push({ x: jt*numtopx, y: hf1 });
-    }
 
-  var xxx=jt*numtopx
+  var xxx=hm*numtopx
   var xxx=xxx+ydisX
   var  yyy=hf1
-  //console.log(xxx,yyy)
-  if( dyc==0){
-    var dyc=1
-    //console.log(1)
-    points.push({ x: xxx, y: yyy });
+  var hv=[xxx,yyy]
+  return hv
 }
-    draw(xxx,yyy)
-
-
-
-}
-}
-
 function bianhau(){
 
 
 
-    document.getElementById("zbx").style.width=xianshikuandu
-    document.getElementById("zbx").style.height=xianshigaodu
+    document.getElementById("zbx").style.width=xianshikuandu+"px"
+    document.getElementById("zbx").style.height=xianshigaodu+"px"
     document.getElementById("divdis").style.width=xianshikuandu
     document.getElementById("divdis").style.height=xianshigaodu
     document.getElementById("divdis").width=xianshikuandu
@@ -94,6 +149,9 @@ function bianhau(){
     document.getElementById("decsy").value=ydisY
     document.getElementById("gdrft").value=xrjqd
     document.getElementById("fvfrv").value=hxxianshi
+    document.getElementById("yzhou").style.left=ydisX+"px"
+    document.getElementById("xzhou").style.top=ydisY+"px"
+    document.getElementById("hslbxs").style.left=xianshikuandu+50+"px"
 
 }
 function zhudbianhua(){
@@ -110,12 +168,14 @@ function zhudbianhua(){
 function huizhi(){
     hbck.clearRect(0,0,xianshikuandu,xianshigaodu)
 for(var jr=0;jr<hslb.length;jr++){
-    if( hslb[jr].split("|")[1]==undefined){
-        hbck.strokeStyle="black"
-    }else{
-        hbck.strokeStyle=hslb[jr].split("|")[1]
+    if(hslb[jr]==""){}else{
+        if( hslb[jr].split("|")[1]==undefined||hslb[jr].split("|")[1]==""){
+            hbck.strokeStyle="black"
+        }else{
+            hbck.strokeStyle=hslb[jr].split("|")[1]
+        }
+        hzqx(hslb[jr].split("|")[0],hslb[jr].split("|")[2],hslb[jr].split("|")[3])  
     }
-    hzqx(hslb[jr].split("|")[0])  
 }
 }
 window.onmousemove=function(h){fsdcds(h)}
@@ -132,9 +192,41 @@ function fsdcds(h){
 function cjxhs(){
     var jxs=document.getElementById("grdgr").value
     var clorer=document.getElementById("wadwd").value
+    var zuixiao=document.getElementById("hs-sm").value
+    var zuida=document.getElementById("hs-zd").value
     if(clorer==""){
         clorer="black"
     }
-    hslb.push(jxs+"|"+clorer)
+    hslb.push(jxs+"|"+clorer+"|"+zuixiao+"|"+zuida)
     huizhi()
+
+var hanshuhao=hslb.length-1
+if(zuixiao==""){var zuixiao="-∞"}
+if(zuida==""){var zuida="∞"}
+
+    var y=document.getElementById("hslbxs").innerHTML
+    document.getElementById("hslbxs").innerHTML=y+"<div class='hcxda' style='color: "+clorer+";'  id='hs"+hanshuhao+"'>"+jxs+"&emsp;&emsp;"+zuixiao+","+zuida+"<div class='hsscan' onclick='delhs("+hanshuhao+")'>删除</div></div>"
+}
+function delhs(hsh){
+    document.getElementById("hs"+hsh).remove()
+    hslb.splice(hsh,1,"")
+    huizhi()
+}
+function hssf(ev){
+    if(ev.wheelDelta<0){
+         hxxianshi=hxxianshi+1
+    }else     if(ev.wheelDelta>0){
+        hxxianshi=hxxianshi-1
+    }
+    if(hxxianshi<1){hxxianshi=0.5}
+    if(hxxianshi>1000){hxxianshi=1000}
+    document.getElementById("fvfrv").value=hxxianshi
+    huizhi()
+}
+function addEvent(obj,xEvent,fn) {
+    if(obj.attachEvent){
+      obj.attachEvent('on'+xEvent,fn);
+    }else{
+      obj.addEventListener(xEvent,fn,false);
+    }
 }

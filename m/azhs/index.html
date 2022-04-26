@@ -2,57 +2,10 @@
 	<head>
 		<link rel="shortcut  icon" href="" type="image/x-icon" />
 		<meta charset="utf-8">
-		<title>啊这函数</title>
+		<title>啊这函数&emsp;v2</title>
+        <style type="text/css">@import"gi.css";</style>
         <style type="text/css" >
-            #zbx{
-                position: fixed;
-                width: 800px;
-                height: 800px;
-                left: 20px;
-                top: 100px;
-                box-shadow:0 0 30px #7c0a21;
-                overflow: hidden;
-            }
-            #divdis{
-                position: absolute;
-                width: 0px;
-                height: 0px;
-            }
-
-            #yzhou{
-position: absolute;
-width: 2px;
-top: 0px;
-height: 100%;
-background-color: black;
-            }
-            #xzhou{
-position: absolute;
-width: 100%;
-left: 0px;
-height: 2px;
-background-color: black;
-            }
-            #edafs{
-                position: fixed;
-width: 1000px;
-left: 20px;
-top:10px;
-height: 80px;
-            }
-            .vfr{
-                position: absolute;
-            }
-            #az{
-                position: fixed;
-width: 1000px;
-left: 1020px;
-top:10px;
-height: 80px;
-color: #7c0a21;
-font-size: 50;
-font-weight:bolder
-            }
+            
         </style>
                 <script type="text/javascript" src="dc.JS"></script>
                 <script type="text/javascript" src="../s.js"></script>
@@ -60,7 +13,10 @@ font-weight:bolder
 
             window.onload=function(){
 
-
+  var oDiv = document.getElementById('zbx');
+  addEvent(oDiv,'mousewheel',hssf);
+  addEvent(oDiv,'DOMMouseScroll',hssf);
+  
                 var hy=document.getElementById("divdis");
                 
 hbck=hy.getContext("2d");
@@ -136,9 +92,9 @@ bianhau()
                 <div class="vfr" style="top:25px;left:0px; width: 85px; height: 20px;">绘制精度:</div> 
                 <input id="gdrft" class="vfr" style="top:25px;left:85px; width: 60px; height: 20px;" value="100" onchange="zhudbianhua()"/>
                 <div class="vfr" style="top:0px;left:150px; width: 100px; height: 20px;">坐标系位置x:</div> 
-                <input id="decsx" class="vfr" style="top:0px;left:245px; width: 45px; height: 20px;" value="500" onchange="zhudbianhua()"/>
+                <input id="decsx" class="vfr" style="top:0px;left:245px; width: 45px; height: 20px;" value="400" onchange="zhudbianhua()"/>
                 <div class="vfr" style="top:25px;left:150px; width: 100px; height: 20px;">坐标系位置y:</div> 
-                <input id="decsy" class="vfr" style="top:25px;left:245px; width: 45px; height: 20px;" value="500" onchange="zhudbianhua()"/>
+                <input id="decsy" class="vfr" style="top:25px;left:245px; width: 45px; height: 20px;" value="400" onchange="zhudbianhua()"/>
                 <div class="vfr" style="top:0px;left:300px; width: 100px; height: 20px;">显示宽度:</div> 
                 <input id="bhcv" class="vfr" style="top:0px;left:390px; width: 45px; height: 20px;" value="1000" onchange="zhudbianhua()"/>
                 <div class="vfr" style="top:25px;left:300px; width: 100px; height: 20px;">显示高度:</div> 
@@ -153,12 +109,18 @@ bianhau()
                 <div class="vfr" style="top:0px;left:650px; width: 85px; height: 20px;">新建函数  y=</div> 
                 <input id="grdgr" class="vfr" style="top:0px;left:750px; width: 200px; height: 20px;" value="" placeholder="解析式"/>
                 <input id="wadwd" class="vfr" style="top:25px;left:650px; width: 60px; height: 20px;" value="" placeholder="颜色"/>
+                <div class="vfr" style="top:50px;left:650px; width: 85px; height: 20px;">取值范围</div> 
+                <input id="hs-sm" class="vfr" style="top:50px;left:720px; width: 60px; height: 20px;" value="" placeholder="(默认-∞)"/>
+                <input id="hs-zd" class="vfr" style="top:50px;left:810px; width: 60px; height: 20px;" value="" placeholder="(默认∞)"/>
                 <input id="" class="vfr" type="button" style="top:25px;left:730px; width: 60px; height: 20px;" value="绘制" onclick="cjxhs()" />
             </div>
-            <div id="zbx" onmousedown="zbxyd()" oneve>
-      <div id="yzhou" style="left: 500px;"></div>
-      <div id="xzhou" style="top: 500px;"></div>
+            <div id="zbx" onmousedown="zbxyd()">
+      <div id="yzhou" style="left: 400px;"></div>
+      <div id="xzhou" style="top: 400px;"></div>
       <canvas id="divdis"></canvas>
+    </div>
+    <div id="hslbxs" style="left: 1050px;">
+
     </div>
 <div id="az"> 啊这函数画板</div>
 

@@ -1,0 +1,86 @@
+#zbx{
+    position: fixed;
+    width: 800px;
+    height: 800px;
+    left: 20px;
+    top: 100px;
+    box-shadow:0 0 30px #7c0a21;
+    overflow: hidden;
+}
+#divdis{
+    position: absolute;
+    width: 0px;
+    height: 0px;
+}
+
+#yzhou{
+position: absolute;
+width: 2px;
+top: 0px;
+height: 100%;
+background-color: black;
+}
+#xzhou{
+position: absolute;
+width: 100%;
+left: 0px;
+height: 2px;
+background-color: black;
+}
+#edafs{
+    position: fixed;
+width: 1000px;
+left: 20px;
+top:10px;
+height: 80px;
+}
+.vfr{
+    position: absolute;
+}
+#az{
+    position: fixed;
+width: 1000px;
+left: 1020px;
+top:10px;
+height: 80px;
+color: #7c0a21;
+font-size: 50;
+font-weight:bolder
+}
+#hslbxs{
+    position: fixed;
+width: 300px;
+left: 1050px;
+top:100px;
+height: 500px;
+box-shadow:0 0 30px #7c0a21;
+}
+.hcxda{
+    transition: 0.2s;
+    position: relative;
+    width: 300px;
+    height: 30px;
+    color: #7c0a21;
+    font-size: 20;
+text-align: left;
+line-height: 30px;
+text-indent:10px;
+background-color: rgba(0, 0, 0, 0);
+}
+.hcxda:hover{
+    transition: 0.2s;
+    background-color: #7c0a2142;
+}
+.hsscan{
+    position: absolute;
+    width: 40px;
+    height: 26px;
+    top:2px;
+    right:2px;
+    color: #7c0a21;
+    font-size: 15;
+text-align: center;
+line-height: 26px;
+cursor: pointer;
+
+}
