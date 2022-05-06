@@ -1,3 +1,22 @@
+/*
+函数列表：
+accAdd accSub accMul accDiv
+toCode fromCode
+
+
+
+
+
+
+*/
+
+
+
+
+
+
+
+
 function jx(x){              //阶乘
     if (x==0){return 1 }
     var yscs=x
@@ -122,10 +141,11 @@ if(zuokuohao==youkuohao){
 }
 
 
-    function jiexiys(jiexishi,x,y,z,m,n,p,q,a,b,c,d,k){
+    function jiexiys(jiexishi,x,x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12){
       /*
 解析式计算函数
-jiexiys(解析式,x,y,z,m,n,p,q,a,b,c,d,k)
+jiexiys(解析式,x,x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12)   x到x12表示变量的值,用出现先后顺序赋值
+或 jiexiys(解析式,[x,x1,x2,x3,....,x100,x101,x102,.....])   用数组表示
 
 内置函数:sin,cos,tan,arcsin,arccos,arctan,sqrt,log,abs,ln,Gamma
 
@@ -152,8 +172,14 @@ jiexiys(解析式,x,y,z,m,n,p,q,a,b,c,d,k)
       var olhs=0.577215664901532860606512090082402431042159335  //γ
       var hjfg=0.61803398874989484820458683436563811  //φ
       var EmbreeTrefethen=0.70258  //β*
-
-
+var blmlb=[]
+var bllb=[]
+if((x instanceof Array)==true){
+  var blmlb=x
+}else{
+  blmlb.push(x);blmlb.push(x1);blmlb.push(x2);blmlb.push(x3);blmlb.push(x4);blmlb.push(x5);
+  blmlb.push(x6);blmlb.push(x7);blmlb.push(x8);blmlb.push(x9);blmlb.push(x10);blmlb.push(x11);blmlb.push(x12);
+}
 
 
 
@@ -173,12 +199,31 @@ for(var i=0;i<diaoyongzifuchuang.length;i++){
     }
 }
 //console.log(zuokuohao,youkuohao)
-if(zuokuohao==youkuohao){
-}else if(zuokuohao>youkuohao){
+if(zuokuohao==youkuohao){}else if(zuokuohao>youkuohao){    //检查括号
   return "err 少了"+String(zuokuohao-youkuohao)+"个“)”"
 }else if(zuokuohao<youkuohao){
   return "err 多了"+String(youkuohao-zuokuohao)+"个“)”"
 }
+var ygblqiw=-1
+for(var i=0;i<diaoyongzifuchuang.length;i++){          //获取变量名称
+  var gh=diaoyongzifuchuang.substring(i,i+1)
+  if(isInArray(abc,gh)==true){
+    if(isInArray(abc,diaoyongzifuchuang.substring(i-1,i))==false){
+      var ygblqiw=i
+    }
+    if(isInArray(abc,diaoyongzifuchuang.substring(i+1,i+2))==false){
+      if(diaoyongzifuchuang.substring(i+1,i+2)=="("){}else{
+        var ygblhiw=i+1
+        if(isInArray(bllb,diaoyongzifuchuang.substring(ygblqiw,ygblhiw))==false){
+          bllb.push(diaoyongzifuchuang.substring(ygblqiw,ygblhiw))
+        }
+      }
+    }
+  }
+}
+
+
+
 
 for(var gt=0;gt<zuokuohao+1;gt++){          //拆括号
   var qianmdkh=0
@@ -190,78 +235,48 @@ for(var gt=0;gt<zuokuohao+1;gt++){          //拆括号
     if(gh==")"){
       var tj=diaoyongzifuchuang.substring(qianmdkh+1,i)
       //console.log(tj)
-      var tj=tj.replace(new RegExp('pi', 'g'), String(Math.PI));  //替换变量
+      var tj=tj.replace(new RegExp('pi', 'g'), String(Math.PI));  //替换常数
       var tj=tj.replace(new RegExp('e', 'g'), String(Math.E));
       var tj=tj.replace(new RegExp('ol', 'g'), String(olhs));
       var tj=tj.replace(new RegExp('et', 'g'), String(EmbreeTrefethen));
       var tj=tj.replace(new RegExp('hj', 'g'), String(hjfg));
-      var tj=tj.replace(new RegExp('x', 'g'), String(x));
-      var tj=tj.replace(new RegExp('y', 'g'), String(y));
-      var tj=tj.replace(new RegExp('z', 'g'), String(z));
-      var tj=tj.replace(new RegExp('m', 'g'), String(m));
-      var tj=tj.replace(new RegExp('n', 'g'), String(n));
-      var tj=tj.replace(new RegExp('p', 'g'), String(p));
-      var tj=tj.replace(new RegExp('q', 'g'), String(q));
-      var tj=tj.replace(new RegExp('a', 'g'), String(a));
-      var tj=tj.replace(new RegExp('b', 'g'), String(b));
-      var tj=tj.replace(new RegExp('c', 'g'), String(c));
-      var tj=tj.replace(new RegExp('d', 'g'), String(d));
-      var tj=tj.replace(new RegExp('k', 'g'), String(k));
+     
+      for(var cccp=0;cccp<bllb.length;cccp++){                  //替换变量
+        var tj=tj.replace(new RegExp(bllb[cccp], 'g'), String(blmlb[cccp]));
+      }
       //console.log(tj)
-      var jg=String(zijisuan(tj))
+      var jg=String(zijisuan(tj))       //计算子解析式
       if(isInArray(abc,diaoyongzifuchuang.substring(qianmdkh-1,qianmdkh)) ==true){         //这是函数
           var zshs=true
           var hanshumc=diaoyongzifuchuang.substring(qianmdkh-2,qianmdkh)
           jg=Number(jg)
-          if(hanshumc=="ln"){   //ln
-              var jg=azln(jg)
-          }
-          if(hanshumc=="si"){   //sin
-            var jg=Math.sin(jg)
-          }
-          if(hanshumc=="co"){   //cos
-          var jg=Math.cos(jg)
-         }
-          if(hanshumc=="ta"){   //tan
-           var jg=Math.tan(jg)
-         }
-         if(hanshumc=="as"){   //arcsin
-          var jg=Math.asin(jg)
-         }
-         if(hanshumc=="as"){   //arccos
-          var jg=Math.acos(jg)
-         }
-         if(hanshumc=="as"){   //arctan
-          var jg=Math.atan(jg)
-         }
-         if(hanshumc=="lo"){   //log
-          var jg=Math.log(jg)
-         }
-         if(hanshumc=="sq"){   //根号
-          var jg=Math.sqrt(jg)
-         }
-         if(hanshumc=="ab"){   //abs
-          var jg=Math.abs(jg)
-         }
-         if(hanshumc=="gm"){   //伽马函数（阶乘）
-          var jg=gmu(jg)
-         }
+          if(hanshumc=="ln"){var jg=azln(jg)}
+          if(hanshumc=="lo"){var jg=Math.log(jg)} 
+          if(hanshumc=="si"){var jg=Math.sin(jg)} 
+          if(hanshumc=="co"){var jg=Math.cos(jg)} 
+          if(hanshumc=="ta"){var jg=Math.tan(jg)} 
+          if(hanshumc=="as"){var jg=Math.arcsin(jg)} 
+          if(hanshumc=="ac"){var jg=Math.arccos(jg)} 
+          if(hanshumc=="at"){var jg=Math.arctan(jg)} 
+          if(hanshumc=="ab"){var jg=Math.abs(jg)} 
+          if(hanshumc=="sq"){var jg=Math.sqrt(jg)} 
+          if(hanshumc=="gm"){var jg=gmu(jg)} 
 
          jg=String(jg)
       }
 
-      if(zshs==true){
+      if(zshs==true){               //替换计算的结果               (1+(3*5))  →  (1+15)
           var zshs=false
           diaoyongzifuchuang=diaoyongzifuchuang.substring(0,qianmdkh-2)+jg+diaoyongzifuchuang.substring(i+1,diaoyongzifuchuang.length)
       }else{
           diaoyongzifuchuang=diaoyongzifuchuang.substring(0,qianmdkh)+jg+diaoyongzifuchuang.substring(i+1,diaoyongzifuchuang.length)
       }
-      //console.log(diaoyongzifuchuang)
+      console.log(diaoyongzifuchuang)
       break
     }
 }
 }
-console.log(x,Number(diaoyongzifuchuang))
+//console.log(x,Number(diaoyongzifuchuang))
     return Number(diaoyongzifuchuang)
 
     }
@@ -334,14 +349,7 @@ for(var lj=0;lj<ysfh.length;lj++){
         //console.log(jo)
         return  Number(jo)
     }
-function liangzhuzhihcjs(jsshuzi1,jsshuzi2,gh){
-    if(gh=="^"){var jsjg=Math.pow(jsshuzi1, jsshuzi2)}
-    if(gh=="*"){var jsjg=accMul(jsshuzi1, jsshuzi2)}
-    if(gh=="/"){var jsjg=accDiv(jsshuzi1, jsshuzi2)}
-    if(gh=="+"){var jsjg=accAdd(jsshuzi1, jsshuzi2)}
-    if(gh=="-"){var jsjg=accSub(jsshuzi1, jsshuzi2)}
-    return jsjg
-}
+
     function isInArray(arr,value){                                //数组是否包含
         for(var i = 0; i < arr.length; i++){
             if(value === arr[i]){
@@ -401,8 +409,105 @@ var c=Math.pow(n,2*x-1)*Math.pow(Math.E,(-1*n*n))*dx
   return 2*ds
 }
 
+function jxs(jxs,xjihe){
+  var yuanshizhifuc=String(jxs).toLowerCase()
+  var diaoyongzifuchuang="az("+yuanshizhifuc+")"
+  var diaoyongzifuchuang=diaoyongzifuchuang.replace(new RegExp(' ', 'g'), '')
 
 
+  var abc=["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
+
+  var olhs=0.577215664901532860606512090082402431042159335  //γ
+  var hjfg=0.61803398874989484820458683436563811  //φ
+  var EmbreeTrefethen=0.70258  //β*
+  var hanshusl=1
+  var yddbllb=[]
+for(var h=0;h<diaoyongzifuchuang.length;h++){
+  var dqinyiwei=diaoyongzifuchuang.substring(h,h+1)
+  //console.log(dqinyiwei)
+  if(isInArray(abc,dqinyiwei)==true){
+    if(diaoyongzifuchuang.substring(h+1,h+2)=="("){
+      hanshusl++
+    }
+  }
+}
+for(var f=0;f<hanshusl;f++){
+  var bianliangqianzhi=0
+  for(var t=0;t<diaoyongzifuchuang.length;t++){
+    var dqinyiwei=diaoyongzifuchuang.substring(t,t+1)
+    if(isInArray(abc,dqinyiwei)==true){
+      if(isInArray(abc,diaoyongzifuchuang.substring(t-1,t))==false){
+        var bianliangqianzhi=t
+      }
+      if(diaoyongzifuchuang.substring(t+1,t+2)=="("){
+        var khcj=0
+        var jisnr=t+2
+    }else if(isInArray(abc,diaoyongzifuchuang.substring(t+1,t+2))==false){
+      var bianlhouzi=t+1
+      //console.log(bianliangqianzhi)
+      
+        var bianlmc=diaoyongzifuchuang.substring(bianliangqianzhi,bianlhouzi)
+        if(isInArray(yddbllb,bianlmc)==false){
+          yddbllb.push(bianlmc)     //获取变量
+        }
+        
+      
+    }
+  }
+  if(diaoyongzifuchuang.substring(t,t+1)=="("){
+    khcj++
+}
+  if(diaoyongzifuchuang.substring(t,t+1)==")"){
+    khcj--
+    if(khcj>0){
+    }else{
+  var nbzfc=diaoyongzifuchuang.substring(jisnr,t)
+  var nbzfc=nbzfc.replace(new RegExp('pi', 'g'), String(Math.PI));  //替换常数
+  var nbzfc=nbzfc.replace(new RegExp('e', 'g'), String(Math.E));
+  var nbzfc=nbzfc.replace(new RegExp('ol', 'g'), String(olhs));
+  var nbzfc=nbzfc.replace(new RegExp('et', 'g'), String(EmbreeTrefethen));
+  var nbzfc=nbzfc.replace(new RegExp('hj', 'g'), String(hjfg));
+  for(var n=0;n<yddbllb.length;n++){
+    //console.log(yddbllb,xjihe)
+    var nbzfc=nbzfc.replace(new RegExp(yddbllb[n], 'g'),String(xjihe[n]))
+  }
+  //console.log(nbzfc)
+  var jg=eval(nbzfc)
+  for(var g=jisnr-1;g>0;g--){
+    if(isInArray(abc, diaoyongzifuchuang.substring(g-1,g))==false){
+      var hanshumc=diaoyongzifuchuang.substring(g,jisnr-1)
+      break
+    }
+  }
+ // console.log(hanshumc)
+
+
+
+if(hanshumc=="ln"){var jg=azln(jg)}
+if(hanshumc=="sin"){var jg=Math.sin(jg)} 
+if(hanshumc=="cos"){var jg=Math.cos(jg)} 
+if(hanshumc=="tan"){var jg=Math.tan(jg)} 
+if(hanshumc=="arcsin"){var jg=Math.arcsin(jg)} 
+if(hanshumc=="arccos"){var jg=Math.arccos(jg)} 
+if(hanshumc=="arctan"){var jg=Math.arctan(jg)} 
+if(hanshumc=="abs"){var jg=Math.abs(jg)} 
+if(hanshumc=="sqrt"){var jg=Math.sqrt(jg)} 
+if(hanshumc=="gm"){var jg=gmu(jg)} 
+
+jg=String(jg)
+diaoyongzifuchuang=diaoyongzifuchuang.substring(0,g)+jg+diaoyongzifuchuang.substring(t+1,diaoyongzifuchuang.length)
+console.log(diaoyongzifuchuang)
+jisnr=false
+break
+    }
+}
+}
+}
+
+  return Number(diaoyongzifuchuang)
+
+}
+  
 
 
 
@@ -494,4 +599,70 @@ var c=Math.pow(n,2*x-1)*Math.pow(Math.E,(-1*n*n))*dx
           r2 = Number(arg2.toString().replace(".", ""));
           return (r1 / r2) * pow(10, t2 - t1);
         }
+      }
+      function toCode (str) {  //加密字符串
+        //定义密钥，36个字母和数字
+        var key = "~`!@#$%^&*()_+}{|?>:<,./;][-=。，‘“”’：";
+        var len = key.length;  
+        var a = key.split("");  
+        var s = "",b, b1, b2, b3;  
+        for (var i = 0; i <str.length; i ++) {  
+            b = str.charCodeAt(i);  
+            b1 = b % len;  
+            b = (b - b1) / len;  
+            b2 = b % len;  
+            b = (b - b2) / len;  
+            b3 = b % len;  
+            s += a[b3] + a[b2] + a[b1];  
+        }
+        return s;  
+    }
+    function fromCode (str) {                 //解密字符串
+        //定义密钥，36个字母和数字
+        var key = "~`!@#$%^&*()_+}{|?>:<,./;][-=。，‘“”’：";
+        var len = key.length;  
+        var b, b1, b2, b3, d = 0, s;  
+        s = new Array(Math.floor(str.length / 3));  
+        b = s.length;  
+        for (var i = 0; i < b; i ++) {  
+            b1 = key.indexOf(str.charAt(d));  
+            d ++;
+            b2 = key.indexOf(str.charAt(d));  
+            d ++;
+            b3 = key.indexOf(str.charAt(d));  
+            d ++;
+            s[i] = b1 * len * len + b2 * len + b3  
+        }
+        b = eval("String.fromCharCode(" + s.join(',') + ")");  
+        return b ;  
+    }
+    function zfc_to_sz(lb){             //字符串转数组
+      var lssz=[];
+      ////console.log(lb)
+      if(lb.indexOf("ن")>-1){
+          for(var tgh=0;tgh<lb.split("ن").length;tgh++) {
+              lssz.push(lb.split("ن")[tgh])
+          }
+      }else{
+          lssz.push(lb)
+  
+  }
+      return lssz
+  }
+  
+  
+  function sz_to_zfc(sz){            //数组转字符串
+      var lssz="";
+      for(var tgh=0;tgh<sz.length-1;tgh++) {
+         var lssz=lssz+sz[tgh]+"ن"
+      }
+      var lssz=lssz+sz[sz.length-1]
+  return lssz
+  }
+
+
+
+
+      function l(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z){
+        console.log(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z)
       }
