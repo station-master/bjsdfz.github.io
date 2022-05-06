@@ -164,6 +164,7 @@ function bianhau(){
     document.getElementById("xzhou").style.top=ydisY+"px"
     document.getElementById("hslbxs").style.left=xianshikuandu+50+"px"
     document.getElementById("daochufuyuan").style.left=xianshikuandu+50+"px"
+    document.getElementById("drdrdr").style.left=xianshikuandu+50+"px"
 
 }
 function zhudbianhua(){
