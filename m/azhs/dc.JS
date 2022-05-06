@@ -12,6 +12,17 @@ var hslb=[]
 var pxtonum=hxxianshi/xianshikuandu
 var numtopx=xianshikuandu/hxxianshi
 
+if(localStorage.getItem("az")==undefined){var azc=0}else{
+    var azc=localStorage.getItem("az")
+}
+function az(){
+
+    azc++
+    document.getElementById("azcs").innerHTML="已啊这"+azc+"次！"
+    document.getElementById("azcs").style.display="block"
+    setTimeout(function() {document.getElementById("azcs").style.display="none";},800);
+    localStorage.setItem("az",azc)
+}
 
 function draw(x1,y1) {                              //贝塞尔曲线绘制
     if(x1==undefined){
@@ -46,17 +57,17 @@ function draw(x1,y1) {                              //贝塞尔曲线绘制
 
 
 function hzqx(jxs,q,z){
-pxtonum=hxxianshi/xianshikuandu
-pxtonum=Number(pxtonum.toFixed(xrjqd/20))
-numtopx=xianshikuandu/hxxianshi
-numtopx=Number(numtopx.toFixed(xrjqd/20))
+pxtonum=accDiv(hxxianshi,xianshikuandu)
+//pxtonum=Number(pxtonum.toFixed(xrjqd/20))
+numtopx=accDiv(xianshikuandu,hxxianshi)
+//numtopx=Number(numtopx.toFixed(xrjqd/20))
 
 points = []
 var qh=1
 var isnone=true
-l(jxs,q,z)
-var dancizjia=(xianshikuandu/xrjqd)*pxtonum//每次增加
-var dancizjia=Number(dancizjia.toFixed(xrjqd/20))
+//l(jxs,q,z)
+//var dancizjia=//每次增加
+var dancizjia=accMul( accDiv(xianshikuandu,xrjqd),pxtonum)
 if(q==undefined||q==""){
     var xsqd=-1*ydisX*pxtonum //循环起点
 }else{
@@ -72,7 +83,7 @@ if(z==undefined||z==""){
 
 
 
-for(var jt=xsqd;jt<=xhzd+dancizjia;jt=jt+dancizjia){
+for(var jt=xsqd;jt<=xhzd+dancizjia;jt=accAdd(jt,dancizjia)){
     jt =Number( jt.toFixed(xrjqd/20))
 
     //console.log("az",jt)
@@ -152,6 +163,7 @@ function bianhau(){
     document.getElementById("yzhou").style.left=ydisX+"px"
     document.getElementById("xzhou").style.top=ydisY+"px"
     document.getElementById("hslbxs").style.left=xianshikuandu+50+"px"
+    document.getElementById("daochufuyuan").style.left=xianshikuandu+50+"px"
 
 }
 function zhudbianhua(){
@@ -189,12 +201,8 @@ function fsdcds(h){
     document.getElementById("gbftr").value=sbzbxx
     document.getElementById("oi9l").value=sbzbxy
 }
-function cjxhs(){
-    var jxs=document.getElementById("grdgr").value
-    var clorer=document.getElementById("wadwd").value
-    var zuixiao=document.getElementById("hs-sm").value
-    var zuida=document.getElementById("hs-zd").value
-    if(clorer==""){
+function cjxhs(jxs,clorer,zuixiao,zuida){
+    if(clorer==""||clorer==undefined){
         clorer="black"
     }
     hslb.push(jxs+"|"+clorer+"|"+zuixiao+"|"+zuida)
@@ -203,9 +211,20 @@ function cjxhs(){
 var hanshuhao=hslb.length-1
 if(zuixiao==""){var zuixiao="-∞"}
 if(zuida==""){var zuida="∞"}
-
+if((jxs+"&emsp;&emsp;"+zuixiao+","+zuida).length>18){
+    var g=(jxs+"  "+zuixiao+","+zuida).substring(0,18)+"..."
+}else{
+    var g=(jxs+"  "+zuixiao+","+zuida)
+}
     var y=document.getElementById("hslbxs").innerHTML
-    document.getElementById("hslbxs").innerHTML=y+"<div class='hcxda' style='color: "+clorer+";'  id='hs"+hanshuhao+"'>"+jxs+"&emsp;&emsp;"+zuixiao+","+zuida+"<div class='hsscan' onclick='delhs("+hanshuhao+")'>删除</div></div>"
+    document.getElementById("hslbxs").innerHTML=y+"<div class='hcxda' style='color: "+clorer+";'  id='hs"+hanshuhao+"'>"+g+"<div class='hsscan' onclick='delhs("+hanshuhao+")'>删除</div></div>"
+}
+function tianjiaxinhanshu(){
+    var jxs=document.getElementById("grdgr").value
+    var clorer=document.getElementById("wadwd").value
+    var zuixiao=document.getElementById("hs-sm").value
+    var zuida=document.getElementById("hs-zd").value
+    cjxhs(jxs,clorer,zuixiao,zuida)
 }
 function delhs(hsh){
     document.getElementById("hs"+hsh).remove()
@@ -218,7 +237,7 @@ function hssf(ev){
     }else     if(ev.wheelDelta>0){
         hxxianshi=hxxianshi-1
     }
-    if(hxxianshi<1){hxxianshi=0.5}
+    if(hxxianshi<1){hxxianshi=1}
     if(hxxianshi>1000){hxxianshi=1000}
     document.getElementById("fvfrv").value=hxxianshi
     huizhi()
@@ -229,4 +248,32 @@ function addEvent(obj,xEvent,fn) {
     }else{
       obj.addEventListener(xEvent,fn,false);
     }
+}
+function beif(){           //导出
+    var hs=sz_to_zfc(hslb)
+    document.getElementById("klkl").value=toCode(hs+"و³")
+}
+function huif(){           //恢复函数
+    var   f=document.getElementById("klkl").value
+    var hanshulb=fromCode (f).split("و³")[0]
+    var hanshulb=zfc_to_sz(hanshulb)
+    l(hanshulb)
+    hslb=[]
+    document.getElementById("hslbxs").innerHTML=""
+    for(var d=0;d<hanshulb.length;d++){
+       if(hanshulb[d]==""){}else{
+        hslb.push(hanshulb[d])
+        var jxs=hanshulb[d].split("|")[0]
+        var clorer=hanshulb[d].split("|")[1]
+        var zuixiao=hanshulb[d].split("|")[2]
+        var zuida=hanshulb[d].split("|")[3]
+        if(zuixiao==""){var zuixiao="-∞"}
+        if(zuida==""){var zuida="∞"}
+        var y=document.getElementById("hslbxs").innerHTML
+        document.getElementById("hslbxs").innerHTML=y+"<div class='hcxda' style='color: "+clorer+";'  id='hs"+d+"'>"+jxs+"&emsp;&emsp;"+zuixiao+","+zuida+"<div class='hsscan' onclick='delhs("+d+")'>删除</div></div>"
+
+       }
+    }
+    huizhi()
+
 }
