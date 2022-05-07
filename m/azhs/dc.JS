@@ -1,3 +1,10 @@
+/*
+更新日志
+[增加]:更新日志   啊这翻译（测试）
+[修复]:
+[更改]:
+[移除]:
+*/
 var xrjqd=100           //分成几份
 var xsx=400     //坐标系显示位置 x
 var xsy=400     //坐标系显示位置 y
@@ -165,6 +172,7 @@ function bianhau(){
     document.getElementById("hslbxs").style.left=xianshikuandu+50+"px"
     document.getElementById("daochufuyuan").style.left=xianshikuandu+50+"px"
     document.getElementById("drdrdr").style.left=xianshikuandu+50+"px"
+    document.getElementById("dctgxfrju").style.left=xianshikuandu+390+"px"
 
 }
 function zhudbianhua(){
@@ -277,4 +285,14 @@ function huif(){           //恢复函数
     }
     huizhi()
 
+}
+function azfy(ms){
+    var y=document.getElementById("uoppp").value
+    var jg=""
+    if(ms=="zyy"){
+        var jg=az_cn_en(y)
+    }else if(ms=="yyz"){
+        var jg=az_en_cn(y)
+    }
+    document.getElementById("fyjg").value=jg
 }
