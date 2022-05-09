@@ -1,8 +1,8 @@
 /*
 更新日志
-[增加]:更新日志   啊这翻译（测试）
+[增加]:啊这翻译的拼音功能 MD5计算 啊这计算器 啊这定积分计算器 啊这导数运算
 [修复]:
-[更改]:
+[更改]:页面布局 将多个功能放到一起 滚动条的样式 调小了函数列表中函数显示的字体大小
 [移除]:
 */
 var xrjqd=100           //分成几份
@@ -170,9 +170,8 @@ function bianhau(){
     document.getElementById("yzhou").style.left=ydisX+"px"
     document.getElementById("xzhou").style.top=ydisY+"px"
     document.getElementById("hslbxs").style.left=xianshikuandu+50+"px"
-    document.getElementById("daochufuyuan").style.left=xianshikuandu+50+"px"
     document.getElementById("drdrdr").style.left=xianshikuandu+50+"px"
-    document.getElementById("dctgxfrju").style.left=xianshikuandu+390+"px"
+    //document.getElementById("dctgxfrju").style.left=xianshikuandu+390+"px"
 
 }
 function zhudbianhua(){
@@ -287,12 +286,44 @@ function huif(){           //恢复函数
 
 }
 function azfy(ms){
-    var y=document.getElementById("uoppp").value
     var jg=""
-    if(ms=="zyy"){
-        var jg=az_cn_en(y)
-    }else if(ms=="yyz"){
-        var jg=az_en_cn(y)
+    if(ms=="zyy"){var y=document.getElementById("uoppp").value
+        document.getElementById("fyjg").value=az_cn_en(y)}
+    if(ms=="yyz"){var y=document.getElementById("uoppp").value
+        document.getElementById("fyjg").value=az_en_cn(y)}
+    if(ms=="md5"){var y=document.getElementById("bgfgbbgfbgf").value
+        document.getElementById("hbftggfhbfgbh").value=md5(y)}
+    if(ms=="js"){var y=document.getElementById("cddddcdcdcdc").value
+        document.getElementById("cdshhjshjdcshjchj").value=jiexiys(y)}
+    if(ms=="djf"){
+        var x=document.getElementById("xeeeeee").value
+var s=document.getElementById("seeeeee").value
+var jxs=document.getElementById("jxseeeeee").value
+//var jxs=jxs.replace(new RegExp('dx', 'g'), 'y');
+var dx=document.getElementById("dxeeeeee").value
+var g=0
+for(var h=Number(x);h<=Number(s);h=accAdd(h, dx)){
+    var hy=[h,Number(dx)]
+    var po=jiexiys(jxs,hy)
+    //l(jxs,h,Number(dx),po,g)
+    if(String(po)=="NaN"){}else{
+        var g=accAdd(g, po)
     }
-    document.getElementById("fyjg").value=jg
+}
+document.getElementById("wegyecsdbhnuieshn").value= g
+    }
+    if(ms=="azqd"){var y=document.getElementById("gergrggrgrvrdf").value
+        document.getElementById("hnrcisbnhfcirufghbvisdr").value=qd_fqd(y,"qd")}
+        if(ms=="azfqd"){var y=document.getElementById("gergrggrgrvrdf").value
+        document.getElementById("hnrcisbnhfcirufghbvisdr").value=qd_fqd(y,"fqd")}
+}
+function gnqh(){
+    var gn=6
+    var gnqh=document.getElementById("gnxz").value
+    document.getElementById(gnqh).style.display="block"
+    for(var c=1;c<=gn;c++){
+        if("gn"+c==gnqh){}else{
+            document.getElementById("gn"+c).style.display="none"
+        }
+    }
 }

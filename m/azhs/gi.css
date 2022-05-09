@@ -1,10 +1,42 @@
+:root {
+    --bjsdfz: #7c0a21;
+  }
+  
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    width: 6px;
+    background: rgba(#101F1C, 0.1);
+    -webkit-border-radius: 2em;
+    -moz-border-radius: 2em;
+    border-radius: 2em;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: rgba(144,147,153,.5);
+    background-clip: padding-box;
+    min-height: 28px;
+    -webkit-border-radius: 2em;
+    -moz-border-radius: 2em;
+    border-radius: 2em;
+    transition: background-color .3s;
+    cursor: pointer;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(144,147,153,.3);
+  }
+  
 #zbx{
-    position: fixed;
+    position: absolute;
     width: 800px;
     height: 800px;
     left: 20px;
     top: 100px;
-    box-shadow:0 0 30px #7c0a21;
+    box-shadow:0 0 30px var(--bjsdfz);
     overflow: hidden;
     border-radius: 10px;
 }
@@ -29,7 +61,7 @@ height: 2px;
 background-color: black;
 }
 #edafs{
-    position: fixed;
+    position: absolute;
 width: 1000px;
 left: 20px;
 top:10px;
@@ -39,41 +71,32 @@ height: 80px;
     position: absolute;
 }
 #az{
-    position: fixed;
+    position: absolute;
 width: 1000px;
 left: 1020px;
 top:10px;
 height: 80px;
-color: #7c0a21;
+color: var(--bjsdfz);
 font-size: 50;
 font-weight:bolder
-}
-#hslbxs{
-    position: fixed;
-width: 300px;
-left: 1050px;
-top:100px;
-height: 450px;
-box-shadow:0 0 30px #7c0a21;
-overflow: auto;
-border-radius: 10px;
 }
 .hcxda{
     transition: 0.2s;
     position: relative;
     width: 300px;
     height: 30px;
-    color: #7c0a21;
+    color: var(--bjsdfz);
     font-size: 20;
 text-align: left;
 line-height: 30px;
 text-indent:10px;
 background-color: rgba(0, 0, 0, 0);
 overflow: auto;
+font-size: 14;
 }
 .hcxda:hover{
     transition: 0.2s;
-    background-color: #7c0a2142;
+    background-color: var(--bjsdfz);
 }
 .hsscan{
     position: absolute;
@@ -81,26 +104,16 @@ overflow: auto;
     height: 26px;
     top:2px;
     right:2px;
-    color: #7c0a21;
+    color: var(--bjsdfz);
     font-size: 15;
 text-align: center;
 line-height: 26px;
 cursor: pointer;
-
-}
-#daochufuyuan{
-    position: fixed;
-width: 300px;
-left: 1050px;
-top:600px;
-height: 100px;
-box-shadow:0 0 30px #7c0a21;
-overflow: auto;
-border-radius: 10px;
+font-size: 10;
 }
 .red-kuang{
-    position: fixed;
-    box-shadow:0 0 30px #7c0a21;
+    position: absolute;
+    box-shadow:0 0 30px var(--bjsdfz);
     overflow: auto;
     border-radius: 10px;
 }
@@ -115,16 +128,16 @@ border-radius: 10px;
     width: 200px;
     height: 50px;
     border-radius: 40px;
-    border: 2px solid #7c0a21;
+    border: 2px solid var(--bjsdfz);
     text-align: center;
     line-height: 50px;
-    color: #7c0a21;
+    color: var(--bjsdfz);
     cursor: pointer;
     font-size: 17;
 }
 #fuck:hover{
     transition: 0.3s;
-    background-color: #7c0a21;
+    background-color: var(--bjsdfz);
     color: white;
 }
 #fuck:active{
@@ -139,12 +152,11 @@ border-radius: 10px;
     margin: auto;
     left: 0px;
     right: 0px;
-    top:110px;
-
+    top:75px;
     width: 200px;
-    height: 30px;
+    height: 25px;
     text-align: center;
-    line-height: 30px;
-    color: #7c0a21;
+    line-height: 25px;
+    color: var(--bjsdfz);
     font-size: 10;
 }
