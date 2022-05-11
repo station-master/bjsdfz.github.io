@@ -1,8 +1,7 @@
-<html>
 	<head>
 		<link rel="shortcut  icon" href="" type="image/x-icon" />
 		<meta charset="utf-8">
-		<title>啊这函数&emsp;v4</title>
+		<title>啊这函数&emsp;v6</title>
         <style type="text/css">@import"gi.css";</style>
         <style type="text/css" >
             
@@ -28,49 +27,83 @@ bianhau()
 
             }
 
-            function zbxyd(){
-                var cs=1
+            function zbxyd(azm){
+                l("开始移动",azm)
+                var ydzbxcs=1
                 var disX
                 var disY
                 xsy=(document.getElementById("xzhou").style.top).split("px")[0]     //坐标系显示位置 x
                 xsx=(document.getElementById("yzhou").style.left).split("px")[0]     //坐标系显示位置 y
-                //console.log(xsx,xsy)
-                var fede=0
-                var fede2=0
+                window.ontouchmove=function(h){
+                    fsdcds(h,'t')
+                    if(ydzbxcs==1){
+            ydzbxcs=0
+            disX=h.touches[0].clientX-xsx
+            disY=h.touches[0].clientY-xsy
+            //l(cpmsgbcs,cpmsgb,"1t")
+            if(cpmsgbcs==0){
+                cpmsgb="t"
+                cpmsgbcs=1
+            }
+        }else{
+            var x = h.touches[0].clientX-disX
+            var y = h.touches[0].clientY-disY
+            ydisX=x
+            ydisY=y
+                //l(cpmsgbcs,cpmsgb,"yt")
+                if(cpmsgb=="t"){
+                    //l("触碰改坐标")
+                    bianhau()
+                    document.getElementById("yzhou").style.left=x+"px"
+                    document.getElementById("xzhou").style.top=y+"px"
+                }
+        }
+                }
                 window.onmousemove=function(h){
-                    fsdcds(h)
-                    fede++
-                    fede2+++10
-        if(cs==1){
-            cs=0
+                    fsdcds(h,'m')
+        if(ydzbxcs==1){
+            ydzbxcs=0
             disX=h.clientX-xsx
             disY=h.clientY-xsy
-            
+            //l(cpmsgbcs,cpmsgb)
+            if(cpmsgbcs==0){
+                cpmsgb="m"
+                cpmsgbcs=1
+            }
         }else{
             var x = h.clientX-disX
             var y = h.clientY-disY
             ydisX=x
             ydisY=y
-
-            if(fede==fede2){
-                bianhau()
-                //huizhi()
-            }
-
-           // console.log(ydisX,ydisY)
-            document.getElementById("yzhou").style.left=x+"px"
-            document.getElementById("xzhou").style.top=y+"px"
+                //l(cpmsgbcs,cpmsgb,"ym")
+                if(cpmsgb=="m"){
+                    //l("鼠标改坐标")
+                    bianhau()
+                    document.getElementById("yzhou").style.left=x+"px"
+                    document.getElementById("xzhou").style.top=y+"px"
+                }
         }
     }
-    window.onmouseup = function() {
-        bianhau()
+    window.onmouseup = function(m) {
+        //l("m",cpmsgb)                
+        if(cpmsgb=="m"){
+            bianhau()
         huizhi()
-    window.onmousemove = function(h){fsdcds(h)};
+        }
+        window.onmousemove = function(h){fsdcds(h,'m')};
+ }
+ window.ontouchend = function() {
+    //l("t",cpmsgb)
+    if(cpmsgb=="t"){
+        bianhau()
+    huizhi()
+}
+window.ontouchmove = function(h){fsdcds(h,'t')};
  }
             }
         </script>
         </head>
-        <body>
+        <body style="touch-action: none;">
             <div id="azhshb" style="position: fixed;left:0px;top:0px;width: 100%;height: 100%;">
                 <div id="edafs">
                     <div class="vfr" style="top:0px;left:0px; width: 40px; height: 20px;">缩放:</div> 
@@ -78,7 +111,7 @@ bianhau()
                     <div class="vfr" style="top:25px;left:0px; width: 85px; height: 20px;">绘制精度:</div> 
                     <input id="gdrft" class="vfr" style="top:25px;left:85px; width: 60px; height: 20px;" value="100" onchange="zhudbianhua()"/>
                     <div class="vfr" style="top:0px;left:150px; width: 100px; height: 20px;">坐标系位置x:</div> 
-                    <input id="decsx" class="vfr" style="top:0px;left:245px; width: 45px; height: 20px;" value="400" onchange="zhudbianhua()"/>
+                    <input id="decsx" class="vfr" style="top:0px;left:245px; width: 45px; height: 20px;" value="300" onchange="zhudbianhua()"/>
                     <div class="vfr" style="top:25px;left:150px; width: 100px; height: 20px;">坐标系位置y:</div> 
                     <input id="decsy" class="vfr" style="top:25px;left:245px; width: 45px; height: 20px;" value="400" onchange="zhudbianhua()"/>
                     <div class="vfr" style="top:0px;left:300px; width: 100px; height: 20px;">显示宽度:</div> 
@@ -100,8 +133,8 @@ bianhau()
                     <input id="hs-zd" class="vfr" style="top:50px;left:810px; width: 60px; height: 20px;" value="" placeholder="(默认∞)"/>
                     <input id="" class="vfr" type="button" style="top:25px;left:730px; width: 60px; height: 20px;" value="绘制" onclick="tianjiaxinhanshu()" />
                 </div>
-                <div id="zbx" onmousedown="zbxyd()">
-          <div id="yzhou" style="left: 400px;"></div>
+                <div id="zbx" onmousedown="zbxyd('m')" ontouchstart="zbxyd('t')" touchstart="zbxyd('on on t')">
+          <div id="yzhou" style="left: 300px;"></div>
           <div id="xzhou" style="top: 400px;"></div>
           <canvas id="divdis"></canvas>
         </div>

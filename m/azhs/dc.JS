@@ -1,23 +1,29 @@
 /*
+az v6
 更新日志
-[增加]:啊这翻译的拼音功能 MD5计算 啊这计算器 啊这定积分计算器 啊这导数运算
-[修复]:
-[更改]:页面布局 将多个功能放到一起 滚动条的样式 调小了函数列表中函数显示的字体大小
+[增加]:触屏拖动坐标系 更新日志中的版本号
+[修复]:手动调整坐标系宽度时功能选择栏不能对齐 v5但是显示v4
+[更改]:默认的坐标系宽度改为600px 默认的坐标系位置x改为300
 [移除]:
 */
 var xrjqd=100           //分成几份
-var xsx=400     //坐标系显示位置 x
+var xsx=300     //坐标系显示位置 x
 var xsy=400     //坐标系显示位置 y
 var hxxianshi=20     //横向显示多少
-var xianshikuandu=1000    //坐标系显示宽度
+var xianshikuandu=600    //坐标系显示宽度
 var xianshigaodu=800    //坐标系显示高度
-var ydisX=400
+var ydisX=300
 var ydisY=400
 var points = []
 var hbck
 var hslb=[]
 var pxtonum=hxxianshi/xianshikuandu
 var numtopx=xianshikuandu/hxxianshi
+
+var cpmsgb="m"
+var cpmsgbcs=0
+
+
 
 if(localStorage.getItem("az")==undefined){var azc=0}else{
     var azc=localStorage.getItem("az")
@@ -171,7 +177,8 @@ function bianhau(){
     document.getElementById("xzhou").style.top=ydisY+"px"
     document.getElementById("hslbxs").style.left=xianshikuandu+50+"px"
     document.getElementById("drdrdr").style.left=xianshikuandu+50+"px"
-    //document.getElementById("dctgxfrju").style.left=xianshikuandu+390+"px"
+    document.getElementById("qtgn").style.left=xianshikuandu+50+"px"
+    document.getElementById("gnxz").style.left=xianshikuandu+50+"px"
 
 }
 function zhudbianhua(){
@@ -198,11 +205,18 @@ for(var jr=0;jr<hslb.length;jr++){
     }
 }
 }
-window.onmousemove=function(h){fsdcds(h)}
-function fsdcds(h){
-    //console.log("az")
-    var sbzbxx=(h.clientX-20)-ydisX
-    var sbzbxy=ydisY-(h.clientY-100)
+window.onmousemove=function(h){fsdcds(h,'m')}
+window.ontouchmove=function(h){fsdcds(h,'t')}
+function fsdcds(h,m){
+    //console.log(h.clientX,)
+    if(m=="m"){
+        var sbzbxx=(h.clientX-20)-ydisX
+        var sbzbxy=ydisY-(h.clientY-100)
+    }else     if(m=="t"){
+        var sbzbxx=(h.touches[0].clientX-20)-ydisX
+        var sbzbxy=ydisY-(h.touches[0].clientY-100)
+    }
+
     var pxtonum=accDiv(hxxianshi, xianshikuandu)
     var sbzbxx=accMul(sbzbxx,pxtonum).toFixed(3)
     var sbzbxy=accMul(sbzbxy,pxtonum).toFixed(3)
