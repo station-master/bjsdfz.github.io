@@ -34,6 +34,7 @@ sz_to_zfc(sz)       数组转字符串  返回字符串
 md5(string)        MD5运算#
 l(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z)   console.log()
 qd_fqd(jxs,mod)      对于最简整式的求导和反向求导 (测试)
+lglrcz(src)      拉格朗日插值 输入经过的点坐标 例:"(1,1);(2,3);(4,5)"
 
 
 
@@ -258,14 +259,15 @@ for(var gt=0;gt<zuokuohao+1;gt++){          //拆括号
       var jg=String(zijisuan(tj))       //计算子解析式
       function zijisuan(ho){    //计算字符串
         var jo=ho
-        var ysfh=["^","*","/","+","_"]      //运算顺序
+        var ysfh=[["^"],["*","/"],["+","_"]]      //运算顺序
+        var ysfh2=["^","*","/","+","_"]
         var jsshuzi1=0
         var jsshuzi2=0
 
         var jiscs=0
 for(var i=0;i<jo.length;i++){ //获取运算次数
     var gh=jo.substring(i,i+1)
-    if(isInArray(ysfh,gh)==true){  //运算符号
+    if(isInArray(ysfh2,gh)==true){  //运算符号
         jiscs++
     }
 }
@@ -278,7 +280,7 @@ for(var lj=0;lj<ysfh.length;lj++){
     for(var i=0;i<jo.length;i++){
         var gh=jo.substring(i,i+1)    //获取运算符
 
-        if(gh==ysfh[lj]){  //运算
+        if(isInArray(ysfh[lj],gh)==true){  //运算
         //console.log( gh)
             for(var t=1;t<1000;t++){       //获取运算数字1
                 var de=jo.substring(i-t,i-t+1)
@@ -541,7 +543,33 @@ for(var jr=0;jr<g.length;jr++){
 }
 return sc
 }
+function lglrcz(src){    //拉格朗日插值 输入经过的点坐标 例:(1,1);(2,3);(4,5)...
+  var x=[]
+  var y=[]
+  for(var g=0;g<src.split(";").length;g++){
+    var x1=src.split(";")[g].split(",")[0].split("(")[1]
+    var y1=src.split(";")[g].split(",")[1].split(")")[0]
+    x.push(jiexiys( x1))
+    y.push(jiexiys( y1))
+  }
+  //l(x,y)
+  var zsc=""
+  for(var dijg=0;dijg<src.split(";").length;dijg++){
+    var c=""
+    var cms=1
+    for(var d=0;d<src.split(";").length;d++){
+      if(d==dijg){}else{
 
+  var c=c+"(x_"+x[d]+")*"
+  var cms=cms*(x[dijg]-x[d])
+      }
+    }
+    var c=c.substring(0,c.length-1)
+    zsc=zsc+y[dijg]+"*("+c+"/"+cms+")+"
+  }
+  var zsc=zsc.substring(0,zsc.length-1)
+  return zsc
+}
 
 
 
@@ -869,3 +897,27 @@ return sc
       function l(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z){  //console.log()
         console.log(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z)
       }
+
+
+
+
+
+
+
+
+
+
+
+
+      function px(blclb){
+      return blclb.sort(function(a,b){
+        return a-b
+    })
+    }
+    function pjs(c,cd){
+      var y=0
+      for(var d=0;d<c.length;d++){
+       y=y+jiexiys(c[d])
+      }
+      return y/cd
+    }
