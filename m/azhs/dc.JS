@@ -1,10 +1,10 @@
 /*
-az v6
+az v7
 更新日志
-[增加]:触屏拖动坐标系 更新日志中的版本号
-[修复]:手动调整坐标系宽度时功能选择栏不能对齐 v5但是显示v4
-[更改]:默认的坐标系宽度改为600px 默认的坐标系位置x改为300
-[移除]:
+[增加]:啊这拉格朗日插值 在坐标系内部添加了"推荐使用啊这函数画板"、"http://bjsdfz.net/m/azhs/"字样 有了图标
+[修复]:减法的优先级小于加法 除法的优先级小于乘法
+[更改]:定积分、函数取值范围 的输入改为可接受表达式
+[移除]:移除了him 移除了"啊这函数画板"字样
 */
 var xrjqd=100           //分成几份
 var xsx=300     //坐标系显示位置 x
@@ -97,7 +97,7 @@ if(z==undefined||z==""){
 
 
 for(var jt=xsqd;jt<=xhzd+dancizjia;jt=accAdd(jt,dancizjia)){
-    jt =Number( jt.toFixed(xrjqd/20))
+    //jt =Number( jt.toFixed(xrjqd/20))
 
     //console.log("az",jt)
 if(jt>0){
@@ -227,6 +227,8 @@ function cjxhs(jxs,clorer,zuixiao,zuida){
     if(clorer==""||clorer==undefined){
         clorer="black"
     }
+    if(zuixiao==""){}else{var zuixiao=jiexiys(zuixiao)}
+if(zuida==""){}else{var zuida=jiexiys(zuida)}
     hslb.push(jxs+"|"+clorer+"|"+zuixiao+"|"+zuida)
     huizhi()
 
@@ -310,11 +312,11 @@ function azfy(ms){
     if(ms=="js"){var y=document.getElementById("cddddcdcdcdc").value
         document.getElementById("cdshhjshjdcshjchj").value=jiexiys(y)}
     if(ms=="djf"){
-        var x=document.getElementById("xeeeeee").value
-var s=document.getElementById("seeeeee").value
-var jxs=document.getElementById("jxseeeeee").value
+        var x=jiexiys(document.getElementById("xeeeeee").value)
+var s=jiexiys( document.getElementById("seeeeee").value)
+var jxs=jiexiys(document.getElementById("jxseeeeee").value)
 //var jxs=jxs.replace(new RegExp('dx', 'g'), 'y');
-var dx=document.getElementById("dxeeeeee").value
+var dx=jiexiys(document.getElementById("dxeeeeee").value)
 var g=0
 for(var h=Number(x);h<=Number(s);h=accAdd(h, dx)){
     var hy=[h,Number(dx)]
@@ -330,9 +332,11 @@ document.getElementById("wegyecsdbhnuieshn").value= g
         document.getElementById("hnrcisbnhfcirufghbvisdr").value=qd_fqd(y,"qd")}
         if(ms=="azfqd"){var y=document.getElementById("gergrggrgrvrdf").value
         document.getElementById("hnrcisbnhfcirufghbvisdr").value=qd_fqd(y,"fqd")}
+        if(ms=="lglr"){var y=document.getElementById("hyyjukuik").value
+        document.getElementById("vfbghnhjnm").value=lglrcz(y)}
 }
 function gnqh(){
-    var gn=6
+    var gn=7
     var gnqh=document.getElementById("gnxz").value
     document.getElementById(gnqh).style.display="block"
     for(var c=1;c<=gn;c++){

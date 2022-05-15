@@ -70,14 +70,14 @@ height: 80px;
 .vfr{
     position: absolute;
 }
-#az{
+.az{
     position: absolute;
 width: 1000px;
-left: 1020px;
+left: 10px;
 top:10px;
 height: 80px;
 color: var(--bjsdfz);
-font-size: 50;
+font-size: 30;
 font-weight:bolder
 }
 .hcxda{
