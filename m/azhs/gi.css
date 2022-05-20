@@ -1,5 +1,6 @@
 :root {
     --bjsdfz: #7c0a21;
+    --bjsdfz-a:#7c0a2180;
   }
   
 ::-webkit-scrollbar {
@@ -23,7 +24,7 @@
     -moz-border-radius: 2em;
     border-radius: 2em;
     transition: background-color .3s;
-    cursor: pointer;
+    cursor: none;
   }
   
   ::-webkit-scrollbar-thumb:hover {
@@ -69,6 +70,7 @@ height: 80px;
 }
 .vfr{
     position: absolute;
+    cursor: none;
 }
 .az{
     position: absolute;
@@ -85,7 +87,7 @@ font-weight:bolder
     position: relative;
     width: 300px;
     height: 30px;
-    color: var(--bjsdfz);
+    color: var(--bjsdfz-a);
     font-size: 20;
 text-align: left;
 line-height: 30px;
@@ -108,7 +110,7 @@ font-size: 14;
     font-size: 15;
 text-align: center;
 line-height: 26px;
-cursor: pointer;
+cursor: none;
 font-size: 10;
 }
 .red-kuang{
@@ -132,7 +134,7 @@ font-size: 10;
     text-align: center;
     line-height: 50px;
     color: var(--bjsdfz);
-    cursor: pointer;
+    cursor: none;
     font-size: 17;
 }
 #fuck:hover{
@@ -159,4 +161,17 @@ font-size: 10;
     line-height: 25px;
     color: var(--bjsdfz);
     font-size: 10;
+}
+#xnsb{
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 0px 10px 10px 10px;
+    border: 3.3px solid var(--bjsdfz);
+    background-color: rgba(0, 0, 0, 0);
+    z-index: 114514;
+    user-select:none;
+}
+#xnsb:active{
+    background-color: var(--bjsdfz);
 }

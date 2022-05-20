@@ -1,10 +1,10 @@
 /*
-az v7
+az v8
 更新日志
-[增加]:啊这拉格朗日插值 在坐标系内部添加了"推荐使用啊这函数画板"、"http://bjsdfz.net/m/azhs/"字样 有了图标
-[修复]:减法的优先级小于加法 除法的优先级小于乘法
-[更改]:定积分、函数取值范围 的输入改为可接受表达式
-[移除]:移除了him 移除了"啊这函数画板"字样
+[增加]:虚拟鼠标(隐藏了原有的鼠标)
+[修复]:
+[更改]:对核心代码做了加密
+[移除]:移除了him
 */
 var xrjqd=100           //分成几份
 var xsx=300     //坐标系显示位置 x
@@ -22,8 +22,115 @@ var numtopx=xianshikuandu/hxxianshi
 
 var cpmsgb="m"
 var cpmsgbcs=0
+var ysd="公告：对核心代码做了加密。";
+var xnsbdx="10px"
+function windowonload(){
+    document.getElementById('xnsb').style.width=xnsbdx
+    document.getElementById('xnsb').style.height=xnsbdx
+    document.getElementById('xnsb').style.borderRadius="0px "+xnsbdx+" "+xnsbdx+" "+xnsbdx
+    document.getElementById('xnsb').style.border=String(Number(xnsbdx.split("px")[0])/3) +"px solid var(--bjsdfz)"
+    window.onmousedown = function(){xnsbaxqh("x")};
+    window.onmouseup = function(){xnsbaxqh("s")};
+    window.ontouchstart = function(){xnsbaxqh("x")};
+    window.ontouchend = function(){xnsbaxqh("s")};
 
+    alert(ysd)
+}
 
+window.onload=function(){
+windowonload()
+    var oDiv = document.getElementById('zbx');
+    addEvent(oDiv,'mousewheel',hssf);
+    addEvent(oDiv,'DOMMouseScroll',hssf);
+    
+                  var hy=document.getElementById("divdis");
+                  
+  hbck=hy.getContext("2d");
+  hbck.fillStyle="#FF0000"
+  hbck.lineWidth=2
+  
+  bianhau()
+      huizhi()
+  
+              }
+  
+              function zbxyd(azm){
+                  l("开始移动",azm)
+                  var ydzbxcs=1
+                  var disX
+                  var disY
+                  xsy=(document.getElementById("xzhou").style.top).split("px")[0]     //坐标系显示位置 x
+                  xsx=(document.getElementById("yzhou").style.left).split("px")[0]     //坐标系显示位置 y
+                  xnsbaxqh("x")
+                  window.ontouchmove=function(h){
+                      fsdcds(h,'t')
+                      if(ydzbxcs==1){
+              ydzbxcs=0
+              disX=h.touches[0].clientX-xsx
+              disY=h.touches[0].clientY-xsy
+              //l(cpmsgbcs,cpmsgb,"1t")
+              if(cpmsgbcs==0){
+                  cpmsgb="t"
+                  cpmsgbcs=1
+              }
+          }else{
+              var x = h.touches[0].clientX-disX
+              var y = h.touches[0].clientY-disY
+              ydisX=x
+              ydisY=y
+                  //l(cpmsgbcs,cpmsgb,"yt")
+                  if(cpmsgb=="t"){
+                      //l("触碰改坐标")
+                      bianhau()
+                      document.getElementById("yzhou").style.left=x+"px"
+                      document.getElementById("xzhou").style.top=y+"px"
+                  }
+          }
+                  }
+                  window.onmousemove=function(h){
+                      fsdcds(h,'m')
+          if(ydzbxcs==1){
+              ydzbxcs=0
+              disX=h.clientX-xsx
+              disY=h.clientY-xsy
+              //l(cpmsgbcs,cpmsgb)
+              if(cpmsgbcs==0){
+                  cpmsgb="m"
+                  cpmsgbcs=1
+              }
+          }else{
+              var x = h.clientX-disX
+              var y = h.clientY-disY
+              ydisX=x
+              ydisY=y
+                  //l(cpmsgbcs,cpmsgb,"ym")
+                  if(cpmsgb=="m"){
+                      //l("鼠标改坐标")
+                      bianhau()
+                      document.getElementById("yzhou").style.left=x+"px"
+                      document.getElementById("xzhou").style.top=y+"px"
+                  }
+          }
+      }
+      window.onmouseup = function(m) {
+        xnsbaxqh("s")
+          //l("m",cpmsgb)                
+          if(cpmsgb=="m"){
+              bianhau()
+          huizhi()
+          }
+          window.onmousemove = function(h){fsdcds(h,'m')};
+   }
+   window.ontouchend = function() {
+    xnsbaxqh("s")
+      //l("t",cpmsgb)
+      if(cpmsgb=="t"){
+          bianhau()
+      huizhi()
+  }
+  window.ontouchmove = function(h){fsdcds(h,'t')};
+   }
+              }
 
 if(localStorage.getItem("az")==undefined){var azc=0}else{
     var azc=localStorage.getItem("az")
@@ -36,7 +143,14 @@ function az(){
     setTimeout(function() {document.getElementById("azcs").style.display="none";},800);
     localStorage.setItem("az",azc)
 }
-
+function xnsbaxqh(m){
+    if(m=="x"){
+        document.getElementById('xnsb').style.backgroundColor= "var(--bjsdfz)"
+    }
+    if(m=="s"){
+        document.getElementById('xnsb').style.backgroundColor= "rgba(0, 0, 0, 0)"
+    }
+}
 function draw(x1,y1) {                              //贝塞尔曲线绘制
     if(x1==undefined){
         var mousex=sbx
@@ -212,9 +326,13 @@ function fsdcds(h,m){
     if(m=="m"){
         var sbzbxx=(h.clientX-20)-ydisX
         var sbzbxy=ydisY-(h.clientY-100)
+        document.getElementById('xnsb').style.top=h.clientY+1+"px"
+        document.getElementById('xnsb').style.left=h.clientX+1+"px"
     }else     if(m=="t"){
         var sbzbxx=(h.touches[0].clientX-20)-ydisX
         var sbzbxy=ydisY-(h.touches[0].clientY-100)
+        document.getElementById('xnsb').style.top=h.touches[0].clientY+1+"px"
+        document.getElementById('xnsb').style.left=h.touches[0].clientX+1+"px"
     }
 
     var pxtonum=accDiv(hxxianshi, xianshikuandu)

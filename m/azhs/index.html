@@ -1,110 +1,20 @@
 	<head>
 		<link rel="shortcut  icon" href="az-128.ico" type="image/x-icon" />
 		<meta charset="utf-8">
-		<title>啊这函数&emsp;v7</title>
+		<title>啊这函数画板&emsp;v8</title>
         <style type="text/css">@import"gi.css";</style>
         <style type="text/css" >
             
         </style>
                 <script type="text/javascript" src="dc.JS"></script>
-                <script type="text/javascript" src="../s.js"></script>
+                <script type="text/javascript" src="../s...js"></script>
         <script type="text/javascript">
 
-            window.onload=function(){
-
-  var oDiv = document.getElementById('zbx');
-  addEvent(oDiv,'mousewheel',hssf);
-  addEvent(oDiv,'DOMMouseScroll',hssf);
-  
-                var hy=document.getElementById("divdis");
-                
-hbck=hy.getContext("2d");
-hbck.fillStyle="#FF0000"
-hbck.lineWidth=2
-
-bianhau()
-    huizhi()
-
-            }
-
-            function zbxyd(azm){
-                l("开始移动",azm)
-                var ydzbxcs=1
-                var disX
-                var disY
-                xsy=(document.getElementById("xzhou").style.top).split("px")[0]     //坐标系显示位置 x
-                xsx=(document.getElementById("yzhou").style.left).split("px")[0]     //坐标系显示位置 y
-                window.ontouchmove=function(h){
-                    fsdcds(h,'t')
-                    if(ydzbxcs==1){
-            ydzbxcs=0
-            disX=h.touches[0].clientX-xsx
-            disY=h.touches[0].clientY-xsy
-            //l(cpmsgbcs,cpmsgb,"1t")
-            if(cpmsgbcs==0){
-                cpmsgb="t"
-                cpmsgbcs=1
-            }
-        }else{
-            var x = h.touches[0].clientX-disX
-            var y = h.touches[0].clientY-disY
-            ydisX=x
-            ydisY=y
-                //l(cpmsgbcs,cpmsgb,"yt")
-                if(cpmsgb=="t"){
-                    //l("触碰改坐标")
-                    bianhau()
-                    document.getElementById("yzhou").style.left=x+"px"
-                    document.getElementById("xzhou").style.top=y+"px"
-                }
-        }
-                }
-                window.onmousemove=function(h){
-                    fsdcds(h,'m')
-        if(ydzbxcs==1){
-            ydzbxcs=0
-            disX=h.clientX-xsx
-            disY=h.clientY-xsy
-            //l(cpmsgbcs,cpmsgb)
-            if(cpmsgbcs==0){
-                cpmsgb="m"
-                cpmsgbcs=1
-            }
-        }else{
-            var x = h.clientX-disX
-            var y = h.clientY-disY
-            ydisX=x
-            ydisY=y
-                //l(cpmsgbcs,cpmsgb,"ym")
-                if(cpmsgb=="m"){
-                    //l("鼠标改坐标")
-                    bianhau()
-                    document.getElementById("yzhou").style.left=x+"px"
-                    document.getElementById("xzhou").style.top=y+"px"
-                }
-        }
-    }
-    window.onmouseup = function(m) {
-        //l("m",cpmsgb)                
-        if(cpmsgb=="m"){
-            bianhau()
-        huizhi()
-        }
-        window.onmousemove = function(h){fsdcds(h,'m')};
- }
- window.ontouchend = function() {
-    //l("t",cpmsgb)
-    if(cpmsgb=="t"){
-        bianhau()
-    huizhi()
-}
-window.ontouchmove = function(h){fsdcds(h,'t')};
- }
-            }
         </script>
         </head>
-        <body style="touch-action: none;">
+        <body style="touch-action: none;cursor: none;">
             <div id="azhshb" style="position: fixed;left:0px;top:0px;width: 100%;height: 100%;">
+                <div id="xnsb"></div>
                 <div id="edafs">
                     <div class="vfr" style="top:0px;left:0px; width: 40px; height: 20px;">缩放:</div> 
                     <input id="fvfrv" class="vfr" style="top:0px;left:45px; width: 100px; height: 20px;" value="20" onchange="zhudbianhua()"/>
@@ -200,7 +110,7 @@ sin,cos,tan,arcsin,arccos,arctan,sqrt,log,abs,ln,Gamma
                 <input id="vfbghnhjnm" class="vfr" style="top:100px;left:30px; width: 250px; height: 20px;" value="" placeholder="输出的结果请自行化简 因为我懒得做了()"/>
              </div>
         </div>
-        <select style="position: absolute; width: 300px; left: 1050px;height: 30px;top:745px;" class="red-kuang" id="gnxz" onchange="gnqh()">
+        <select style="cursor: none; position: absolute; width: 300px; left: 1050px;height: 30px;top:745px;" class="red-kuang" id="gnxz" onchange="gnqh()">
             <option value ="gn1">[功能]备份与恢复</option>
             <option value ="gn2">[工具]啊这翻译</option>
             <option value="gn3">[工具]MD5计算</option>
