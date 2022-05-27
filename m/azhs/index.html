@@ -1,7 +1,7 @@
 	<head>
 		<link rel="shortcut  icon" href="az-128.ico" type="image/x-icon" />
 		<meta charset="utf-8">
-		<title>啊这函数画板&emsp;v8</title>
+		<title>啊这函数画板&emsp;v9</title>
         <style type="text/css">@import"gi.css";</style>
         <style type="text/css" >
             
@@ -12,8 +12,8 @@
 
         </script>
         </head>
-        <body style="touch-action: none;cursor: none;">
-            <div id="azhshb" style="position: fixed;left:0px;top:0px;width: 100%;height: 100%;">
+        <body style="cursor: default;">
+            <div id="azhshb"  style="position: fixed;left:0px;top:0px;width: 100%;height: 100%;">
                 <div id="xnsb"></div>
                 <div id="edafs">
                     <div class="vfr" style="top:0px;left:0px; width: 40px; height: 20px;">缩放:</div> 
@@ -42,16 +42,34 @@
                     <input id="hs-sm" class="vfr" style="top:50px;left:720px; width: 60px; height: 20px;" value="" placeholder="(默认-∞)"/>
                     <input id="hs-zd" class="vfr" style="top:50px;left:810px; width: 60px; height: 20px;" value="" placeholder="(默认∞)"/>
                     <input id="" class="vfr" type="button" style="top:25px;left:730px; width: 60px; height: 20px;" value="绘制" onclick="tianjiaxinhanshu()" />
+                    <input id="" class="vfr" type="button" style="top:25px;left:800px; width: 60px; height: 20px;" value="教程" onclick="openjc('course.txt')" />
                 </div>
-                <div id="zbx" onmousedown="zbxyd('m')" ontouchstart="zbxyd('t')" touchstart="zbxyd('on on t')">
+                <div id="zbx" onmousedown="zbxyd('m')" ontouchstart="zbxyd('t')" touchstart="zbxyd('on on t')" style="touch-action: none;">
                     <div class="az">推荐使用啊这函数画板</div>
                     <div class="az" style="font-size: 20;top: 50px;">http://bjsdfz.net/m/azhs/</div>
+                    <div id="yams" class="vfr" style="display: -1; top:10px;right:0px; width: 90px; height: 20px;">用时0ms</div> 
           <div id="yzhou" style="left: 300px;"></div>
           <div id="xzhou" style="top: 400px;"></div>
           <canvas id="divdis"></canvas>
         </div>
-        <div id="hslbxs" style="width: 300px; left: 1050px;height: 430px;top:100px;" class="red-kuang">
-    <div></div>
+        <div id="caozuolan" style="position: absolute;left:1050px;top:500px;width: 300px;height: 50px;background-color: white;z-index: 2;box-shadow:0 0 30px var(--bjsdfz);">
+         <select style=" position: absolute; top:3px;left:5px; width: 100px; height: 20px;" class="" id="zxczxz" onchange="">
+            <option value ="1">构造交点</option>
+            <option value ="2">构造过几点的函数</option>
+            <option value ="3">构造过两点的线段</option>
+            <option value ="4">以点为圆心，常量为半径构造圆</option>
+            <option value ="5">度量坐标</option>
+            <option value ="6">度量距离</option>
+            <option value ="7">删除</option>
+          </select>
+          <input id="" class="vfr" type="button" style="top:3px;left:110px; width: 100px; height: 20px;" value="执行操作" onclick="qrcz()" />
+          <input id="" class="vfr" type="button" style="top:3px;left:215px; width: 60px; height: 20px;" value="刷新" onclick="huizhi()" />
+         <input id="gssbydqhan" class="vfr" type="button" style="top:28px;left:90px; width: 120px; height: 20px;" value="这是个无用按钮" onclick="gxsbydqg()" />
+         <input id="" class="vfr" type="button" style="top:28px;left:5px; width: 80px; height: 20px;" value="刷新常量值" onclick="sxcl()" />
+         <input id="" class="vfr" type="button" style="top:28px;left: 215px; width: 70px; height: 20px;" value="清空选择" onclick="qkxz()" />
+      </div>
+        <div id="hslbxs" style="width: 300px; left: 1050px;height: 400px;top:100px;border-radius: 10px 10px 0px 0px" class="red-kuang">
+            <div style="position: absolute;;width: 100%;height:100%;top:0px;left:0px;z-index: 0;" onclick="qkxz()"></div>
         </div>
         <div id="qtgn" style="position: absolute; width: 300px; left: 1050px;height: 170px;top:560px;">
             <div id="gn1" style="width: 300px; left: 0px;height: 170px;top:0px; display: block;" class="red-kuang">
@@ -75,14 +93,10 @@
              </div>
              <div id="gn4" style="width: 300px; left: 0px;height: 170px;top:0px; display: none;"  class="red-kuang">
                 <div class="vfr" style="top:10px;left:10px; width: 250px; height: 20px;">啊这计算器</div> 
-                <input id="cddddcdcdcdc" class="vfr" style="top:40px;left:10px; width: 220px; height: 20px;" value="" placeholder="输入要计算的式子"/>
+                <input id="cddddcdcdcdc" class="vfr" style="top:40px;left:10px; width: 220px; height: 20px;" value="" placeholder="输入要计算的表达式"/>
                 <input id="" class="vfr" type="button" style="top:40px;left:235px; width: 50px; height: 20px;" value="计算" onclick="azfy('js')" />
                 <input id="cdshhjshjdcshjchj" class="vfr" style="top:70px;left:10px; width: 250px; height: 20px;" value="" placeholder="计算结果"/>
                 <div style="position: absolute; width: 280px; left: 10px;height: 300px;top:90px;text-align: left;word-wrap:break-word;word-break:break-all;  ">
-内置函数:
-sin,cos,tan,arcsin,arccos,arctan,sqrt,log,abs,ln,Gamma
-运算符号:^/*+_   (减法用_表示,负数用-表示)
-内置参数:π,e,γ,β*,φ  使用pi表示π,e表示e,ol表示γ,hj表示φ,et表示β*
                 </div>
              </div>
              <div id="gn5" style="width: 300px; left: 0px;height: 170px;top:0px; display: none;"  class="red-kuang">
@@ -109,9 +123,36 @@ sin,cos,tan,arcsin,arccos,arctan,sqrt,log,abs,ln,Gamma
                 <input id="" class="vfr" type="button" style="top:70px;left:30px; width: 70px; height: 20px;" value="生成" onclick="azfy('lglr')" />
                 <input id="vfbghnhjnm" class="vfr" style="top:100px;left:30px; width: 250px; height: 20px;" value="" placeholder="输出的结果请自行化简 因为我懒得做了()"/>
              </div>
+             <div id="gn8" style="width: 300px; left: 0px;height: 170px;top:0px; display: none;"  class="red-kuang">
+                <div class="vfr" style="top:10px;left:30px; width: 250px; height: 20px;">新建点...</div> 
+                <input id="egfdgfbcujsx" class="vfr" style="top:40px;left:30px; width: 100px; height: 20px;" value="" placeholder="点的x坐标"/>
+                <input id="egfdgfbcujsy" class="vfr" style="top:40px;left:150px; width: 100px; height: 20px;" value="" placeholder="点的y坐标"/>
+                <input id="" class="vfr" type="button" style="top:70px;left:30px; width: 70px; height: 20px;" value="新建" onclick="xjdqz()" />
+             </div>
+             <div id="gn9" style="width: 300px; left: 0px;height: 170px;top:0px; display: none;"  class="red-kuang">
+                <div class="vfr" style="top:10px;left:30px; width: 250px; height: 20px;">新建常量...</div> 
+                <input id="vffrrrrrrx" class="vfr" style="top:40px;left:30px; width: 100px; height: 20px;" value="" placeholder="常量名"/>
+                <input id="vffrrrrrry" class="vfr" style="top:40px;left:150px; width: 100px; height: 20px;" value="" placeholder="值"/>
+                <input id="" class="vfr" type="button" style="top:70px;left:30px; width: 70px; height: 20px;" value="新建" onclick="xjclqz()" />
+             </div>
+             <div id="gn10" style="width: 300px; left: 0px;height: 170px;top:0px; display: none;"  class="red-kuang">
+               <div class="vfr" style="top:10px;left:30px; width: 250px; height: 20px;">快捷创建圆函数</div> 
+               <input id="tgtgtgtgtg" class="vfr" style="top:40px;left:30px; width: 80px; height: 20px;" value="" placeholder="圆心x坐标"/>
+               <input id="frfrfrfrfr" class="vfr" style="top:40px;left:120px; width: 80px; height: 20px;" value="" placeholder="圆心y坐标"/>
+               <input id="paoifrvohi" class="vfr" style="top:70px;left:30px; width: 100px; height: 20px;" value="" placeholder="半径"/>
+               <div style="position: absolute;top:100px;left:30px; width: 200px; height: 20px;">
+                  <input id="ghwdvecd" type="radio" name="gender" value="s" checked />上半圆
+                  <input id="geaduytfwev" type="radio" name="gender" value="x" />下半圆
+               </div>
+               <input id="" class="vfr" type="button" style="top:130px;left:30px; width: 70px; height: 20px;" value="画" onclick="azfy('huayuan')" />
+            </div>
         </div>
-        <select style="cursor: none; position: absolute; width: 300px; left: 1050px;height: 30px;top:745px;" class="red-kuang" id="gnxz" onchange="gnqh()">
+        <select style="cursor: default; position: absolute; width: 300px; left: 1050px;height: 30px;top:745px;" class="red-kuang" id="gnxz" onchange="gnqh()">
+
             <option value ="gn1">[功能]备份与恢复</option>
+            <option value ="gn8">[功能]新建点...</option>
+            <option value ="gn9">[功能]新建常量...</option>
+            <option value ="gn10">[功能]快捷创建圆函数</option>
             <option value ="gn2">[工具]啊这翻译</option>
             <option value="gn3">[工具]MD5计算</option>
             <option value="gn4">[工具]啊这计算器</option>
