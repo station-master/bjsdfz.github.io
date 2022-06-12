@@ -1,1 +1,377 @@
-
+<head>
+   <link rel="shortcut  icon" href="az-128.ico" type="image/x-icon" />
+   <meta charset="utf-8">
+   <title>啊这函数画板&emsp;v11</title>
+   <style type="text/css">@import"gi.CSS";</style>
+   <style type="text/css">
+   </style>
+   <script type="text/javascript" src="dc.JS">
+   </script>
+   <script type="text/javascript" src="web.JS">
+   </script>
+   <script type="text/javascript" src="Encrypted.JS">
+   </script>
+   <script type="text/javascript" src="s.js">
+   </script>
+   <script type="text/javascript" src="math.js">
+   </script>
+   <script type="module">
+   </script>
+ </head>
+ <body style="cursor: default;" id="body">
+   <div id="azhshb" style="position: fixed;left:0px;top:0px;width: 100%;height: 100%;">
+     <div id="xnsb">
+     </div>
+     <div id="edafs">
+       <div class="vfr" style="top:0px;left:0px; width: 40px; height: 20px;">缩放:</div>
+       <input id="fvfrv" class="vfr" style="top:0px;left:45px; width: 100px; height: 20px;" value="20" onchange="zhudbianhua()" />
+       <div class="vfr" style="top:25px;left:0px; width: 85px; height: 20px;">绘制精度:</div>
+       <input id="gdrft" class="vfr" style="top:25px;left:85px; width: 60px; height: 20px;" value="100" onchange="zhudbianhua()" />
+       <div class="vfr" style="top:0px;left:150px; width: 100px; height: 20px;">坐标系位置x:</div>
+       <input id="decsx" class="vfr" style="top:0px;left:245px; width: 45px; height: 20px;" value="300" onchange="zhudbianhua()" />
+       <div class="vfr" style="top:25px;left:150px; width: 100px; height: 20px;">坐标系位置y:</div>
+       <input id="decsy" class="vfr" style="top:25px;left:245px; width: 45px; height: 20px;" value="400" onchange="zhudbianhua()" />
+       <div class="vfr" style="top:0px;left:300px; width: 100px; height: 20px;">显示宽度:</div>
+       <input id="bhcv" class="vfr" style="top:0px;left:390px; width: 45px; height: 20px;" value="1000" onchange="zhudbianhua()" />
+       <div class="vfr" style="top:25px;left:300px; width: 100px; height: 20px;">显示高度:</div>
+       <input id="edsde" class="vfr" style="top:25px;left:390px; width: 45px; height: 20px;" value="800" onchange="zhudbianhua()" />
+       <div class="vfr" style="top:0px;left:440px; width: 80px; height: 20px;">鼠标x坐标</div>
+       <input id="gbftr" class="vfr" style="top:0px;left:520px; width: 60px; height: 20px;" value="0.000" />
+       <div class="vfr" style="top:25px;left:440px; width: 80px; height: 20px;">鼠标y坐标</div>
+       <input id="oi9l" class="vfr" style="top:25px;left:520px; width: 60px; height: 20px;" value="0.000" />
+       <div class="vfr" style="top:0px;left:650px; width: 85px; height: 20px;">新建函数 y=</div>
+       <input id="grdgr" class="vfr" style="top:0px;left:750px; width: 200px; height: 20px;" value="" placeholder="解析式" />
+       <input id="wadwd" class="vfr" style="top:25px;left:650px; width: 60px; height: 20px;" value="" placeholder="颜色" />
+       <div class="vfr" style="top:50px;left:650px; width: 85px; height: 20px;">取值范围</div>
+       <input id="hs-sm" class="vfr" style="top:50px;left:720px; width: 60px; height: 20px;" value="" placeholder="(默认-∞)" />
+       <input id="hs-zd" class="vfr" style="top:50px;left:810px; width: 60px; height: 20px;" value="" placeholder="(默认∞)" />
+       <input id="" class="vfr" type="button" style="top:25px;left:730px; width: 60px; height: 20px;" value="绘制" onclick="tianjiaxinhanshu()" />
+       <input id="" class="vfr" type="button" style="top:25px;left:800px; width: 60px; height: 20px;" value="教程" onclick="openjc('course.txt')" />
+       <input id="" class="vfr" type="button" style="top:25px;left:870px; width: 60px; height: 20px;" value="更多..." onclick="xhysyc('more')" />
+     </div>
+     <div id="zbx" onmousedown="zbxyd('m')" ontouchstart="zbxyd('t')" touchstart="zbxyd('on on t')" style="touch-action: none;">
+       <div class="az">推荐使用啊这函数画板</div>
+       <div class="az" style="font-size: 20;top: 50px;">http://bjsdfz.net/m/azhs/</div>
+       <div id="yams" class="vfr" style="display: -1; top:10px;right:0px; width: 90px; height: 20px;">用时0ms</div>
+       <div id="yzhou" style="left: 300px;">
+       </div>
+       <div id="xzhou" style="top: 400px;">
+       </div>
+       <canvas id="divdis">
+       </canvas>
+     </div>
+     <div id="caozuolan" style="position: absolute;left:1050px;top:500px;width: 300px;height: 50px;background-color: white;z-index: 2;box-shadow:0 0 30px var(--bjsdfz);">
+       <select style=" position: absolute; top:3px;left:5px; width: 100px; height: 20px;" class="" id="zxczxz" onchange="">
+         <option value="1">构造交点</option>
+         <option value="2">构造过几点的函数</option>
+         <option value="3">构造过两点的线段</option>
+         <option value="4">以点为圆心，常量为半径构造圆</option>
+         <option value="10">构造中点</option>
+         <option value="5">度量坐标</option>
+         <option value="6">度量距离</option>
+         <option value="7">删除</option>
+         <option value="8">隐藏</option>
+         <option value="9">显示</option>
+       </select>
+       <input id="" class="vfr" type="button" style="top:3px;left:110px; width: 100px; height: 20px;" value="执行操作" onclick="qrcz()" />
+       <input id="" class="vfr" type="button" style="top:3px;left:215px; width: 60px; height: 20px;" value="刷新" onclick="huizhi()" />
+       <input id="gssbydqhan" class="vfr" type="button" style="top:28px;left:90px; width: 120px; height: 20px;" value="这是个无用按钮" onclick="gxsbydqg()" />
+       <input id="" class="vfr" type="button" style="top:28px;left:5px; width: 80px; height: 20px;" value="刷新常量值" onclick="sxcl()" />
+       <input id="" class="vfr" type="button" style="top:28px;left: 215px; width: 70px; height: 20px;" value="清空选择" onclick="qkxz()" />
+     </div>
+     <div id="hslbxs" style="width: 300px; left: 1050px;height: 400px;top:100px;border-radius: 10px 10px 0px 0px" class="red-kuang">
+       <div style="position: absolute;;width: 100%;height:100%;top:0px;left:0px;z-index: 0;" onclick="qkxz()">
+       </div>
+     </div>
+     <div id="qtgn" style="position: absolute; width: 300px; left: 1050px;height: 170px;top:560px;">
+       <div id="gn1" style="width: 300px; left: 0px;height: 170px;top:0px; display: block;" class="red-kuang">
+         <div class="vfr" style="top:0px;left:30px; width: 250px; height: 20px;">备份与恢复:</div>
+         <input id="klkl" class="vfr" style="top:50px;left:30px; width: 250px; height: 20px;" value="" placeholder="在此粘贴恢复码或从此复制恢复码" />
+         <input id="" class="vfr" type="button" style="top:25px;left:30px; width: 60px; height: 20px;" value="导入" onclick="huif()" />
+         <input id="" class="vfr" type="button" style="top:25px;left:130px; width: 60px; height: 20px;" value="导出" onclick="beif()" />
+       </div>
+       <div id="gn2" style="width: 300px; left: 0px;height: 170px;top:0px; display: none;" class="red-kuang">
+         <div class="vfr" style="top:10px;left:30px; width: 250px; height: 20px;">啊这翻译（测试）</div>
+         <input id="uoppp" class="vfr" style="top:40px;left:30px; width: 250px; height: 20px;" value="" placeholder="输入要翻译的内容" />
+         <input id="" class="vfr" type="button" style="top:70px;left:30px; width: 60px; height: 20px;" value="中译英" onclick="azfy('zyy')" />
+         <input id="" class="vfr" type="button" style="top:70px;left:130px; width: 60px; height: 20px;" value="英译中" onclick="azfy('yyz')" />
+         <input id="fyjg" class="vfr" style="top:100px;left:30px; width: 250px; height: 20px;" value="" placeholder="翻译结果" />
+       </div>
+       <div id="gn3" style="width: 300px; left: 0px;height: 170px;top:0px; display: none;" class="red-kuang">
+         <div class="vfr" style="top:10px;left:30px; width: 250px; height: 20px;">生成MD5值</div>
+         <input id="bgfgbbgfbgf" class="vfr" style="top:40px;left:30px; width: 250px; height: 20px;" value="" placeholder="输入内容" />
+         <input id="" class="vfr" type="button" style="top:70px;left:30px; width: 60px; height: 20px;" value="生成" onclick="azfy('md5')" />
+         <input id="hbftggfhbfgbh" class="vfr" style="top:100px;left:30px; width: 250px; height: 20px;" value="" placeholder="计算结果" />
+       </div>
+       <div id="gn4" style="width: 300px; left: 0px;height: 170px;top:0px; display: none;" class="red-kuang">
+         <div class="vfr" style="top:10px;left:10px; width: 250px; height: 20px;">啊这计算器</div>
+         <input id="cddddcdcdcdc" class="vfr" style="top:40px;left:10px; width: 220px; height: 20px;" value="" placeholder="输入要计算的表达式(啊这)" />
+         <input id="" class="vfr" type="button" style="top:40px;left:235px; width: 50px; height: 20px;" value="计算" onclick="azfy('js')" />
+         <input id="cdshhjshjdcshjchj" class="vfr" style="top:70px;left:10px; width: 250px; height: 20px;" value="" placeholder="计算结果" />
+         <div style="position: absolute; width: 280px; left: 10px;height: 300px;top:90px;text-align: left;word-wrap:break-word;word-break:break-all;  ">
+         </div>
+       </div>
+       <div id="gn11" style="width: 300px; left: 0px;height: 170px;top:0px; display: none;" class="red-kuang">
+         <div class="vfr" style="top:10px;left:10px; width: 250px; height: 20px;">计算器(支持虚数)</div>
+         <input id="fsdrgvfrgfdrtgbdftgdgd" class="vfr" style="top:40px;left:10px; width: 220px; height: 20px;" value="" placeholder="表达式(正常)" />
+         <input id="" class="vfr" type="button" style="top:40px;left:235px; width: 50px; height: 20px;" value="计算" onclick="azfy('mathjs')" />
+         <input id="kgkrijiseoihui" class="vfr" style="top:70px;left:10px; width: 250px; height: 20px;" value="" placeholder="计算结果" />
+         <div style="position: absolute; width: 280px; left: 10px;height: 300px;top:90px;text-align: left;word-wrap:break-word;word-break:break-all;  ">
+         </div>
+       </div>
+       <div id="gn5" style="width: 300px; left: 0px;height: 170px;top:0px; display: none;" class="red-kuang">
+         <div class="vfr" style="top:10px;left:10px; width: 250px; height: 25px;">啊这定积分计算器</div>
+         <div style="font-size: 46;position: absolute; top:25px; left: 5px; ">∫</div>
+         <input value="" id=seeeeee style="position: absolute; top:35px; left: 30px; width: 35px;" placeholder="上限" />
+         <input value="" id=xeeeeee style="position: absolute; top:70px; left: 30px; width: 35px;" placeholder="下限" />
+         <input value="" id=jxseeeeee style="position: absolute; top:55px; left: 70px; width: 150px;" />
+         <div id="ds" style="position: absolute; font-size: 20;left: 70px; top: 80px;">dx=</div>
+         <input value="0.001" id=dxeeeeee style="position: absolute; top:83px; left: 110px; width: 50px;" />
+         <input value="运算" type="button" onclick="azfy('djf')" style="position: absolute; top:83px; left: 170px; width: 50px;" />
+         <input id="wegyecsdbhnuieshn" class="vfr" style="top:130px;left:10px; width: 250px; height: 20px;" value="" placeholder="计算结果" />
+       </div>
+       <div id="gn12" style="width: 300px; left: 0px;height: 170px;top:0px; display: none;" class="red-kuang">
+         <div class="vfr" style="top:10px;left:10px; width: 250px; height: 25px;">啊这∑计算器</div>
+         <div style="font-size: 46;position: absolute; top:25px; left: 5px; ">∑</div>
+         <input value="" id=yyjytjtyuj style="position: absolute; top:35px; left: 30px; width: 35px;" placeholder="上限" />
+         <input value="" id=jyjyjyjyjyjyj style="position: absolute; top:70px; left: 30px; width: 35px;" placeholder="下限" />
+         <input value="" id=edrhgytr6 style="position: absolute; top:55px; left: 70px; width: 150px;" />
+         <input value="运算" type="button" onclick="azfy('xgm')" style="position: absolute; top:83px; left: 170px; width: 50px;" />
+         <input id="rghtftgnbgfty" class="vfr" style="top:130px;left:10px; width: 250px; height: 20px;" value="" placeholder="计算结果" />
+       </div>
+       <div id="gn6" style="width: 300px; left: 0px;height: 170px;top:0px; display: none;" class="red-kuang">
+         <div class="vfr" style="top:10px;left:30px; width: 250px; height: 20px;">啊这导数运算</div>
+         <input id="gergrggrgrvrdf" class="vfr" style="top:40px;left:30px; width: 250px; height: 20px;" value="" placeholder="输入函数解析式[必须是最简整式]" />
+         <input id="" class="vfr" type="button" style="top:70px;left:30px; width: 70px; height: 20px;" value="求导" onclick="azfy('azqd')" />
+         <input id="" class="vfr" type="button" style="top:70px;left:130px; width: 70px; height: 20px;" value="反向求导" onclick="azfy('azfqd')" />
+         <input id="hnrcisbnhfcirufghbvisdr" class="vfr" style="top:100px;left:30px; width: 250px; height: 20px;" value="" placeholder="输出的结果请自行化简 因为我懒得做了()" />
+       </div>
+       <div id="gn7" style="width: 300px; left: 0px;height: 170px;top:0px; display: none;" class="red-kuang">
+         <div class="vfr" style="top:10px;left:30px; width: 250px; height: 20px;">啊这拉格朗日插值</div>
+         <input id="hyyjukuik" class="vfr" style="top:40px;left:30px; width: 250px; height: 20px;" value="" placeholder="经过的点坐标 例:(1,1);(2,3);(4,5)..." />
+         <input id="" class="vfr" type="button" style="top:70px;left:30px; width: 70px; height: 20px;" value="生成" onclick="azfy('lglr')" />
+         <input id="vfbghnhjnm" class="vfr" style="top:100px;left:30px; width: 250px; height: 20px;" value="" placeholder="输出的结果请自行化简 因为我懒得做了()" />
+       </div>
+       <div id="gn8" style="width: 300px; left: 0px;height: 170px;top:0px; display: none;" class="red-kuang">
+         <div class="vfr" style="top:10px;left:30px; width: 250px; height: 20px;">新建点...</div>
+         <input id="egfdgfbcujsx" class="vfr" style="top:40px;left:30px; width: 100px; height: 20px;" value="" placeholder="点的x坐标" />
+         <input id="egfdgfbcujsy" class="vfr" style="top:40px;left:150px; width: 100px; height: 20px;" value="" placeholder="点的y坐标" />
+         <input id="" class="vfr" type="button" style="top:70px;left:30px; width: 70px; height: 20px;" value="新建" onclick="xjdqz()" />
+       </div>
+       <div id="gn9" style="width: 300px; left: 0px;height: 170px;top:0px; display: none;" class="red-kuang">
+         <div class="vfr" style="top:10px;left:30px; width: 250px; height: 20px;">新建常量...</div>
+         <input id="vffrrrrrrx" class="vfr" style="top:40px;left:30px; width: 100px; height: 20px;" value="" placeholder="常量名" />
+         <input id="vffrrrrrry" class="vfr" style="top:40px;left:150px; width: 100px; height: 20px;" value="" placeholder="值" />
+         <input id="" class="vfr" type="button" style="top:70px;left:30px; width: 70px; height: 20px;" value="新建" onclick="xjclqz()" />
+       </div>
+       <div id="gn10" style="width: 300px; left: 0px;height: 170px;top:0px; display: none;" class="red-kuang">
+         <div class="vfr" style="top:10px;left:30px; width: 250px; height: 20px;">快捷创建圆函数</div>
+         <input id="tgtgtgtgtg" class="vfr" style="top:40px;left:30px; width: 80px; height: 20px;" value="" placeholder="圆心x坐标" />
+         <input id="frfrfrfrfr" class="vfr" style="top:40px;left:120px; width: 80px; height: 20px;" value="" placeholder="圆心y坐标" />
+         <input id="paoifrvohi" class="vfr" style="top:70px;left:30px; width: 100px; height: 20px;" value="" placeholder="半径" />
+         <div style="position: absolute;top:100px;left:30px; width: 200px; height: 20px;">
+           <input id="ghwdvecd" type="radio" name="gender" value="s" checked />上半圆
+           <input id="geaduytfwev" type="radio" name="gender" value="x" />下半圆</div>
+         <input id="" class="vfr" type="button" style="top:130px;left:30px; width: 70px; height: 20px;" value="画" onclick="azfy('huayuan')" />
+       </div>
+       <div id="gn19" style="width: 300px; left: 0px;height: 170px;top:0px; display: none;" class="red-kuang">
+        <div class="vfr" style="top:10px;left:30px; width: 250px; height: 20px;">啊这表达式转换（测试）</div>
+        <input id="xshygbyukhbku" class="vfr" style="top:40px;left:30px; width: 250px; height: 20px;" value="" placeholder="输入表达式" />
+        <input id="" class="vfr" type="button" style="top:70px;left:30px; width: 120px; height: 20px;" value="啊这转正常" onclick="azfy('aztozc')" />
+        <input id="" class="vfr" type="button" style="top:70px;left:160px; width: 120px; height: 20px;" value="正常转啊这" onclick="azfy('zctoaz')" />
+        <input id="sxjgybygujkghbu" class="vfr" style="top:100px;left:30px; width: 250px; height: 20px;" value="" placeholder="结果" />
+      </div>
+       <div id="gn13" style="width: 300px; left: 0px;height: 170px;top:0px; display: none;" class="red-kuang">
+         <div class="vfr" style="top:10px;left:30px; width: 250px; height: 20px;">[外部]导数计算</div>
+         <div style="position: absolute;top: 40px;left:30px;width: 220px;height: 130px;">
+           <form name="form1" action="https://zh.numberempire.com/derivativecalculator.php" method="post">函数输入框:
+             <br>
+             <input name="function" size="80" maxlength="300" type="text">
+             <br>自变量:
+             <input name="var" size="3" maxlength="3" value="x" type="text">阶数:
+             <select name="order">
+               <option value="0">0</option>
+               <option value="1" selected="selected">1</option>
+               <option value="2">2</option>
+               <option value="3">3</option>
+               <option value="4">4</option>
+               <option value="5">5</option>
+               <option value="6">6</option>
+               <option value="7">7</option>
+               <option value="8">8</option>
+               <option value="9">9</option>
+               <option value="10">10</option>
+             </select>
+             <input value="计算" type="submit" onclick="zhuzhiqianwangwanbu()">
+             <input name="return" value="1" type="hidden">
+           </form>
+         </div>
+       </div>
+       <div id="gn14" style="width: 300px; left: 0px;height: 170px;top:0px; display: none;" class="red-kuang">
+         <div class="vfr" style="top:10px;left:30px; width: 250px; height: 20px;">[外部]化简字符串</div>
+         <div style="position: absolute;top: 40px;left:30px;width: 220px;height: 130px;">
+           <b>表达式化简</b>
+           <br>
+           <form name="form1" action="https://zh.numberempire.com/simplifyexpression.php" method="post">输入一个表达式来简化:
+             <br>
+             <input name="function" size="80" maxlength="300" value="" type="text">
+             <input value="计算" type="submit" onclick="zhuzhiqianwangwanbu()">
+             <input name="return" value="1" type="hidden"></form>
+         </div>
+       </div>
+       <div id="gn15" style="width: 300px; left: 0px;height: 170px;top:0px; display: none;" class="red-kuang">
+         <div class="vfr" style="top:10px;left:30px; width: 250px; height: 20px;">[外部]分解质因式</div>
+         <div style="position: absolute;top: 40px;left:30px;width: 220px;height: 130px;">
+           <b>因式分解工具</b>
+           <br>
+           <form name="form1" action="https://zh.numberempire.com/factoringcalculator.php" method="post">请输入您需要因式分解的表达式：:
+             <br>
+             <input name="function" size="80" maxlength="300" value="" type="text">
+             <input value="计算" type="submit" onclick="zhuzhiqianwangwanbu()">
+             <input name="return" value="1" type="hidden"></form>
+         </div>
+       </div>
+       <div id="gn16" style="width: 300px; left: 0px;height: 170px;top:0px; display: none;" class="red-kuang">
+         <div class="vfr" style="top:10px;left:30px; width: 250px; height: 20px;">[外部]方程求解器</div>
+         <div style="position: absolute;top: 40px;left:30px;width: 220px;height: 130px;">
+           <b>方程求解</b>
+           <br>
+           <form name="form1" action="https://zh.numberempire.com/equationsolver.php" method="post">输入多个方程用逗号分隔:
+             <br>
+             <input name="function" size="80" maxlength="160" value="" type="text">
+             <br>
+             <input name="var" size="10" maxlength="10" value="x" type="text">
+             <input size="40" name="answers" value="" type="hidden">
+             <input value="求解" type="submit">
+             <input name="return" value="1" type="hidden" onclick="zhuzhiqianwangwanbu()"></form>
+         </div>
+       </div>
+       <div id="gn17" style="width: 300px; left: 0px;height: 170px;top:0px; display: none;" class="red-kuang">
+         <div class="vfr" style="top:10px;left:30px; width: 250px; height: 20px;">[外部]矩阵计算器（其他运算）</div>
+         <div style="position: absolute;top: 40px;left:30px;width: 220px;height: 130px;">
+           <b>矩阵计算器</b>
+           <br>
+           <form name="form1" action="https://zh.numberempire.com/matrixcalculator.php" method="post">输入矩阵 A:
+             <br>
+             <textarea type="text" name="matrix1" cols="60" rows="20"></textarea>
+             <table>
+               <tbody>
+                 <tr>
+                   <td>
+                     <input name="determinant" checked="checked" type="checkbox">矩阵的行列式</td>
+                   <td>
+                     <input name="transpose" checked="checked" type="checkbox">转置矩阵</td>
+                 </tr>
+                 <tr>
+                   <td>
+                     <input name="trace" checked="checked" type="checkbox">矩阵迹</td>
+                   <td>
+                     <input name="rank" checked="checked" type="checkbox">矩阵的秩</td>
+                 </tr>
+                 <tr>
+                   <td>
+                     <input name="inverse" type="checkbox">逆矩阵</td>
+                   <td>
+                     <input name="eigenvalues" type="checkbox">特征值</td>
+                 </tr>
+                 <tr>
+                   <td>
+                     <input name="triangularize" type="checkbox">下三角矩阵</td>
+                   <td>
+                     <input name="square" type="checkbox">A
+                     <sup>2</sup>
+                   </td>
+                 </tr>
+               </tbody>
+             </table>
+             <input value="计算" type="submit" onclick="zhuzhiqianwangwanbu()">
+             <input name="return" value="1" type="hidden">
+           </form>
+         </div>
+       </div>
+       <div id="gn18" style="width: 300px; left: 0px;height: 170px;top:0px; display: none;" class="red-kuang">
+         <div class="vfr" style="top:10px;left:30px; width: 250px; height: 20px;">[外部]矩阵运算（加、减、乘）</div>
+         <div style="position: absolute;top: 40px;left:30px;width: 220px;height: 130px;">
+           <b>矩阵运算</b>
+           <br>
+           <form name="form1" action="https://zh.numberempire.com/matrixbinarycalculator.php" method="post">
+             <table>
+               <tbody>
+                 <tr class="center">
+                   <td>输入矩阵 A:</td>
+                   <td>输入矩阵 B:</td>
+                 </tr>
+                 <tr>
+                   <td>
+                     <textarea type="text" name="matrix1" cols="60" rows="20">
+                     </textarea>
+                   </td>
+                   <td>
+                     <textarea type="text" name="matrix2" cols="60" rows="20">
+                     </textarea>
+                   </td>
+                 </tr>
+               </tbody>
+             </table>
+             <br>
+             <table>
+               <tbody>
+                 <tr>
+                   <td>
+                     <input name="add" checked="checked" type="checkbox">加法</td>
+                   <td>
+                     <input name="sub" checked="checked" type="checkbox">减法</td>
+                   <td>
+                     <input name="mult" checked="checked" type="checkbox">乘法</td>
+                 </tr>
+               </tbody>
+             </table>
+             <input value="计算" type="submit" onclick="zhuzhiqianwangwanbu()">
+             <input name="return" value="1" type="hidden">
+           </form>
+         </div>
+       </div>
+     </div>
+     <select style="cursor: default; position: absolute; width: 300px; left: 1050px;height: 30px;top:745px;" class="red-kuang" id="gnxz" onchange="gnqh()">
+       <option value="gn1">[功能]备份与恢复</option>
+       <option value="gn8">[功能]新建点...</option>
+       <option value="gn9">[功能]新建常量...</option>
+       <option value="gn10">[功能]快捷创建圆函数</option>
+       <option value="gn2">[工具]啊这翻译</option>
+       <option value="gn19">[工具]啊这表达式转换</option>
+       <option value="gn3">[工具]MD5计算</option>
+       <option value="gn4">[工具]啊这计算器</option>
+       <option value="gn11">[工具]计算器(支持虚数)</option>
+       <option value="gn5">[工具]啊这定积分计算器</option>
+       <option value="gn12">[工具]啊这∑计算器</option>
+       <option value="gn6">[工具]啊这导数运算</option>
+       <option value="gn7">[工具]啊这拉格朗日插值</option>
+       <option value="gn13">[外部]导数计算</option>
+       <option value="gn14">[外部]化简字符串</option>
+       <option value="gn15">[外部]分解质因式</option>
+       <option value="gn16">[外部]方程求解器</option>
+       <option value="gn17">[外部]矩阵计算器（其他运算）</option>
+       <option value="gn18">[外部]矩阵运算（加、减、乘）</option>
+     </select>
+     <div id="drdrdr" class="red-kuang" style="width: 300px; left: 1050px;height: 100px;top:790px;">
+       <div id="fuck" onclick="az()" onselectstart='return false' onbeforecopy='return false'>点击啊这</div>
+       <div id="azcs" style="display: none;">已啊这0次！</div>
+     </div>
+     <div id="more" class="red-kuang" style="top:0px;bottom:0px;margin: auto;left:0px;right: 0px;width: 500px;height: 400px;background-color: white;z-index: 10; display: none;">
+       <div style="    position: absolute;top:10px;right: 10px;width: 20px;height: 20px;font-size: 18px;z-index: 2;" onclick="xhysyc('more')">X</div>
+       <div class="az" style="font-size: 60;left:0px;top: 20px;width: 100%;text-align: center;">啊这函数画板</div>
+       <div class="az" style="font-size: 25;left:0px;top: 100px;width: 100%;text-align: center;">* @version v11* @date 2022-06-12</div>
+       <div id="rizhi" style="position: absolute;top:150px;left:40px;width: 420px;height: 150px;font-size: 18px;border: 1px solid var(--bjsdfz);overflow: auto;border-radius: 10px;">
+       </div>
+       <div class="az" style="font-size: 16;left:40px;top: 310px;width: 300px;text-align: left;">特别感谢：</div>
+       <div onclick="openjc('https://mathjs.org/')" style="position: absolute;top:350px;left:40px;width: 66px;height: 20px;background-image: url(https://www.mathjs.cn/css/img/mathjs_330x100.png);background-size: cover;" title="math.js">
+       </div>
+       <div onclick="openjc('https://zh.numberempire.com')" style="position: absolute;top:335px;left:120px;width: 50px;height: 50px;background-image: url(https://zh.numberempire.com/images/pi-ball.png);background-size: cover;" title="number empire">
+       </div>
+     </div>
+   </div>
+   <div id="deuse" style="position: absolute;width: 100%;height:100%;top:0px;left:0px;z-index: 114514;backdrop-filter: blur(5px);-webkit-backdrop-filter: blur(5px);display: none;">
+   </div>
+ </body>
+ 
+ </html>
