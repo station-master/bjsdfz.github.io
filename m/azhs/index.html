@@ -1,18 +1,23 @@
 	<head>
 		<link rel="shortcut  icon" href="az-128.ico" type="image/x-icon" />
 		<meta charset="utf-8">
-		<title>啊这函数画板&emsp;v9</title>
-        <style type="text/css">@import"gi.css";</style>
+		<title>啊这函数画板&emsp;v10 Pro</title>
+        <style type="text/css">@import"gi.CSS";</style>
         <style type="text/css" >
             
         </style>
                 <script type="text/javascript" src="dc.JS"></script>
-                <script type="text/javascript" src="../s...js"></script>
-        <script type="text/javascript">
-
+                <script type="text/javascript" src="web.JS"></script>
+                <script type="text/javascript" src="Encrypted.JS"></script>
+                <script type="text/javascript" src="s.js"></script>
+                <script type="text/javascript" src="math.js"></script>
+                
+        <script type="module" >
+            
         </script>
+        
         </head>
-        <body style="cursor: default;">
+        <body style="cursor: default;" id="body">
             <div id="azhshb"  style="position: fixed;left:0px;top:0px;width: 100%;height: 100%;">
                 <div id="xnsb"></div>
                 <div id="edafs">
@@ -43,6 +48,7 @@
                     <input id="hs-zd" class="vfr" style="top:50px;left:810px; width: 60px; height: 20px;" value="" placeholder="(默认∞)"/>
                     <input id="" class="vfr" type="button" style="top:25px;left:730px; width: 60px; height: 20px;" value="绘制" onclick="tianjiaxinhanshu()" />
                     <input id="" class="vfr" type="button" style="top:25px;left:800px; width: 60px; height: 20px;" value="教程" onclick="openjc('course.txt')" />
+                    <input id="" class="vfr" type="button" style="top:25px;left:870px; width: 60px; height: 20px;" value="更多..." onclick="xhysyc('more')" />
                 </div>
                 <div id="zbx" onmousedown="zbxyd('m')" ontouchstart="zbxyd('t')" touchstart="zbxyd('on on t')" style="touch-action: none;">
                     <div class="az">推荐使用啊这函数画板</div>
@@ -61,6 +67,8 @@
             <option value ="5">度量坐标</option>
             <option value ="6">度量距离</option>
             <option value ="7">删除</option>
+            <option value ="8">隐藏</option>
+            <option value ="9">显示</option>
           </select>
           <input id="" class="vfr" type="button" style="top:3px;left:110px; width: 100px; height: 20px;" value="执行操作" onclick="qrcz()" />
           <input id="" class="vfr" type="button" style="top:3px;left:215px; width: 60px; height: 20px;" value="刷新" onclick="huizhi()" />
@@ -93,12 +101,20 @@
              </div>
              <div id="gn4" style="width: 300px; left: 0px;height: 170px;top:0px; display: none;"  class="red-kuang">
                 <div class="vfr" style="top:10px;left:10px; width: 250px; height: 20px;">啊这计算器</div> 
-                <input id="cddddcdcdcdc" class="vfr" style="top:40px;left:10px; width: 220px; height: 20px;" value="" placeholder="输入要计算的表达式"/>
+                <input id="cddddcdcdcdc" class="vfr" style="top:40px;left:10px; width: 220px; height: 20px;" value="" placeholder="输入要计算的表达式(啊这)"/>
                 <input id="" class="vfr" type="button" style="top:40px;left:235px; width: 50px; height: 20px;" value="计算" onclick="azfy('js')" />
                 <input id="cdshhjshjdcshjchj" class="vfr" style="top:70px;left:10px; width: 250px; height: 20px;" value="" placeholder="计算结果"/>
                 <div style="position: absolute; width: 280px; left: 10px;height: 300px;top:90px;text-align: left;word-wrap:break-word;word-break:break-all;  ">
                 </div>
              </div>
+             <div id="gn11" style="width: 300px; left: 0px;height: 170px;top:0px; display: none;"  class="red-kuang">
+               <div class="vfr" style="top:10px;left:10px; width: 250px; height: 20px;">计算器(支持虚数)</div> 
+               <input id="fsdrgvfrgfdrtgbdftgdgd" class="vfr" style="top:40px;left:10px; width: 220px; height: 20px;" value="" placeholder="表达式(正常)"/>
+               <input id="" class="vfr" type="button" style="top:40px;left:235px; width: 50px; height: 20px;" value="计算" onclick="azfy('mathjs')" />
+               <input id="kgkrijiseoihui" class="vfr" style="top:70px;left:10px; width: 250px; height: 20px;" value="" placeholder="计算结果"/>
+               <div style="position: absolute; width: 280px; left: 10px;height: 300px;top:90px;text-align: left;word-wrap:break-word;word-break:break-all;  ">
+               </div>
+            </div>
              <div id="gn5" style="width: 300px; left: 0px;height: 170px;top:0px; display: none;"  class="red-kuang">
                 <div class="vfr" style="top:10px;left:10px; width: 250px; height: 25px;">啊这定积分计算器</div> 
                 <div style="font-size: 46;position: absolute; top:25px; left: 5px; " >∫</div>
@@ -110,6 +126,16 @@
                   <input value="运算" type="button" onclick="azfy('djf')" style="position: absolute; top:83px; left: 170px; width: 50px;" />  
                   <input id="wegyecsdbhnuieshn" class="vfr" style="top:130px;left:10px; width: 250px; height: 20px;" value="" placeholder="计算结果"/>
              </div>
+             <div id="gn12" style="width: 300px; left: 0px;height: 170px;top:0px; display: none;"  class="red-kuang">
+               <div class="vfr" style="top:10px;left:10px; width: 250px; height: 25px;">啊这∑计算器</div> 
+               <div style="font-size: 46;position: absolute; top:25px; left: 5px; " >∑</div>
+               <input value="" id=yyjytjtyuj style="position: absolute; top:35px; left: 30px; width: 35px;" placeholder="上限"/>
+               <input value="" id=jyjyjyjyjyjyj style="position: absolute; top:70px; left: 30px; width: 35px;" placeholder="下限"/>
+               <input value="" id=edrhgytr6 style="position: absolute; top:55px; left: 70px; width: 150px;"/>
+
+                 <input value="运算" type="button" onclick="azfy('xgm')" style="position: absolute; top:83px; left: 170px; width: 50px;" />  
+                 <input id="rghtftgnbgfty" class="vfr" style="top:130px;left:10px; width: 250px; height: 20px;" value="" placeholder="计算结果"/>
+            </div>
              <div id="gn6" style="width: 300px; left: 0px;height: 170px;top:0px; display: none;"  class="red-kuang">
                 <div class="vfr" style="top:10px;left:30px; width: 250px; height: 20px;">啊这导数运算</div> 
                 <input id="gergrggrgrvrdf" class="vfr" style="top:40px;left:30px; width: 250px; height: 20px;" value="" placeholder="输入函数解析式[必须是最简整式]"/>
@@ -156,7 +182,9 @@
             <option value ="gn2">[工具]啊这翻译</option>
             <option value="gn3">[工具]MD5计算</option>
             <option value="gn4">[工具]啊这计算器</option>
+            <option value="gn11">[工具]计算器(支持虚数)</option>
             <option value="gn5">[工具]啊这定积分计算器</option>
+            <option value="gn12">[工具]啊这∑计算器</option>
             <option value="gn6">[工具]啊这导数运算</option>
             <option value="gn7">[工具]啊这拉格朗日插值</option>
           </select>
@@ -164,8 +192,13 @@
            <div id="fuck" onclick="az()" onselectstart ='return false' onbeforecopy='return false'>点击啊这</div>
            <div id="azcs" style="display: none;">已啊这0次！</div>
         </div>
-    
+    <div id="more" class="red-kuang" style="top:0px;bottom:0px;margin: auto;left:0px;right: 0px;width: 500px;height: 400px;background-color: white;z-index: 10; display: none;">
+   <div style="    position: absolute;top:10px;right: 10px;width: 20px;height: 20px;font-size: 18px;" onclick="xhysyc('more')">X</div>
+   <div  class="az" style="font-size: 60;left:0px;top: 50px;width: 100%;text-align: center;">啊这函数画板</div>
+   <div  class="az" style="font-size: 25;left:0px;top: 130px;width: 100%;text-align: center;"> * @version v10 Pro* @date    2022-06-10</div>
+           <div id="rizhi" style="position: absolute;top:180px;left:40px;width: 420px;height: 200px;font-size: 18px;border: 1px solid var(--bjsdfz);overflow: auto;border-radius: 10px;"></div>
+   </div>
             </div>
-            
+            <div id="deuse" style="position: absolute;width: 100%;height:100%;top:0px;left:0px;z-index: 114514;backdrop-filter: blur(5px);-webkit-backdrop-filter: blur(5px);display: none;"></div>
         </body>
         </html>
