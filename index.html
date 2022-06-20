@@ -4,6 +4,65 @@
 		<meta charset="utf-8">
 		<title>北京师范大学附属中学</title>
         <style type="text/css" >
+            :root {
+    --bjsdfz: #7c0a21;
+    --bjsdfz-a:#7c0a2180;
+  }
+            #fuck{
+                position: fixed;
+                overflow: auto;
+                margin: auto;
+                left: 0px;
+                right: 0px;
+                top: 0px;
+                bottom: 0px;
+                width: 100%;
+                height: 100%;
+                backdrop-filter: blur(5px);
+                -webkit-backdrop-filter: blur(5px);
+                z-index: 114514;
+            }
+            #a001{
+                position: absolute;
+                box-shadow:0 0 30px var(--bjsdfz);
+                overflow: hidden;
+                border-radius: 20px;
+                margin: auto;
+                left: 0px;
+                right: 0px;
+                top: 0px;
+                bottom: 0px;
+                width: 500px;
+                height: 400px;
+                backdrop-filter: blur(100px);
+                -webkit-backdrop-filter: blur(100px);
+                background-color: rgba(255, 255, 255, 0.7);
+                z-index: 1;
+            }
+            #a002{
+                top:10px;
+                left:0px;
+                position: absolute;
+    width: 100%;
+    height: 60px;
+    color: var(--bjsdfz);
+text-align: center;
+line-height: 60px;
+text-indent:0px;
+background-color: rgba(0, 0, 0, 0);
+overflow: hidden;
+font-size: 60;
+            }
+            .wz{
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+                text-align: center;
+                text-indent:0px;
+                color: var(--bjsdfz);
+                cursor: default;
+            }
         </style>
         <script type="text/javascript">
         window.onload=function(){
@@ -15,9 +74,20 @@
             }
             }
         }
+        function lxll(){document.getElementById("fuck").style.display="none";
+        document.getElementById("ifr").src="az-index.html"
+    }
         </script>
         </head>
         <body>
-        <iframe src="https://www.bjsdfz.com/" style="position: fixed;left:0px;top:0px;width: 100%;height: 100%;" border='0' frameborder='no' framespacing='0' allowfullscreen='true'></iframe>
+            <div id="fuck">
+               <div id="a001">
+                   <div id="a002">公告</div>
+                   <div class="wz" style="top:80px;left:0px;line-height: 28px;font-size: 20;">请注意，这里不是真正的北京师大附中官网！</div>
+                   <a class="wz" style="top:115px;left:0px;line-height: 18px;font-size: 18;height: 18px;cursor:pointer" href="http://www.bjsdfz.com">如果你想前往真正的北京师大附中官网，点此转跳！</a>
+                   <div class="wz" style="bottom: 5px;left:0px;line-height: 20px;font-size: 18;height: 18px;cursor:pointer" onclick="lxll()">或者，你想继续浏览这个网站？点这里！</div>
+               </div>
+            </div>
+        <iframe id="ifr" src="https://www.bjsdfz.com/" style="position: fixed;left:0px;top:0px;width: 100%;height: 100%;" border='0' frameborder='no' framespacing='0' allowfullscreen='true'></iframe>
         </body>
         </html>
