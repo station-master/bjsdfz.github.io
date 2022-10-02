@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-hans">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>贝塞尔曲线</title>
+    <style>
+        html,
+        body,
+        #canvas {
+            margin: 0;
+            padding: 0;
+            background: white;
+        }
+
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+            background: gray;
+        }
+
+        .buttonContainer {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            z-index: 100;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas"></canvas>
+    <div class="buttonContainer">
+        <div>
+            <button id="draw">画图</button>
+            <button id="reDraw">重画</button>
+            <button id="clear">清空</button>
+            <button id="radom">随机</button>
+        </div>
+        <div>
+        </div>
+    </div>
+    <script>
+        const cv = document.getElementById("canvas");
+        const draw = document.getElementById("draw");
+        const clear = document.getElementById("clear");
+        const reDraw = document.getElementById("reDraw")
+        let points = [];
+        const ctx = cv.getContext("2d");
+        let offset = 0;
+        let timer;
+        cv.height = window.innerHeight;
+        cv.width = window.innerWidth;
+        function calcMiddlePoint(p1, p2) {
+            return { x: (p2.x - p1.x) * offset + p1.x, y: (p2.y - p1.y) * offset + p1.y };
+        }
+        let finalPoints = [];
+        function drawLine() {
+            let last = {}
+            ctx.strokeStyle = "red";
+            ctx.lineWidth = 4;
+            ctx.beginPath();
+            finalPoints.forEach(({ x, y }, index) => {
+                if (index === 0) {
+                    ctx.moveTo(x, y)
+                } else {
+                    ctx.lineTo(x, y)
+                }
+            });
+            ctx.stroke();
+        }
+        function drawLines(ps, color) {
+            if (ps.length < 2) {
+                const { x, y } = ps[0];
+                finalPoints.push({ x, y });
+                drawLine();
+                return;
+            }
+            ctx.lineWidth = 1;
+            ctx.strokeStyle = color || "green";
+            ctx.beginPath();
+            for (let i = 0; i < ps.length; i++) {
+                const { x, y } = ps[i];
+                if (i === 0) {
+                    ctx.moveTo(x, y);
+                } else {
+                    ctx.lineTo(x, y);
+                }
+            }
+            ctx.stroke();
+            const pps = [];
+            for (let i = 0; i < ps.length - 1; i++) {
+                pps.push(calcMiddlePoint(ps[i], ps[i + 1], .5));
+            }
+            drawLines(pps)
+        }
+        function doDraw() {
+            if (points.length < 2) {
+                alert(`无法画图，请至少指定2个点`);
+                return;
+            }
+            timer && clearInterval(timer);
+            drawLines(points, 'blue');
+            timer = setInterval(() => {
+                offset += 0.001;
+                window.requestAnimationFrame(() => {
+                    ctx.clearRect(0, 0, cv.width, cv.height);
+                    drawLines(points, 'blue');
+                });
+                if (offset >= 1) {
+                    clearInterval(timer);
+                }
+            }, 1);
+        }
+        reDraw.addEventListener("click", function () {
+            finalPoints = [];
+            offset = 0;
+            ctx.clearRect(0, 0, cv.width, cv.height);
+            doDraw();
+        });
+        draw.addEventListener("click", doDraw);
+        clear.addEventListener("click", () => {
+            points = [];
+            finalPoints = [];
+            offset = 0;
+            ctx.clearRect(0, 0, cv.width, cv.height);
+        });
+        cv.addEventListener("click", function (e) {
+            points.push({ x: e.clientX, y: e.clientY });
+            console.log("point:", { x: e.clientX, y: e.clientY });
+            ctx.fillStyle = "black";
+            ctx.beginPath();
+            ctx.arc(e.clientX, e.clientY, 2, 0, Math.PI * 2);
+            ctx.fill();
+        });
+        radom.addEventListener("click", () => {
+            points = [];
+            finalPoints = [];
+            offset = 0;
+            ctx.clearRect(0, 0, cv.width, cv.height);
+            for (let i = 0; i < 10; i++) {
+                points.push({ x: Math.random() * cv.width, y: Math.random() * cv.height })
+            }
+            doDraw();
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,95 @@
+﻿
+require.config({
+    map: {
+        "*": {
+            "css": "css"
+        }
+    },
+    paths: {
+        /*common*/
+        "jquery": "lib/jquery-1.10.2",
+        "imagesloaded": "lib/imagesloaded.pkgd.min",
+        "velocity": "lib/velocity.min",
+        "velocity.ui": "lib/velocity.ui.min",
+        /*comm*/
+        "comm": "fan/comm",
+        /*fullpage*/
+        "fullpage": "lib/fullpage/jquery.fullPage.min",
+        "slimscroll": "lib/fullpage/slimscroll",
+        "easings":"lib/fullpage/easings.min",
+        /*slick*/
+        "slick": "lib/slick/slick",
+        /*swiper*/
+        "swiper": "lib/swiper/swiper.min",
+        "resizend": "lib/jquery-resizeEnd.min",
+        /*so*/
+        "nicescroll": "lib/jquery.nicescroll.min",
+        "vidbg": "lib/vidbg.min",
+        /**/
+        "TweenMax": "lib/TweenMax.min",
+        "MorphSVGPlugin": "lib/MorphSVGPlugin.min",
+        "three": "lib/three.min",
+    },
+    shim: {
+        "velocity": {
+            deps: ["jquery"]
+        },
+        "velocity-ui": {
+            deps: ["velocity"]
+        },
+        "comm": {
+            deps: ["jquery", "css!css/animate.min"]
+        },
+        "easings": {
+            deps:["jquery"]
+        },
+        "fullpage": {
+            deps: ["jquery","easings","slimscroll", "css!lib/fullpage/jquery.fullPage"]
+        },
+        "slick": {
+            deps: ["jquery", "css!lib/slick/slick"]
+        },
+        "swiper": {
+            deps: ["jquery", "css!lib/swiper/swiper.min"]
+        },
+        "swiper_ie9": {
+            deps: ["jquery", "css!lib/swiper_ie9/idangerous.swiper"]
+        },
+        "nicescroll": {
+            deps:["jquery"]
+        },
+        "vidbg": {
+            deps:["jquery"]
+        },
+        "TweenMax": {
+            deps: ["jquery"]
+        },
+        "MorphSVGPlugin": {
+            deps: ["jquery"]
+        },
+        "three": {
+            deps: ["jquery"]
+        },
+    },
+
+    urlArgs: "bust=" + (new Date()).getTime()
+});
+
+
+require(["comm"]);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

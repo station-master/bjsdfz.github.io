@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>纯CSS实现图片淡入淡出轮播图的最简代码</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+    #azbkg {
+    }
+    #azbkg div {
+        width: 1000px;
+        height: 500px;
+        position: absolute;
+        background-size: cover;
+    }
+    #azbj1 {
+        background-image: url(ywy/11.jpg);
+        animation: azbj1 12s infinite;
+    }
+    @keyframes azbj1 {
+        0%, 10% {
+            opacity: 1;
+        }
+        25%, 100% {
+            opacity: 0;
+        }
+    }
+    #azbj2 {
+        background-image: url(ywy/12.jpg);
+        animation: azbj2 12s infinite;
+    }
+    @keyframes azbj2 {
+        0%, 35% {
+            opacity: 1;
+        }
+        50%, 100% {
+            opacity: 0;
+        }
+    }
+    #azbj3 {
+        background-image: url(ywy/13.jpg);
+        animation: azbj3 12s infinite;
+    }
+    @keyframes azbj3 {
+        0%, 60% {
+            opacity: 1;
+        }
+        75%, 100% {
+            opacity: 0;
+        }
+    }
+    #azbj5 {
+        background-image: url(ywy/11.jpg);
+    }
+</style>
+<body>
+    <div id="azbkg">
+        <div id="azbj5"></div>
+        <div id="azbj3"></div>
+        <div id="azbj2"></div>
+        <div id="azbj1"></div> 
+    </div>
+</body>
+</html>

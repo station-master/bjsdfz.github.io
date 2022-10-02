@@ -1,0 +1,425 @@
+﻿require(["jquery", "imagesloaded", "velocity.ui", "velocity", "swiper", "slick", "resizend", "nicescroll"], function (domReady, imagesLoaded, velocity) {
+
+    var mySwiper;
+    var mySwiper1;
+    var mySwiper2;
+    var mySwiper3;
+    var mySwiper4;
+    var mySwiper5;
+    var mySwiper6;
+    var mySwiper7;
+    var mySwiper8;
+    var mySwiper9;
+    var mySwiper10;
+
+    var pagew = $(document).outerWidth(true) + (window.innerWidth - document.body.clientWidth);
+    var pageh = $(window).innerHeight();
+
+    $(window).on("resizeEnd", function (event) {
+        repage_com();
+    });
+
+    try {
+        mySwiper1 = new Swiper('.banner_slide', {
+            slidesPerView: "1",
+            speed: 1000,
+            lazyLoading: true,
+            lazyLoadingInPrevNext: true,
+            lazyLoadingInPrevNextAmount: 3,
+            autoplay:6000,
+            effect: 'fade',
+            autoplayDisableOnInteraction: false,
+            pagination: '.banner_sp',
+            paginationClickable: true,
+            observer: true,
+            observeParents: true,
+            onInit: function () {
+
+            },
+            onSlideChangeStart: function (e) {
+                var num = e.previousIndex;
+                $(".banner_slide .swiper-slide").find(".banner_01_c p").each(function () {
+                    $(this).stop(true, true).velocity({ "opacity": "0" });
+                });
+            },
+            onSlideChangeEnd: function (e) {
+                var num = e.activeIndex;
+                $(".banner_slide .swiper-slide").eq(num).find(".banner_01_c p").stop(true, true).velocity("transition.slideUpIn", { stagger: 300 });
+            }
+        });
+    }
+    catch (e) { }
+
+    try {
+        mySwiper2 = new Swiper('.in_01l_slide', {
+            slidesPerView: "1",
+            speed: 1000,
+            lazyLoading: true,
+            lazyLoadingInPrevNext: true,
+            lazyLoadingInPrevNextAmount: 3,
+            autoplay: 6000,
+            autoplayDisableOnInteraction: false,
+            observer: true,
+            observeParents: true,
+            prevButton: '.in_01l_prev',
+            nextButton: '.in_01l_next'
+        });
+    }
+    catch (e) { }
+
+    try {
+        mySwiper3 = new Swiper('.in_02c_slide', {
+            slidesPerView: "3",
+            speed: 1000,
+            spaceBetween:60,
+            lazyLoading: true,
+            lazyLoadingInPrevNext: true,
+            lazyLoadingInPrevNextAmount: 3,
+            autoplayDisableOnInteraction: false,
+            observer: true,
+            observeParents: true,
+            prevButton: '.in_02c_prev',
+            nextButton: '.in_02c_next'
+        });
+    }
+    catch (e) { }
+
+    try {
+        mySwiper4 = new Swiper('.news_01_slide', {
+            slidesPerView: "1",
+            speed: 1000,
+            lazyLoading: true,
+            lazyLoadingInPrevNext: true,
+            lazyLoadingInPrevNextAmount: 3,
+            autoplayDisableOnInteraction: false,
+            observer: true,
+            observeParents: true,
+            pagination: '.news_01_sp',
+            paginationClickable: true,
+        });
+    }
+    catch (e) { }
+
+    try {
+        mySwiper5 = new Swiper('.news_05_slide', {
+            slidesPerView: "7",
+            speed: 1000,
+            lazyLoading: true,
+            lazyLoadingInPrevNext: true,
+            lazyLoadingInPrevNextAmount: 3,
+            autoplayDisableOnInteraction: false,
+            observer: true,
+            observeParents: true,
+        });
+    }
+    catch (e) { }
+
+    try {
+        mySwiper6 = new Swiper('.nxq_05c_slide', {
+            slidesPerView: "3",
+            speed: 1000,
+            lazyLoading: true,
+            spaceBetween: 50,
+            lazyLoadingInPrevNext: true,
+            lazyLoadingInPrevNextAmount: 3,
+            autoplayDisableOnInteraction: false,
+            observer: true,
+            observeParents: true,
+            pagination: '.nxq_05c_sp',
+            paginationClickable: true,
+        });
+    }
+    catch (e) { }
+
+    try {
+        mySwiper7 = new Swiper('.xxjj_04t_slide', {
+            slidesPerView: "1",
+            speed: 1000,
+            lazyLoading: true,
+            lazyLoadingInPrevNext: true,
+            lazyLoadingInPrevNextAmount: 3,
+            autoplayDisableOnInteraction: false,
+            observer: true,
+            observeParents: true,
+            prevButton: '.xxjj_04_prev',
+            nextButton: '.xxjj_04_next'
+        });
+    }
+    catch (e) { }
+
+    try {
+        mySwiper8 = new Swiper('.xxjj_05_slide', {
+            slidesPerView: "1",
+            speed: 1000,
+            lazyLoading: true,
+            lazyLoadingInPrevNext: true,
+            lazyLoadingInPrevNextAmount: 3,
+            autoplayDisableOnInteraction: false,
+            observer: true,
+            observeParents: true,
+            pagination: '.xxjj_05_sp',
+            paginationClickable: true,
+        });
+    }
+    catch (e) { }
+
+    try {
+        $("#xkjs_01r_c_0").niceScroll({ cursorcolor: "#d6d6d6", cursorwidth: '6px', background: '#fff', cursorborder: "0px", cursorborderradius: "0px", cursoropacitymin: "1" });
+        n_swiper1 = new Swiper('.xkjs_01_slide_0', {
+            slidesPerView: "1",
+            speed: 1000,
+            lazyLoading: true,
+            spaceBetween: 0,
+            lazyLoadingInPrevNext: true,
+            lazyLoadingInPrevNextAmount: 3,
+            autoplayDisableOnInteraction: false,
+            observer: true,
+            observeParents: true,
+            prevButton: '.xkjs_01_prev_0',
+            nextButton: '.xkjs_01_next_0'
+        });
+    }
+    catch (e) { }
+
+    try {
+        $("#xkjs_01r_c_1").niceScroll({ cursorcolor: "#d6d6d6", cursorwidth: '6px', background: '#fff', cursorborder: "0px", cursorborderradius: "0px", cursoropacitymin: "1" });
+        n_swiper2 = new Swiper('.xkjs_01_slide_1', {
+            slidesPerView: "1",
+            speed: 1000,
+            lazyLoading: true,
+            spaceBetween: 0,
+            lazyLoadingInPrevNext: true,
+            lazyLoadingInPrevNextAmount: 3,
+            autoplayDisableOnInteraction: false,
+            observer: true,
+            observeParents: true,
+            prevButton: '.xkjs_01_prev_1',
+            nextButton: '.xkjs_01_next_1'
+        });
+    }
+    catch (e) { }
+
+    try {
+        $("#xkjs_01r_c_2").niceScroll({ cursorcolor: "#d6d6d6", cursorwidth: '6px', background: '#fff', cursorborder: "0px", cursorborderradius: "0px", cursoropacitymin: "1" });
+        n_swiper3 = new Swiper('.xkjs_01_slide_2', {
+            slidesPerView: "1",
+            speed: 1000,
+            lazyLoading: true,
+            spaceBetween: 0,
+            lazyLoadingInPrevNext: true,
+            lazyLoadingInPrevNextAmount: 3,
+            autoplayDisableOnInteraction: false,
+            observer: true,
+            observeParents: true,
+            prevButton: '.xkjs_01_prev_2',
+            nextButton: '.xkjs_01_next_2'
+        });
+    }
+    catch (e) { }
+
+    try {
+        $("#xkjs_01r_c_3").niceScroll({ cursorcolor: "#d6d6d6", cursorwidth: '6px', background: '#fff', cursorborder: "0px", cursorborderradius: "0px", cursoropacitymin: "1" });
+        n_swiper4 = new Swiper('.xkjs_01_slide_3', {
+            slidesPerView: "1",
+            speed: 1000,
+            lazyLoading: true,
+            spaceBetween: 0,
+            lazyLoadingInPrevNext: true,
+            lazyLoadingInPrevNextAmount: 3,
+            autoplayDisableOnInteraction: false,
+            observer: true,
+            observeParents: true,
+            prevButton: '.xkjs_01_prev_3',
+            nextButton: '.xkjs_01_next_3'
+        });
+    }
+    catch (e) { }
+
+    try {
+        $("#xkjs_01r_c_4").niceScroll({ cursorcolor: "#d6d6d6", cursorwidth: '6px', background: '#fff', cursorborder: "0px", cursorborderradius: "0px", cursoropacitymin: "1" });
+        n_swiper5 = new Swiper('.xkjs_01_slide_4', {
+            slidesPerView: "1",
+            speed: 1000,
+            lazyLoading: true,
+            spaceBetween: 0,
+            lazyLoadingInPrevNext: true,
+            lazyLoadingInPrevNextAmount: 3,
+            autoplayDisableOnInteraction: false,
+            observer: true,
+            observeParents: true,
+            prevButton: '.xkjs_01_prev_4',
+            nextButton: '.xkjs_01_next_4'
+        });
+    }
+    catch (e) { }
+
+
+
+    repage_com();
+
+    function repage_com() {
+        pagew = $(document).outerWidth(true) + (window.innerWidth - document.body.clientWidth);
+        pageh = $(window).innerHeight();
+        //document.title = pagew + " * " + pageh;
+
+        try {
+            $("#svg_temp").remove();
+            var _html = '';
+            var tle = 0;
+            _html += '<svg id="svg_temp" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5000 621" style="width:100%;">';
+            _html += '<defs>';
+            _html += '<clipPath id="clipPath3">';
+            _html += '<path transform="translate(-' + tle + ' -0)" class="cls-1" d="M5000,19V621H0V19c2.5,0,5-.11,7.49-.11q1207.67,0,2415.32-.21c23.34,0,44.16,6.27,64,17.57,4.46,2.54,8.8,7.34,13.2,7.34s8.72-4.83,13.21-7.33c17-9.47,34.57-17.35,54.48-17.35q1213.16-.06,2426.31,0C4996,18.87,4998,18.94,5000,19Z"/>';
+            _html += '<path transform="translate(-' + tle + ' -0)" d="M5000,19c-2,0-4-.11-6-.11q-1213.16,0-2426.31,0c-19.91,0-37.51,7.88-54.48,17.35-4.49,2.5-8.81,7.33-13.21,7.33s-8.74-4.8-13.2-7.34c-19.83-11.3-40.65-17.57-64-17.57Q1215.15,19,7.49,18.87c-2.49,0-5,.07-7.49.11V1c2.5,0,5,.1,7.49.1Q1216,1.13,2424.4,1c26.39,0,50.67,6.28,73,20.23a5.85,5.85,0,0,0,5.1,0C2524.93,7.33,2549.21,1,2575.6,1q1208.45.15,2416.9.08c2.5,0,5-.07,7.5-.1Z"/>';
+            _html += '</clipPath>';
+            _html += '</defs>';
+            _html += '</svg>';
+            //$(".in_01").css({ "clip-path": "url(#clipPath3)" });
+            //$(document.body).append(_html);
+        }
+        catch (e) { }
+
+        try {
+            if($(".lyld_01").find("#xxyd_01_c").attr("id") != "xxyd_01_c") {
+                $(".lyld_01").each(function (a, b) {
+                    $(this).find("ul li").each(function (i, e) {
+                        $(this).css({ "height": "auto" });
+                    });
+                    var max_lyld_01 = 0;
+                    $(this).find("ul li").each(function (i, e) {
+                        if (max_lyld_01 < $(this).innerHeight()) {
+                            max_lyld_01 = $(this).innerHeight();
+                        }
+                    });
+                    $(this).find("ul li").each(function (i, e) {
+                        $(this).css({ "height": max_lyld_01 + "px" });
+                    });
+                });
+            }            
+        }
+        catch (e) { }
+
+        try {
+            $(".txms_01").each(function (a, b) {
+                $(this).find("ul li").each(function (i, e) {
+                    $(this).css({ "height": "auto" });
+                });
+                var max_txms_01 = 0;
+                $(this).find("ul li").each(function (i, e) {
+                    if (max_txms_01 < $(this).innerHeight()) {
+                        max_txms_01 = $(this).innerHeight();
+                    }
+                });
+
+                $(this).find("ul li").each(function (i, e) {
+                    $(this).css({ "height": max_txms_01 + "px" });
+                });
+
+            });
+        }
+        catch (e) { }
+
+        try {
+            if (pagew > 1200) {
+                mySwiper3.params.slidesPerView = 3;
+                mySwiper3.params.spaceBetween = 60;
+            }
+            else {
+                mySwiper3.params.slidesPerView = 1;
+                mySwiper3.params.spaceBetween = 0;
+            }
+            mySwiper3.update();
+            mySwiper3.onResize();
+        }
+        catch (e) { }
+
+        try {
+            if (pagew > 1200) {
+                mySwiper6.params.slidesPerView = 3;
+                mySwiper6.params.spaceBetween = 50;
+            }
+            else {
+                mySwiper6.params.slidesPerView = 1;
+                mySwiper6.params.spaceBetween = 0;
+            }
+            mySwiper6.update();
+            mySwiper6.onResize();
+        }
+        catch (e) { }
+
+        try {
+            if (pagew > 1200) {
+                mySwiper5.params.slidesPerView = 7;
+            }
+            else {
+                mySwiper5.params.slidesPerView = 3;
+            }
+            mySwiper5.update();
+            mySwiper5.onResize();
+        }
+        catch (e) { }
+
+        try {
+            $(".xxjj_02fr").css({ "min-height": $(".xxjj_02 img").innerHeight() + "px" });
+        }
+        catch (e) { }
+        
+
+        try {
+            if ($(".leve_2").attr("class") != undefined) {
+                setTimeout(function () {
+                    var _lev_3_0 = $(".leve_2 ul li:eq(0)").offset().left + $(".leve_2 ul li:eq(0)").width() / 2 - $(".leve_3_0").width() / 2;
+                    var _lev_3_top = $(".leve_2 ul li:eq(0)").position().top + 60 + 50;
+                    _lev_3_top = _lev_3_top + 60;
+
+                    $(".leve_3_0").css({ "left": _lev_3_0 + "px", "top": _lev_3_top + "px" });
+
+                    var _lev_3_1 = $(".leve_2 ul li:eq(1) label").offset().left + $(".leve_2 ul li:eq(1) label").width() / 2 - $(".leve_3_1").width() / 2 + 0.5;
+                    $(".leve_3_1").css({ "left": _lev_3_1 + "px", "top": _lev_3_top + "px" });
+
+                    var _lev_3_2 = $(".leve_2 ul li:eq(2) label").offset().left + $(".leve_2 ul li:eq(2) label").width() / 2 - $(".leve_3_2").width() / 2;
+                    $(".leve_3_2").css({ "left": _lev_3_2 + "px", "top": _lev_3_top + "px" });
+
+                    var _lev_3_3 = $(".leve_2 ul li:eq(3) label").offset().left + $(".leve_2 ul li:eq(3) label").width() / 2 - $(".leve_3_3").width() / 2 + 1;
+                    $(".leve_3_3").css({ "left": _lev_3_3 + "px", "top": _lev_3_top + "px" });
+
+                    var _lev_3_4 = $(".leve_2 ul li:eq(4) label").offset().left + $(".leve_2 ul li:eq(4) label").width() / 2 - $(".leve_3_4").width() / 2;
+                    $(".leve_3_4").css({ "left": _lev_3_4 + "px", "top": _lev_3_top + "px" });
+
+                    var _lev_3_5 = $(".leve_2 ul li:eq(5) label").offset().left + $(".leve_2 ul li:eq(5) label").width() / 2 - $(".leve_3_5").width() / 2 + 1;
+                    $(".leve_3_5").css({ "left": _lev_3_5 + "px", "top": _lev_3_top + "px" });
+
+                }, 400);
+
+                setTimeout(function () {
+                    var _lev_4_top = $(".leve_3_0 ul li:eq(0)").position().top + 62 + $(".leve_3_0 ul li:eq(0)").height();
+                    _lev_4_top = _lev_4_top +279;
+
+                    var _lev_4_0 = $(".leve_03 .leve_3_2 ul li").offset().left - $(".leve_4_0").width() / 2 + 25;
+                    $(".leve_4_0").css({ "left": _lev_4_0 + "px", "top": _lev_4_top + "px" });
+
+                    var _lev_4_1 = $(".leve_03 .leve_3_3 ul li:eq(0)").offset().left - $(".leve_4_1").width() / 2 + 25;
+                    $(".leve_4_1").css({ "left": _lev_4_1 + "px", "top": _lev_4_top + "px" });
+
+                    var _lev_4_2 = $(".leve_03 .leve_3_3 ul li:eq(1)").offset().left - $(".leve_03 .leve_3_3 ul li:eq(1)").width() / 2 - 10;
+                    $(".leve_4_2").css({ "left": _lev_4_2 + "px", "top": _lev_4_top + "px" });
+
+                    var _lev_4_3 = $(".leve_03 .leve_3_3 ul li:eq(2)").offset().left - $(".leve_03 .leve_3_3 ul li:eq(2)").width() / 2 - 10;
+                    $(".leve_4_3").css({ "left": _lev_4_3 + "px", "top": _lev_4_top + "px" });
+
+                    var _lev_4_4 = $(".leve_03 .leve_3_4 ul li:eq(1)").offset().left - $(".leve_03 .leve_3_4 ul li:eq(1)").width() / 2 - 10;
+                    $(".leve_4_4").css({ "left": _lev_4_4 + "px", "top": _lev_4_top + "px" });
+
+                    var _lev_4_5 = $(".leve_03 .leve_3_5 ul li").offset().left - $(".leve_03 .leve_3_5 ul li").width() / 2 - 10;
+                    $(".leve_4_5").css({ "left": _lev_4_5 + "px", "top": _lev_4_top + "px" });
+
+                    $(".leve_03").css({ "opacity": "1" });
+                    $(".leve_04").css({ "opacity": "1" });
+                }, 600);
+            }
+        }
+        catch (e) { }
+        
+    }
+
+});
