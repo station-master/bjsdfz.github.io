@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<style>
+    .cav{
+      position: fixed;
+      top: 0%;
+      left: 0%;
+      width: 800px;
+      height: 800px;
+      background-color: rgba(0, 0, 0, 0.45);
+    }
+</style>
+</head>
+<body>
+alpha:<span id="alpha"></span><br/>
+beta:<span id="beta"></span><br/>
+gamma:<span id="gamma"></span><br/>
+speed:<span id="speed"></span><br/>
+qx:<span id="qx"></span><br/>
+qy:<span id="qy"></span><br/>
+<canvas id="caav" class="cav" width="800" height="800"></canvas>
+</body>
+<script>
+    window.onload=function(){
+var hy = document.getElementById("caav");
+hbck = hy.getContext("2d");
+hbck.fillStyle = "#FF0000"
+hbck.strokeStyle = "#FF0000"
+hbck.lineWidth = 2
+    }
+    var l_x=0
+    var l_y=0
+    var l_z=0
+    var x=0,y=0,z=0
+    var qx=400,qy=400,qz=0
+    var alpha,beta,gamma
+    window.addEventListener('devicepressure', function (event) {
+alert('az')
+ 
+        }, false);
+    if (window.DeviceOrientationEvent) {
+        window.addEventListener('deviceorientation', function (event) {
+            var a = document.getElementById('alpha'),
+                b = document.getElementById('beta'),
+                g = document.getElementById('gamma'),
+                alpha = event.alpha,
+                beta = event.beta,
+                gamma = event.gamma;
+ 
+            a.innerHTML = Math.round(alpha);
+            b.innerHTML = Math.round(beta);
+            g.innerHTML = Math.round(gamma);
+ 
+        }, false);
+    } else {
+        document.querySelector('body').innerHTML = '你的浏览器不支持陀螺仪';
+    }
+    if (window.DeviceMotionEvent) {  
+        window.addEventListener('devicemotion', deviceMotionHandler, false);  
+    }  
+    var vibrateSupport = "vibrate" in navigator  
+    if (vibrateSupport) { //兼容不同的浏览器  
+        navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;  
+    }  else{
+        alert('mo')
+    }
+    
+
+    setInterval(() => {
+        var ydjl=Math.sqrt(Math.pow(x-l_x,2)+Math.pow(y-l_y,2)+Math.pow(z-l_z,2))
+
+         var sd=Number(ydjl.toFixed(1))
+         document.getElementById('speed').innerHTML=sd+'m/s'
+       alpha=Number(document.getElementById('alpha').innerHTML)
+       var a2=(alpha/180)*Math.PI
+qx=qx+Math.sin(Math.PI/2+a2)*sd*0.4
+qy=qy+Math.cos(Math.PI/2+a2)*sd*0.4
+
+
+
+
+         l_x=x
+         l_y=y
+         l_z=z
+
+document.getElementById('qx').innerHTML=qx
+document.getElementById('qy').innerHTML=qy
+
+var col='rgb('+(10*sd)+',255,'+(255-10*sd)+')'
+
+hbck.fillStyle = col
+hbck.strokeStyle = col
+
+            hbck.beginPath();
+            hbck.arc(qx, qy, 1, 0, 2 * Math.PI);
+            hbck.fill()
+            hbck.stroke();
+          
+    }, 10);
+    function deviceMotionHandler(eventData) {  
+    var acceleration = eventData.accelerationIncludingGravity;  
+
+        x = acceleration.x;
+        y = acceleration.y;
+        z = acceleration.z;
+
+  
+
+
+    
+    }  
+</script>
+</html>
