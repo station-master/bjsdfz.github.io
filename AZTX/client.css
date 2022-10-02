@@ -1,0 +1,172 @@
+:root {
+    --ltkxzys: rgba(128, 128, 128, 0.3);
+    --hanmoshi:rgb(16, 16, 16);
+    --hanmoshixf:rgb(255, 255, 255);
+    --hanmoshixf2:rgba(255, 255, 255, 0.5);
+  }
+#all{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: var(--hanmoshi);
+}
+#cfltdh{
+    position: absolute;
+    bottom: 10%;
+    left: 0px;
+    width: 100%;
+    height: 90%;
+}
+.ltdkzxs{
+    transition: 0.2s;
+    position: relative;
+    left: 0px;
+    width: 100%;
+    height: 10%;
+    background-color:rgba(255, 255, 255, 0) ;
+    overflow:hidden;
+}
+.ltdkzxs:hover{
+    transition: 0.2s;
+    background-color:var(--ltkxzys);
+}
+.ystx{
+    position: absolute;
+    margin: auto;
+    top:0px;
+    bottom: 0px;
+    left: 30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 20px;
+}
+.ysname{
+    position: absolute;
+    margin: auto;
+    top:0px;
+    bottom: 0px;
+    left: 120px;
+    width: 100%;
+    overflow:hidden;
+}
+.relaysname{
+    position: absolute;
+    top:0px;
+    left: 0px;
+    width: 30%;
+    height: 60%;
+    line-height: 36px;
+    text-align: left;
+    font-size: 26;
+    color: var(--hanmoshixf);
+}
+.ysdfsdh{
+    position: absolute;
+    bottom:0px;
+    left: 0px;
+    width: 30%;
+    height: 40%;
+    line-height: 24px;
+    text-align: left;
+    font-size: 20;
+    color: var(--hanmoshixf2);
+}
+.ysscdhdtime{
+    position: absolute;
+    margin: auto;
+    top:0px;
+    bottom: 0px;
+    right:  120px;
+    width: 60%;
+    height: 24px;
+    line-height: 24px;
+    text-align: right;
+    font-size: 20;
+    color: var(--hanmoshixf2);
+}
+#liaotianjiemianneibu{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0,0,0,0);
+}
+#xsltrevddiv{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 90%;
+    background-color: rgb(0,0,0,0);
+    overflow: auto;
+    background-image: url("file:///B:/%E5%A5%BD%E5%9B%BE%E7%89%87/MC/%E8%8D%92%E9%87%8E%E6%9B%B4%E6%96%B0%E5%AE%A3%E4%BC%A0%E5%9B%BE(%E5%A3%81%E7%BA%B8).jpg");
+    background-size: cover;
+}
+#sendan{
+    position: absolute;
+    bottom:  0px;
+    left: 0px;
+    width: 100%;
+    height: 10%;
+    background-color: var(--ltkxzys);
+}
+.ededffer{
+    position: relative;
+    left: 0px;
+    width: 100%;
+}
+.usertx{
+    position: absolute;
+    top: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+}
+.usershuodehua{
+    position: absolute;
+    top: 20px;
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 30px black;
+    padding: 20px;
+    line-height: 24px;
+    text-align: left;
+    font-size: 20;
+    color: var(--hanmoshixf);
+    word-wrap:break-word;
+    backdrop-filter: blur(35px);
+    -webkit-backdrop-filter: blur(35px);
+}
+#shurukuang{
+    position: absolute;
+    margin: auto;
+    top:0px;
+    bottom: 0px;
+    left: 5%;
+    height: 80%;
+    width: 75%;
+    background-color: rgba(0, 0, 0, 0);
+    color: var(--hanmoshixf);
+    resize:none;
+    font-size: 36px;
+}
+#fsan{
+    position: absolute;
+    margin: auto;
+    top:0px;
+    bottom: 0px;
+    right:  5%;
+    height: 60px;
+    width: 10%;
+    background-color: rgba(0, 255, 0, 1);
+    border-radius: 20px;
+    text-align: center;
+    line-height: 60px;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/*最小窗口尺寸 810 760*/

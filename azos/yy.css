@@ -1,0 +1,99 @@
+.bilibili{
+    position: absolute;
+    top:30px;
+    left: 30px;
+    background-image: url(img/bilibili.png);
+    height: 50px;
+    width: 50px;
+    background-size: cover;
+    cursor: pointer;
+}
+.minecraft{
+    position: absolute;
+    top:30px;
+    left: 110px;
+    background-image: url(img/grass.png);
+    height: 50px;
+    width: 50px;
+    background-size: cover;
+    cursor: pointer;
+}
+.AzVideoplayer{
+    position: absolute;
+    top:30px;
+    left: 190px;
+    background-image: url(img/movies.png);
+    height: 50px;
+    width: 50px;
+    background-size: cover;
+    cursor: pointer;
+}
+.vscode{
+    position: absolute;
+    top:30px;
+    left: 270px;
+    background-image: url(img/vscode.png);
+    height: 50px;
+    width: 50px;
+    background-size: cover;
+    cursor: pointer;
+}
+.WeChat{
+    position: absolute;
+    top:30px;
+    left: 350px;
+    background-image: url(img/WeChat.svg);
+    height: 50px;
+    width: 50px;
+    background-size: cover;
+    cursor: pointer;
+}
+.sxxxx{
+    position: absolute;
+    top:170px;
+    right: 50px;
+    height:30px;
+    width: 50px;
+    background-size: cover;
+    cursor: pointer;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.788);
+    font-family: Microsoft YaHei;
+    text-align:center;
+    line-height: 30px;
+
+}
+.srinput{
+    position: absolute;
+    top:170px;
+    left: 30px;
+    height:30px;
+    width: 250px;
+    font-size:13px;    
+    border:rgba(204, 204, 204, 0) 1px solid;  
+    border-radius: 10px;
+    outline: none;
+    background: #ffffff86; 
+    }
+    .kjcx{
+        position: absolute;
+        top:50px;
+        left: 0px;
+        height:100px;
+        width: 350px;
+        overflow:auto;
+    }
+    .kscdsycx{
+        position: absolute;
+        top:10px;
+        right: 50px;
+        height:30px;
+        width: 100px;
+        background-size: cover;
+        cursor: pointer;
+        border-radius: 10px;
+        background-color: rgba(255, 255, 255, 0.507);
+        font-family: Microsoft YaHei;
+        text-align:center;
+        line-height: 30px;
+    }

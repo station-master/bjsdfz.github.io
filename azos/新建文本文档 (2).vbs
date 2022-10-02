@@ -1,0 +1,1 @@
+msgbox len("ck1azck2")

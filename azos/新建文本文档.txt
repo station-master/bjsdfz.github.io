@@ -1,0 +1,42 @@
+<div class="baikuang"   onmousemove=ckyd("ck0")></div>
+    <div id="nr-ck0" style="width: 100%;height:0%;">
+        <iframe src="https://player.bilibili.com/player.html?bvid=BV12x411E7rM&amp;wmode=transparent&amp;as_wide=1&amp;page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="100%"></iframe>
+    </div>
+    <div class="close" onclick=""></div>
+    <div class="max" onclick=""></div>
+    <div class="saml" onclick=""></div>
+
+
+
+        <div class="baikuang"   onmousemove=ckyd("ck0") onmousedown=ckgd('ck0')></div>
+        <div id="nr-ck0" style="width: 100%;height:0%;">
+        <iframe src="az.html" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="100%"></iframe>
+        </div>
+        <img src="exe.png" class="cktb">
+        <div class="ckbt">az.exe</div>
+        <div class="close" onclick=""></div>
+        <div class="max" onclick=""></div>
+        <div class="saml" onclick=""></div>
+
+
+
+
+
+
+
+
+       <div class="baikuang"   onmousemove=ckyd("ck0") onmousedown=ckgd('ck0')></div>
+        <div id="nr-ck0" style="width: 100%;height:0%;">
+        <iframe src="az.html" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="100%" class="yjiao"></iframe>
+        </div>
+        <img src="exe.png" class="cktb">
+        <div class="ckbt">az.exe</div>
+        <div class="close" onclick=""></div>
+        <div class="max" onclick=""></div>
+        <div class="saml" onclick=""></div>
+        <div class="dxtjd" onmousemove=ckdx("ck0")></div>
+
+
+
+<img src="img/exe.png" width="25px"height="25px" id="rwl-ck0" class="rwl-tb">
+    <div onclick=azsaml('ck0') class="rwltb"></div>

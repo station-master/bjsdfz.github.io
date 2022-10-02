@@ -1,0 +1,33 @@
+   var sourceNode = document.getElementById("ck0");
+	var clonedNode = sourceNode.cloneNode(true);
+	clonedNode.setAttribute("id", "ck"+cks);
+	sourceNode.parentNode.appendChild(clonedNode);
+    if (bk=="1"){
+    var ynr=document.getElementById("ck"+cks).innerHTML
+    document.getElementById("ck"+cks).innerHTML=ynr+"<div class='baikuang'   onmousemove=ckyd('ck"+cks+"') onmousedown=ckgd('ck"+cks+"')></div>"
+    var ynr=document.getElementById("ck"+cks).innerHTML
+    document.getElementById("ck"+cks).innerHTML=ynr+"<div class='close' onclick=azclose('ck"+cks+"')></div>"
+    var ynr=document.getElementById("ck"+cks).innerHTML
+    document.getElementById("ck"+cks).innerHTML=ynr+"<div class='max' onclick=azmax('ck"+cks+"')></div>"
+    var ynr=document.getElementById("ck"+cks).innerHTML
+    document.getElementById("ck"+cks).innerHTML=ynr+"<div class='saml' onclick=azsaml('ck"+cks+"')></div>"
+    }
+    if (bk=="2"){
+    var ynr=document.getElementById("ck"+cks).innerHTML
+    document.getElementById("ck"+cks).innerHTML=ynr+"<div class='baikuang'   onmousemove=ckyd('ck"+cks+"') onmousedown=ckgd('ck"+cks+"')></div>"+"<div class='close' onclick='close('ck"+cks+"')></div>"
+    }
+    if (bk=="3"){
+    }
+    var ynr=document.getElementById("ck"+cks).innerHTML
+    document.getElementById("ck"+cks).innerHTML=ynr+"<img src='"+tb+"' class='cktb'>"
+    var ynr=document.getElementById("ck"+cks).innerHTML
+    document.getElementById("ck"+cks).innerHTML=ynr+" <div class='ckbt'>"+bt+"</div>"
+
+
+
+
+    var ynr=document.getElementById("ck"+cks).innerHTML
+    document.getElementById("ck"+cks).innerHTML=ynr+"<div id='nr-ck"+cks+"' style='width: 100%;height:0%;'></div>"
+    document.getElementById("nr-ck"+cks).innerHTML="<iframe src='"+src+"' scrolling='no' border='0' frameborder='no' framespacing='0' allowfullscreen='true' width='100%' height='100%' class='yjiao'></iframe>"
+    ckxs("ck"+cks,"700px","500px")
+    document.getElementById("ck" + cks).style.display= "block"

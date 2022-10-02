@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <title>JS Event鼠标拖拽事件</title>       
+        <style>
+            #box{width:200px;height:200px;background:#000;position:absolute;}
+        </style> 
+
+    </head>
+    <body>
+
+         <div id="box"></div>
+
+         <script>
+           
+            window.onload = function() {
+                var oBox = document.getElementById("box");
+                oBox.onmousedown = function(ev) {
+                    var disX=ev.clientX-oBox.offsetLeft;                  //计算X轴，div盒子左边框与鼠标之间的距离
+                    var disY=ev.clientY-oBox.offsetTop;                  //计算Y轴，div盒子上边框与鼠标之间的距离   
+                        
+                        
+                    document.onmousemove = function(ev) {
+                        var l = ev.clientX-disX;                               //计算X轴，浏览器左边窗口与div盒子左边边框的距离
+                        var t = ev.clientY-disY;                              //计算Y轴，浏览器上边窗口与div盒子上边边框的距离
+                        console.log(l);
+                        oBox.style.left = l + "px";
+                        oBox.style.top = t + "px";
+                    };
+                    document.onmouseup = function() {
+                    document.onmousemove = null;
+                };
+                
+                    return false;                     //阻止默认事件的发生       
+                };
+                
+            };
+        </script>
+
+    </body>
+
+  </html>

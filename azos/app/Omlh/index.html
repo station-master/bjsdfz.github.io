@@ -1,0 +1,434 @@
+<html>
+	<head>
+		<link rel="shortcut  icon" href="favicon.ico" type="image/x-icon" />
+		<meta charset="utf-8">
+		<title>Omlh</title>
+        <style type="text/css" >
+                 @font-face {
+            font-family: 'exo';
+  src: url('Exo-Regular-webfont.ttf');
+}
+            #dblan{
+                position: fixed;
+                left:0px;
+                top:0px;
+                width: 100%;
+                height:70px;
+                background-color: rgb(53, 53, 53);
+            }
+            #dbsrkl{
+                position: fixed;
+                left:0px;
+                top:30px;
+                width: 100%;
+                height:40px;
+                background-color: rgb(92, 92, 92);
+            }
+            #cknrxs{
+                position: fixed;
+                left:0px;
+                top:70px;
+                width: 100%;
+                height: 0px;
+                background-color: rgb(255, 255, 255);
+            }
+            #baiban{
+                cursor: default;
+                z-index: -1;
+                position: absolute;
+                left:0px;
+                top:0px;
+                width: 100%;
+                height: 100%;
+                background-color: rgb(255, 255, 255);
+            }
+            .sananniu{
+                position: fixed;
+                top:38px;
+            }
+            .button1 {
+                z-index: 2;
+                position: fixed;
+                top:33px;
+	width: 32px;
+	height: 32px; 
+	border-width: 0px; 
+	border-radius: 8px; 
+	background: #ffffff00;
+	cursor: pointer; 
+	outline: none;
+
+}
+.button1:hover { 
+     transition: 0.3s;
+	background: #a8a8a880;
+}
+.png{
+                position: fixed;
+                top:38px;
+}
+#txtsr{
+    position: fixed;
+    top:38px;
+    height: 35px;
+    outline: none;
+    left: 85px;
+    background: #ffffff00; 
+    border:rgba(204, 204, 204, 0) 0px solid;  
+    font-size:15px;  
+    color: white;
+    font-family: exo;
+
+}
+.srk2{
+    position: absolute;
+    top:2px;
+    height: 27px;
+    width: 140px;
+    outline: none;
+    left: 5px;
+    background: #ffffff00; 
+    border:rgba(204, 204, 204, 0) 0px solid;  
+    font-size:15px;  
+    color: white;
+    font-family: exo;
+}
+#srk{
+    position: fixed;
+    top:35px;
+    height: 30px;
+    outline: none;
+    left: 65px;
+    border-radius: 8px; 
+    background-color: rgb(53, 53, 53);
+    border:rgba(204, 204, 204, 0) 0px solid;  
+    font-size:19px;  
+    color: white;
+    -webkit-box-shadow:inset 0 0 10px rgb(32, 32, 32);  
+  -moz-box-shadow:inset 0 0 10px rgb(32, 32, 32);  
+  box-shadow:inset 0 0 10px rgb(32, 32, 32);  
+}
+#srk:hover{
+    border:rgb(107, 107, 107) 1px solid;  
+}
+.mankuandu{
+                position: absolute;
+                top:0px;
+                left:0px;
+width: 100%;
+height: 100%;
+}
+#ckbql{
+    position: fixed;
+                top:0px;
+                left:20px;
+width: 100%;
+height: 30px;
+
+}
+.ckbq{
+    cursor: default;
+                position:absolute;
+                width: 270px;
+                height:30px;
+                background-color: rgb(92, 92, 92);
+                border-radius: 5px 5px 0px 0px;
+                box-shadow:-10px 0 10px rgba(0, 0, 0, 0.3),   10px 0 10px rgba(0, 0, 0, 0.3);
+                color: white;
+                line-height: 30px;
+
+}
+.ckgbtb{
+    position:absolute;
+    top:5px;
+    left:245px;
+                width: 20px;
+                height:20px;
+                background-color: rgba(92, 92, 92, 0);
+                border-radius: 2px 2px 2px 2px;
+                background-image: url(close.png);
+                background-size: cover
+}
+.ckgbtb:hover{
+    transition: 0.1s;
+    background-color: rgb(163, 163, 163);
+
+
+}
+        </style>
+        <script type="text/javascript">
+                    var cks=0
+        var dbc = [];
+            window.onload=function(){
+
+                bujv()
+
+            }
+
+            function bujv(){   //调整窗口大小至正常
+                kd=document.body.clientWidth
+                gd=document.body.clientHeight
+
+//alert(String(kd-240)+"px")
+                document.getElementById("cknrxs").style.height=gd-70+"px";
+                document.getElementById("txtsr").style.width=String(kd-240)+"px";
+                document.getElementById("srk").style.width=String(kd-220)+"px";
+
+
+            }
+            function ks(){
+            var azurl=document.getElementById("txtsr").value
+
+            var sjxr=azurl
+                https="https:/"
+                http="http://"
+            var     dian=sjxr.indexOf(".")
+            var     dd=sjxr.substring(0,7)
+            var     ddd=sjxr.substring(0,1)
+if (azurl==""){
+    sjxr=""
+}else{
+
+if(ddd=="+"){
+
+    var sjxr=     azurl.substring(1,azurl.length) 
+
+}else{
+
+
+
+    if (dd==https) {
+                 
+                }
+                else if (dd==http) {
+              
+                } else if (dian==-1) {
+            
+                   var sjxr= "https://bing.com/search?q=" + sjxr
+                } else {
+             
+                    var sjxr= "http://" + sjxr
+                }
+              
+            }
+}
+             
+              
+                var azurl=document.getElementById("txtsr").value=sjxr
+                xjbq(sjxr)
+            }
+            function dzbq(ckn){
+            document.getElementById("wyby"+ckn).style.zIndex=cks+2
+            document.getElementById("wy"+ckn).style.zIndex=cks+2
+            document.getElementById("baiban").style.zIndex=cks+1
+            document.getElementById("wyby"+ckn).style.background="rgb(92, 92, 92)"
+            document.getElementById("wyby"+ckn).style.boxShadow="-10px 0 10px rgba(0, 0, 0, 0.3),   10px 0 10px rgba(0, 0, 0, 0.3)"
+            document.getElementById("wyby"+ckn).style.border="rgb(60, 60, 60) 0px solid"
+
+            var ymlj=document.getElementById("wy"+ckn).src
+            document.getElementById("txtsr").value=ymlj
+
+
+
+
+
+
+
+
+
+
+
+            for(var k=0;k<cks+1;k++){
+                if(k==ckn){}else{
+                document.getElementById("wyby"+k).style.zIndex=1
+                document.getElementById("wy"+k).style.zIndex=1
+                document.getElementById("wyby"+k).style.background="rgb(53, 53, 53)"
+                document.getElementById("wyby"+k).style.boxShadow="0 0 0 rgba(0, 0, 0, 0)"
+                document.getElementById("wyby"+k).style.border="rgb(60, 60, 60) 1px solid"
+                
+
+
+
+
+
+
+
+
+
+                    }
+            }
+
+
+
+
+            }
+
+
+
+
+function ksw(){
+
+    var ev = ev || window.event
+	if(ev.keyCode == "13") {
+		ks()
+	}
+
+
+}
+
+    window.addEventListener('resize', e => { 
+        bujv()
+                    }, false);
+
+
+            function xjbq(nr){
+            //alert(cks)
+        cks=cks+1
+        var xrcks=cks
+
+    var sourceNode = document.getElementById("wy0");
+	var clonedNode = sourceNode.cloneNode(true);
+	clonedNode.setAttribute("id", "wy"+xrcks);
+	sourceNode.parentNode.appendChild(clonedNode);
+    var wyckcz=document.getElementById("wy"+xrcks)
+    wyckcz.src=nr
+
+    var ydm = document.getElementById("ckbql").innerHTML;
+	document.getElementById("ckbql").innerHTML=ydm+"<div id='wyby"+xrcks+"' class='ckbq' onclick='dzbq("+xrcks+")'></div>"
+	
+    var bqytz=document.getElementById("wyby"+xrcks);
+    bqytz.style.left=xrcks*270+0+"px";
+    bqytz.innerHTML="<input autocomplete=on value='New Tab "+xrcks+"' class='srk2' id='wybyy"+xrcks+"'><div class='ckgbtb' onclick='ckgb("+xrcks+")'></div>";
+    //alert("dzbq('"+cks+"')")
+    
+    dzbq(cks)
+    
+
+            }
+
+
+
+
+function ckgb(ckn){
+
+    document.getElementById("wy"+ckn).remove()
+    document.getElementById("wyby"+ckn).remove()
+    
+    for(var k=ckn+1;k<cks+1;k++){
+        
+
+
+
+        
+        
+
+
+var ytag=document.getElementById("wybyy"+k).value
+var xtag=ytag
+//alert(xtag)
+
+
+
+
+document.getElementById("wyby"+k).remove()
+
+        var ydm = document.getElementById("ckbql").innerHTML;
+
+
+     
+
+
+	document.getElementById("ckbql").innerHTML=ydm+"<div id='wyby"+String(k-1)+"' class='ckbq' onclick='dzbq("+String(k-1)+")'></div>"
+	
+    var bqytz=document.getElementById("wyby"+String(k-1));
+    //alert("wyby"+String(k-1))
+    bqytz.style.left=(k-1)*270+0+"px";
+    bqytz.zIndex=1
+    bqytz.innerHTML="<input autocomplete=on value='"+xtag+"' class='srk2' id='wybyy"+String(k-1)+"'><div class='ckgbtb' onclick='ckgb("+String(k-1)+")'></div>";
+
+
+
+
+        document.getElementById("wy"+k).setAttribute("id", "wy"+String(k-1) )
+    
+
+    }
+
+    chuangkoushujiayi()
+
+    
+    
+}
+
+function chuangkoushujiayi(){
+    cks=cks-1
+}
+
+ document.onkeydown=function bcnc(){
+    for(var k=0;k<cks+1;k++){
+        var aztag=document.getElementById("wybyy"+k).value
+        document.getElementById("wybyy"+k).setAttribute("value",aztag)
+    }
+    
+}
+
+
+        </script>
+        </head>
+        <body>
+
+
+        <div id="dblan">
+            <div id="ckbql">
+
+                <div id="wyby0" class="ckbq" onclick="dzbq('0')">  
+                    <input value="New Tab 0" class="srk2" id="wybyy0">
+                <div class="ckgbtb" onclick="ckgb('0')"></div>
+                </div>
+                
+                
+                
+                </div>
+            <div id="dbsrkl">
+
+
+
+
+
+
+
+
+
+            <div id="anniu">
+
+
+
+               <div class="sananniu">
+               <div class="button1" onclick="ks()" style="left:16px"></div>
+               <img src="sx.png"  height="20" width="20" class="png" style="left:22px"></img>
+                </div>
+            </div>
+            <div id="srkanlan">
+
+
+            <div id="srk"><input onkeyup="ksw()" id='txtsr' value=''style='height:25px'/></div>
+
+                
+            </div>
+
+
+
+
+
+            </div>
+        </div>
+
+<div id="cknrxs">
+    <iframe id="wy0" src="https://bing.com/" frameborder='0' class="mankuandu"></iframe>
+<div id="baiban"></div>
+</div>
+
+
+
+        </body>
+        </html>

@@ -1,0 +1,510 @@
+<html>
+	<head>
+		<link rel="shortcut  icon" href="bjsdfz.ico" type="image/x-icon" />
+		<meta charset="utf-8">
+		<title></title>
+        <style type="text/css" >
+        .mankuandu{
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    height: 100%;
+
+}
+.baikuang{
+    width: 100%;
+    height: 30px;
+    border-radius: 10px 10px 0px 0px;
+    background-color: white;
+}
+.ck{
+    position: fixed;
+    width: 600px;
+    height: 500px;
+    border-radius: 10px;
+    background-color: #ffffff00;
+}
+.ck-cls{
+    position: absolute;
+    right: 0px;
+    height: 20px;
+    width: 40px;
+    background-color: white;
+}
+.ck-cls:hover{
+    transition: 0.1s;
+    background-color: rgb(255, 0, 0);
+    color: #ffffff;
+}
+
+
+
+
+
+
+
+.close{
+    right: 0px;
+    top:0px;
+    position: absolute;
+    cursor: pointer; 
+   width: 40px;
+   height: 30px;
+   border-radius: 0px 10px 0px 0px;
+   background-image: url(img/close.png);
+   background-size: cover
+}
+.close:hover{
+    transition: 0.3s;
+    background-image: url(img/close-r.png);
+}
+.max{
+    right: 40px;
+    top:0px;
+    position: absolute;
+    cursor: pointer; 
+   width: 40px;
+   height: 30px;
+   background-image: url(img/maximize.png);
+   background-size: cover
+}
+.max:hover{
+    transition: 0.3s;
+    background-image: url(img/maximize-r.png);
+}
+.saml{
+    right: 80px;
+    top:0px;
+    position: absolute;
+    cursor: pointer; 
+   width: 40px;
+   height: 30px;
+   background-image: url(img/minimize.png);
+   background-size: cover
+}
+.saml:hover{
+    transition: 0.3s;
+    background-image: url(img/minimize-r.png);
+}
+.db{
+    position: fixed;
+    left:0px;
+    bottom: 0px;
+    width: 100%;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.521);
+ 
+}
+.cktb{
+    left: 10px;
+    top:2px;
+    position: absolute;
+   width: 25px;
+   height: 25px;
+}
+.ckbt{
+    left: 45px;
+    top:2px;
+    position: absolute;
+    height: 25px;
+   line-height:25px;
+   font-size: 20;
+}
+.add{
+    position: absolute;
+    left:5px;
+    top: 7.5px;
+    width: 25px;
+    height: 25px;
+    cursor: pointer; 
+}
+.yjiao{
+    border-radius: 0px 0px 10px 10px;
+}
+.dxtjd{
+    position: absolute;
+    bottom: -8px;
+    right: -8px;
+    height: 20px;
+    width: 20px;
+    cursor: nw-resize;
+}
+.dxtjd2{
+    position: absolute;
+    bottom: -8px;
+    left: -8px;
+    height: 20px;
+    width: 20px;
+    cursor: nw-resize;
+}
+.rwl{
+    position: absolute;
+    top:0px;
+    left: 40px;
+    height: 40px;
+    width: 100%;
+}
+.rwltb{
+ position: absolute;
+    top:0px;
+    left: 0px;
+    height: 40px;
+    width: 40px;
+    background-color: #ffffff00;
+}
+.rwltb:hover{
+    transition: 0.3s;
+    background-color: #ffffff67;
+}
+.tb{
+    position: relative;
+    cursor: pointer;
+    height: 40x;
+    width: 40px;
+}
+.rwl-tb{
+    position: relative;
+    left: 7.5px;
+    top:7.5px;
+}
+.yxxx{
+    position: absolute;
+    top:-200px;
+    height: 200px;
+    border-radius: 0px 10px 0px 0px;
+    width: 400px;
+    background-color: rgba(255, 255, 255, 0.521);
+}
+
+
+    </style>
+    <style>
+        @import url(yy.css);
+    </style>
+        <style>
+            @import url(gdt.css);
+        </style>
+    <script type="text/javascript">
+        var cks=0
+        var dbc = [];
+
+window.onload = function(){
+    ckxs("ck0","700px","500px")
+}
+function ckxs(idm,w,h){
+
+    var wd=w
+    var hd=h
+    var idd=idm
+    cknr=""
+
+document.getElementById(idd).style.width=wd
+document.getElementById(idd).style.height=hd
+document.getElementById("nr-"+idd).style.height=hd.toString().split("px")[0]-30+"px"
+document.getElementById(idm).style.top=    (document.body.clientHeight-500)/2
+document.getElementById(idm).style.left=    (document.body.clientWidth-700)/2
+
+
+}
+function ckxsfz(idm,w,h){
+
+var wd=w
+var hd=h
+var idd=idm
+cknr=""
+
+document.getElementById(idd).style.width=wd
+document.getElementById(idd).style.height=hd
+document.getElementById("nr-"+idd).style.height=hd.toString().split("px")[0]-30+"px"
+}
+function ckgd(idm){
+   // alert(cks)
+    
+    var zdgd=document.getElementById(idm).style.zIndex;
+
+    if (zdgd == ""){
+        
+    }else
+    {
+        var i=1
+        //alert(cks)
+            for (var i = 1; i <= cks; i++) {
+              
+var ckmc="ck" + i
+//alert(isInArray(dbc,ckmc))
+if (isInArray(dbc,ckmc)==true) {
+}else{
+var xindex=document.getElementById(ckmc).style.zIndex
+//alert("az")
+if (xindex>=zdgd) {
+    if(ckmc==idm){}else{
+        document.getElementById(ckmc).style.zIndex=xindex-1;
+    }
+}
+            }
+ }
+}
+
+    document.getElementById(idm).style.zIndex=cks;
+}
+function isInArray(arr,value){
+    for(var i = 0; i < arr.length; i++){
+        if(value === arr[i]){
+            return true;
+        }
+    }
+    return false;
+}
+function ckyd(idm){
+    
+
+var idd=idm
+
+
+var oBox = document.getElementById(idd);
+    oBox.onmousedown = function(ev) {
+    var disX=ev.clientX-oBox.offsetLeft;
+    var disY=ev.clientY-oBox.offsetTop;   
+    document.onmousemove = function(ev) {
+    var l = ev.clientX-disX;
+    var t = ev.clientY-disY;
+    //console.log(l);
+    oBox.style.left = l + "px";
+    oBox.style.top = t + "px";
+    };
+                    document.onmouseup = function() {
+                    document.onmousemove = null;
+                };
+                
+                    return false;  
+                };
+
+}
+function ckdx(idm){
+    //alert("az")
+    
+    dxidm=idm
+    oBox = document.getElementById(dxidm);
+oBox.onmousedown = function(ev) {
+  disX2=oBox.style.left.split("px")[0];
+  disY2=oBox.style.top.split("px")[0];   
+
+    document.onmousemove = function(ev) {
+    var l = ev.clientX-disX2;
+    var t = ev.clientY-disY2;
+    //console.log(l);
+//alert(l+"az"+t)
+ckxsfz(idm,l+"px",t+"px")
+
+    };
+                    document.onmouseup = function() {
+                    document.onmousemove = null;
+                };
+                
+                    return false;  
+                };
+                //ckgd("ck" + xrcks)
+
+}
+onmousemove=function(){
+}
+
+IndexCkback = function(cs1,cs2,cs3,cs4,cs5,cs6,cs7,cs8,cs9) {
+    alert("az")
+   add(cs1,cs2,cs3,cs4,cs5,cs6,cs7,cs8,cs9)
+}
+function add(src,bk,dx,tb,bt,wzx,wzy,kd,gd){
+    if (dbc.length>0){
+        var xrcks =dbc[0].split("ck")[1]
+        dbc.splice(0, 1)
+    }else{
+        cks=cks+1
+        var xrcks=cks
+    }
+    var wzzx=0
+    var dxzx=0
+    if (wzx==undefined){
+var wzzx=1
+    }
+    if (wzy==undefined){
+var wzzx=1
+    }
+    if (kd==undefined){
+var dxzx=1
+    }
+    if (gd==undefined){
+var dxzx=1
+    }
+    if (wzx==0){
+var wzzx=1
+    }
+    if (wzy==0){
+var wzzx=1
+    }
+    if (kd==0){
+var dxzx=1
+    }
+    if (gd==0){
+var dxzx=1
+    }
+    var sourceNode = document.getElementById("ck0");
+	var clonedNode = sourceNode.cloneNode(true);
+	clonedNode.setAttribute("id", "ck"+xrcks);
+	sourceNode.parentNode.appendChild(clonedNode);
+    if (bk=="1"){
+    var ynr=document.getElementById("ck"+xrcks).innerHTML
+    document.getElementById("ck"+xrcks).innerHTML=ynr+"<div class='baikuang'   onmousemove=ckyd('ck"+xrcks+"') onmousedown=ckgd('ck"+xrcks+"')></div>"
+    var ynr=document.getElementById("ck"+xrcks).innerHTML
+    document.getElementById("ck"+xrcks).innerHTML=ynr+"<div class='close' onclick=azclose('ck"+xrcks+"')></div>"
+    var ynr=document.getElementById("ck"+xrcks).innerHTML
+    document.getElementById("ck"+xrcks).innerHTML=ynr+"<div class='max' onclick=azmax('ck"+xrcks+"')></div>"
+    var ynr=document.getElementById("ck"+xrcks).innerHTML
+    document.getElementById("ck"+xrcks).innerHTML=ynr+"<div class='saml' onclick=azsaml('ck"+xrcks+"')></div>"
+    }
+    if (bk=="2"){
+    var ynr=document.getElementById("ck"+xrcks).innerHTML
+    document.getElementById("ck"+xrcks).innerHTML=ynr+"<div class='baikuang'   onmousemove=ckyd('ck"+xrcks+"') onmousedown=ckgd('ck"+xrcks+"')></div>"+"<div class='close' onclick='close('ck"+xrcks+"')></div>"
+    }
+    if (bk=="3"){
+    }
+    var ynr=document.getElementById("ck"+xrcks).innerHTML
+    document.getElementById("ck"+xrcks).innerHTML=ynr+"<img src='"+tb+"' class='cktb'>"
+    var ynr=document.getElementById("ck"+xrcks).innerHTML
+    document.getElementById("ck"+xrcks).innerHTML=ynr+" <div class='ckbt'>"+bt+"</div>"
+    //alert(dx)
+    if (dx=="1"){
+    var ynr=document.getElementById("ck"+xrcks).innerHTML
+    document.getElementById("ck"+xrcks).innerHTML=ynr+"<div class='dxtjd' onmousemove=ckdx('ck"+xrcks+"')></div>"
+    }
+
+
+
+    var ynr=document.getElementById("ck"+xrcks).innerHTML
+    document.getElementById("ck"+xrcks).innerHTML=ynr+"<div id='nr-ck"+xrcks+"' style='width: 100%;height:0%;'></div>"
+    document.getElementById("nr-ck"+xrcks).innerHTML="<iframe src='"+src+"'  border='0' frameborder='no' framespacing='0' allowfullscreen='true' width='100%' height='100%' class='yjiao' name='if-ck"+xrcks+"'></iframe>"
+    
+    //alert(dxzx)
+    if (wzzx==1){
+        if (dxzx==0){ 
+            ckxs("ck"+xrcks,kd,gd)
+    }else{
+        ckxs("ck"+xrcks,"700px","500px")
+    }
+    }else{
+        if (dxzx==0){ 
+            ckxs("ck"+xrcks,kg,gd)
+    }else{
+        ckxs("ck"+xrcks,"700px","500px")
+    }
+    document.getElementById("ck" + xrcks).style.top=wzy
+    document.getElementById("ck" + xrcks).style.left=wzx
+    }
+    
+    document.getElementById("ck" + xrcks).style.display= "block"
+	
+
+    ckgd("ck" + xrcks)
+
+
+    var sourceNode = document.getElementById("rwl-ck0");
+	var clonedNode = sourceNode.cloneNode(true);
+	clonedNode.setAttribute("id", "rwl-ck"+xrcks);
+	sourceNode.parentNode.appendChild(clonedNode);
+    var ynr=document.getElementById("rwl-ck"+xrcks).innerHTML
+    document.getElementById("rwl-ck"+xrcks).innerHTML=ynr+"<img src='"+tb+"'' width='25px'height='25px' id='rwl-ck"+xrcks+"' class='rwl-tb'>"
+    var ynr=document.getElementById("rwl-ck"+xrcks).innerHTML
+    document.getElementById("rwl-ck"+xrcks).innerHTML=ynr+"<div onclick=azsaml('ck"+xrcks+"') class='rwltb'></div>"
+    document.getElementById("rwl-ck"+xrcks).style.display= "inline-block"
+
+}
+
+
+
+function azclose(idm){
+    dbc.push(idm)
+
+    document.getElementById(idm).remove()
+    document.getElementById("rwl-"+idm).remove()
+    
+}
+function azmax(idm){
+if (document.getElementById(idm).style.height.split("px")[0]==document.body.clientHeight-40){
+    ckxs(idm,"700px","500px")
+    document.getElementById(idm).style.top=    (document.body.clientHeight-500)/2
+    document.getElementById(idm).style.left=    (document.body.clientWidth-700)/2
+}else{
+    ckxs(idm,"100%",document.body.clientHeight-40+"px")
+    document.getElementById(idm).style.top="0px"
+    document.getElementById(idm).style.left= "0px"
+
+}
+
+
+}
+function azsaml(idm){
+    if (document.getElementById(idm).style.display=="none"){
+        document.getElementById(idm).style.display="block"
+    }else{
+        document.getElementById(idm).style.display="none"
+    }
+}
+var kscd="0"
+function xslb(){
+    if (kscd==0){
+        document.getElementById("xzlb").style.display="block"
+        kscd=1
+    }else{
+        document.getElementById("xzlb").style.display="none"
+        kscd=0
+    }
+
+}
+</script>
+<script type="text/javascript" src="yy.js"></script>
+</head>
+
+<body style=" background-image: url(img/img0.jpg);background-size: cover" id="body">
+<div id="ck">
+
+
+
+
+    <div class="ck" id="ck0" style="width: 600px;height: 500px;display: none;">
+ 
+    </div>
+ 
+
+
+
+
+</div>
+<div id="db" class="db">
+    <img id="add" src="img/win11.png" class="add" onclick="xslb()">
+    <div class="yxxx" id="xzlb" style="display: none;">
+        <div class="kjcx">
+            <div class="bilibili" onclick="bilibili()"></div>
+            <div class="minecraft" onclick="minecraft()"></div>
+            <div class="AzVideoplayer" onclick="AzVideoplayer()"></div>
+            <div class="vscode" onclick="vscode()"></div>
+            <div class="WeChat" onclick="WeChat()"></div>
+
+        </div>
+
+
+
+        <div class="kscdsycx" onclick="sycx()">所有程序></div>
+<input id='lj' value='https://bing.com/'class="srinput"/>
+<div class="sxxxx" onclick="zdyck()">开始</div>
+    </div>
+<div class="rwl" id="rwl">
+<div class="tb" id="rwl-ck0" style="display: none;">
+    
+</div>
+
+
+</div>
+
+
+</div>
+</body>
+</html>
