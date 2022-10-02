@@ -1,0 +1,191 @@
+
+<html>  
+  <head>  
+
+    <meta charset="utf-8">
+    <title>泰勒展开</title>  
+      
+<style>
+div{ display:inline} 
+.zifu{
+
+
+white-space: nowrap;
+}
+
+
+.an{
+  position: fixed;
+  left:5px;
+ top: 60px;
+
+
+}
+
+
+#xs{
+    position: fixed;
+    white-space: nowrap;
+top:150px; 
+left: 5px;
+overflow:auto;
+width: 95%;
+height: 60px;
+}
+
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  width: 6px;
+  background: rgba(#101F1C, 0.1);
+  -webkit-border-radius: 2em;
+  -moz-border-radius: 2em;
+  border-radius: 2em;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(144,147,153,.5);
+  background-clip: padding-box;
+  min-height: 28px;
+  -webkit-border-radius: 2em;
+  -moz-border-radius: 2em;
+  border-radius: 2em;
+  transition: background-color .3s;
+  cursor: pointer;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(144,147,153,.3);
+}
+
+
+
+
+</style>
+    <script type="text/javascript"> 
+
+var jjianw=0
+
+
+window.onload=function(){
+  
+
+ //alert(yhsj(5,4))
+}
+     
+function jx(x){              //阶乘
+if (x==0){return 1 }
+var yscs=x
+for (var k=1;k<x;k++){
+var yscs=yscs*k
+}
+return yscs
+}
+
+
+
+function yhsj(m,n){            //杨辉三角
+  var lsbl=jx(n-1)*jx(m-n);
+  return Math.round(jx(m-1)/lsbl);
+  }
+
+
+
+function jhzh(x){               //角度转弧度
+  return (x/180)*Math.PI
+}
+
+function azsin(g){         //sin
+  var ds=0
+for(var i=0;i<100;i++){
+  var yu=(2*i+1)
+  var b=(Math.pow(g, yu)/jx(yu))*Math.pow(-1, i)
+  //console.log(b)
+  var ds=ds+b
+}
+return ds
+}
+
+function ex(g){                 //eˣ
+  var ds=1
+for(var i=0;i<300;i++){
+  var b=(Math.pow(g, i)/jx(i))
+  //console.log(b)
+  var ds=ds+b
+}
+return ds
+}
+
+function azln(g){                    //ln(x)
+
+var y=(g - 1) / (g + 1) 
+var ds=0
+for(var i=1;i<100;i=i+2){
+  var b=(1/i)*Math.pow(y, i-1)
+  var ds=ds+b
+  //console.log(b)
+}
+var jg=2*y*ds
+ /* var h=g
+  var ds=0
+for(var i=1;i<10;i++){
+  var b=(Math.pow(h, i)/i)*Math.pow(-1, i+1)
+  var ds=ds+b
+  console.log(b)
+  console.log(ds)
+}*/
+return jg
+}
+
+
+function xs(){
+jjjx=Number(document.getElementById("srk").value)
+document.getElementById("xs").innerHTML="..."
+
+if(jjianw==0){var lssssc=azsin(jhzh(jjjx))}
+if(jjianw==1){var lssssc=azsin(jjjx)}
+if(jjianw==2){var lssssc=ex(jjjx)}
+if(jjianw==3){var lssssc=azln(jjjx)}
+
+
+document.getElementById("xs").innerHTML= lssssc
+}
+
+
+function qh(x){
+  jjianw=x
+  if(x==0){document.getElementById("ds").innerHTML= "角度sin(x)&emsp;x="}
+  if(x==1){document.getElementById("ds").innerHTML= "弧度sin(x)&emsp;x="}
+  if(x==2){document.getElementById("ds").innerHTML= "eˣ&emsp;x="}
+  if(x==3){document.getElementById("ds").innerHTML= "ln(x)&emsp;x="}
+  //if(x=0){document.getElementById("ds").innerHTML= "角度sin(x)&emsp;x="}
+}
+    </script>  
+  </head>  
+  <body>  
+    <div id="ds" >角度sin(x)&emsp;x=</div><input value="" id=srk />
+
+
+    <div class="an">
+
+
+
+      <input value="角度sin" type="button" onclick="qh(0)" />  
+      <input value="弧度sin" type="button" onclick="qh(1)" />  
+      <input value="eˣ" type="button" onclick="qh(2)" /> 
+      <input value="ln" type="button" onclick="qh(3)" /> 
+      <input value="运算" type="button" onclick="xs()" />  
+    </div>
+    
+
+
+    <div id=xs>
+
+...
+    </div>
+  </body>  
+</html>

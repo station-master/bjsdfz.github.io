@@ -1,0 +1,116 @@
+
+<html>  
+  <head>  
+
+    <meta charset="utf-8">
+    <title>啊这定积分计算器</title>  
+      
+<style>
+div{ display:inline} 
+.zifu{
+
+
+white-space: nowrap;
+}
+
+
+.an{
+  position: absolute;
+  left:5px;
+ top: 60px;
+
+
+}
+
+
+#xs{
+    position: absolute;
+    white-space: nowrap;
+top:150px; 
+left: 5px;
+overflow:auto;
+width: 95%;
+height: 60px;
+}
+
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  width: 6px;
+  background: rgba(#101F1C, 0.1);
+  -webkit-border-radius: 2em;
+  -moz-border-radius: 2em;
+  border-radius: 2em;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(144,147,153,.5);
+  background-clip: padding-box;
+  min-height: 28px;
+  -webkit-border-radius: 2em;
+  -moz-border-radius: 2em;
+  border-radius: 2em;
+  transition: background-color .3s;
+  cursor: pointer;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(144,147,153,.3);
+}
+
+
+
+
+</style>
+<script type="text/javascript" src="../s.js"></script>
+    <script type="text/javascript"> 
+     
+
+
+function xs(){
+var x=document.getElementById("x").value
+var s=document.getElementById("s").value
+var jxs=document.getElementById("jxs").value
+var jxs=jxs.replace(new RegExp('dx', 'g'), 'y');
+var dx=document.getElementById("dx").value
+document.getElementById("xs").innerHTML="..."
+var g=0
+
+for(var h=Number(x);h<=Number(s);h=accAdd(h, dx)){
+  var g=accAdd(h, jiexiys(jxs,h,Number(dx)))
+  l(jxs,h,Number(dx),g)
+}
+
+
+document.getElementById("xs").innerHTML= g
+}
+
+
+
+    </script>  
+  </head>  
+  <body>  
+    <div id="ds" style="font-size: 46;" >∫</div>
+    <input value="" id=s style="position: absolute; top:15px; left: 30px; width: 35px;" />
+    <input value="" id=x style="position: absolute; top:50px; left: 30px; width: 35px;"/>
+    <input value="" id=jxs style="position: absolute; top:35px; left: 70px; width: 150px;"/>
+
+    <div id="ds" style="position: absolute; font-size: 20;left: 250px; top: 30px;" >dx=</div>
+    <input value="0.001" id=dx style="position: absolute; top:35px; left: 290px; width: 50px;"/>
+
+    <div class="an" style="top: 80px;">
+      <input value="运算" type="button" onclick="xs()" />  
+    </div>
+    
+
+
+    <div id=xs>
+
+...
+    </div>
+  </body>  
+</html>

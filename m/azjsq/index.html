@@ -1,0 +1,105 @@
+
+<html>  
+  <head>  
+
+    <meta charset="utf-8">
+    <title>啊这计算器</title>  
+      
+<style>
+div{ display:inline} 
+.zifu{
+
+
+white-space: nowrap;
+}
+
+
+.an{
+  position: fixed;
+  left:5px;
+ top: 60px;
+
+
+}
+
+
+#xs{
+    position: fixed;
+    white-space: nowrap;
+top:150px; 
+left: 5px;
+overflow:auto;
+width: 95%;
+height: 60px;
+}
+
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  width: 6px;
+  background: rgba(#101F1C, 0.1);
+  -webkit-border-radius: 2em;
+  -moz-border-radius: 2em;
+  border-radius: 2em;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(144,147,153,.5);
+  background-clip: padding-box;
+  min-height: 28px;
+  -webkit-border-radius: 2em;
+  -moz-border-radius: 2em;
+  border-radius: 2em;
+  transition: background-color .3s;
+  cursor: pointer;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(144,147,153,.3);
+}
+
+
+
+
+</style>
+<script type="text/javascript" src="../s.js"></script>
+    <script type="text/javascript"> 
+     
+
+
+function xs(){
+jjjx=document.getElementById("srk").value
+document.getElementById("xs").innerHTML="..."
+
+
+document.getElementById("xs").innerHTML= jiexiys(jjjx)
+}
+
+
+
+    </script>  
+  </head>  
+  <body>  
+    <div id="ds" >计算
+      内置函数:sin,cos,tan,arcsin,arccos,arctan,sqrt,log,abs,ln
+      运算符号:^/*+_   (减法用_表示,负数用-表示)
+      内置参数:π,e  使用pi表示π,e表示e</div>
+    <input value="" id=srk />
+
+
+    <div class="an">
+      <input value="运算" type="button" onclick="xs()" />  
+    </div>
+    
+
+
+    <div id=xs>
+
+...
+    </div>
+  </body>  
+</html>
