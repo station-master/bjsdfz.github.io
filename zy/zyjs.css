@@ -1,0 +1,134 @@
+.bjsdfz{
+    position: absolute;
+    top: 10px;
+    left:80px;
+            }
+            .hdbr{
+                z-index: 999; 
+                width: 50px;
+    height: 60px; 
+    cursor: pointer; 
+    border:2px solid #910b2698;
+    border-radius: 10px;
+    background: #ffffff;
+    font-family: Microsoft YaHei;
+    color: #910b26;
+    font-size: 14px;
+            }
+            .hdbr:hover{
+    background: #910b26;
+    color: white;
+    }
+    
+    .db2{
+        position: absolute;
+        bottom:200px;
+      
+    left: 0px;
+    }
+    .zyxx{
+        position: absolute;
+        top:180px;
+    left: 150px; 
+    }
+    .fkuai{
+        border-radius: 10px;
+        background: #ffffff;
+        border:2px solid #910b26;
+        width: 300px;
+    height: 200px; 
+    }
+    .shuxian{
+    background: #910b26;
+    width: 2px;
+    height: 200px; 
+    position: absolute;
+    left: 80px; 
+    }
+    .hxian{
+    background: #910b26;
+    width: 300px;
+    height: 2px; 
+    position: absolute;
+    top: 40px; 
+    }
+    .zyshuxmc{
+        font-family: Microsoft YaHei;
+    color: #000000;
+    font-size: 18px;
+    position: absolute;
+    left: 10px; 
+    top:-10px;
+    }
+    .zyshuxcs{
+    
+    color: #000000;
+    font-size: 18px;
+    position: absolute;
+    left: 100px; 
+    top:-10px;
+    }
+    .zyjj{
+        position: absolute;
+        top:220px;
+    
+    }
+    .zyjjfk{
+        border-radius: 10px;
+        z-index: 999; 
+        background: #ffffff;
+        position: absolute;
+        border:2px solid #910b26;
+        width: 300px;
+        
+    }
+    .zyyl{
+        position: absolute;
+        top:0px;
+        left:350px;  
+    }
+    
+    .zyxz1{
+        position: absolute;
+    
+        left:350px;  
+        z-index: 999; 
+    
+    height: 80px; 
+    cursor: pointer; 
+    border:2px solid #910b26;
+    border-radius: 10px;
+    background: #ffffff;
+    font-family: Microsoft YaHei;
+    color: #000000;
+    font-size: 34px;
+    text-align:center;
+    line-height:80px;
+            }
+            .hdbr:hover{
+    background: #910b26;
+    color: white;
+    }
+    .zyxz1:hover{
+        background: #910b26;
+        color: #ffffff;
+        transition: 0.4s;
+    }
+    .zyxz2{
+        position: absolute;
+       
+    }
+    .zyyltp222{
+
+        display: inline-block;
+    }
+    .zyylxs{
+        text-align: center;
+        border-radius: 10px;
+        width: 300px;
+        height:300px;
+        background-color: rgb(245, 245, 245);
+        background-size: cover;
+        background-clip:content-box;
+        
+    }
