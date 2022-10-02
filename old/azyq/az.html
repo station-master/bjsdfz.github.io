@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>图片效果</title>
+		<style type="text/css">
+			*{
+				padding: 0px;
+				margin: 0px;
+			}
+			
+			#imgs{
+				width: 300px;
+				height: 300px;
+				position: absolute;
+				top: 100px;
+				left: 100px;
+				background-color:red;
+				/* 这里是背景图片,如果没有图片,上面设置了背景颜色为红色,也是可以演示效果的    */
+				/*background-image: url("fz.png");
+				/* 
+					rotate(30deg) : 旋转图片角度 ,30表示旋转度数,当然也可以是负数，表示逆时针旋转 
+					scale(0.5) : 表示图片放大的倍数,可以是整数,也可以是小数,当然也可以是负数,表示当前图片旋转180时候的效果
+					translate(10px,20px) : 表示图片的位移,10px 表示水平位移,20表示垂直位移
+					skew(20deg,30deg) ： 表示图片倾斜,20deg 表示水平倾斜,30deg表示垂直倾斜
+				*/
+					
+				transform:rotate(0deg) scale(1) translate(10px,20px) skew(20deg,30deg);
+			}
+				/* 鼠标放在图片上显示的效果  */
+			#imgs:HOVER {
+				/*
+					transition : transform 表示旋转的属性,如果这里还有其他的属性,比如背景图片,这里只需写成all就可以
+						2s 表示时间   
+						ease :表示匀速旋转
+						ease-in:表示先快后慢
+						ease-out：表示先慢后快
+				*/
+				transform:rotate(30deg) scale(1.5);
+				transition:transform 2s ease;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="imgs">
+		</div>
+	</body>
+</html>

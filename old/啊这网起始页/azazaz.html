@@ -1,0 +1,22 @@
+<html lang="en-US">
+<head>
+<meta charset="UTF-8">
+<title>az</title>
+<style type="text/css">
+</style>
+
+</head>
+<body>
+    <script type="text/javascript">
+        onload = function ()
+        {
+            var div = document.getElementById ('div')
+            document.onmousemove = function (e)
+            {
+                e = e || window.event;
+                div.innerHTML = (e.clientX + ',' + e.clientY);
+            }
+        }
+    </script>
+</body>
+</html>
