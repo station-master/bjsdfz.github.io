@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>随机点名</title>
+    <style>
+        body {
+            background-color: white;
+            margin: 0px;
+        }
+
+        header {
+            display: grid;
+            grid-template-columns: auto;
+        }
+
+        .box {
+            max-width: 1000px;
+            height: auto;
+            margin: 0 auto;
+            margin-top: auto;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        #btn {
+            width: 200px;
+            height: 60px;
+            /* margin-top: 50px; */
+            border-radius: 15px;
+            display: block;
+            margin: auto;
+        }
+
+        .name {
+            width: 100px;
+            height: 30px;
+            background-color: #6495ED;
+            margin-left: 10px;
+            margin-top: 15px;
+            text-align: center;
+            line-height: 30px;
+            border-radius: 15px;
+            font-family: "粗体";
+        }
+
+        h1 {
+            text-align: center;
+            line-height: 20px;
+            font-family: "楷体"
+        }
+
+        h2 {
+            text-align: center;
+            line-height: 20px;
+            font-family: "楷体"
+        }
+
+        .pic>a>img {
+            width: 75%;
+            max-width: 400px;
+            margin: 10px;
+        }
+
+        .pic>a {
+            display: block;
+        }
+
+        .text {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .text.body {
+            display: none;
+        }
+
+        .name.active {
+            background: white;
+        }
+
+        .name.unselectable {
+            background: lightcoral;
+        }
+
+        #menu {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            margin: 50px auto;
+            max-width: 1000px;
+            text-align: center;
+        }
+
+        #unselected {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .number_div::before {
+            content: "最少不重复次数: ";
+            
+        }
+
+        a:link {
+            color: black
+        }
+
+        a:hover {
+            color: #C3C3C3
+        }
+
+        .a {
+            line-height: 25px;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .flex.row {
+            flex-direction: row;
+        }
+
+        .flex.space-between {
+            justify-content: space-between;
+        }
+
+        @media only screen and (max-width: 950px) {
+            .text.header {
+                display: none;
+                margin-top: 20px;
+            }
+
+            .text.body {
+                display: block;
+            }
+
+            header {
+                background-color: white;
+                display: block;
+            }
+            #menu {
+            display: block;
+            text-align: center;
+            }
+            .pic>a>img {
+                width: auto;
+                height: 75%;
+                margin-top: 7px;
+            }
+
+            .pic>a {
+                height: 75px;
+                width: fit-content;
+                margin: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="text header">
+            <h1>随机点名</h1>
+            <p>初三B2</p >
+            <h1 class="a"></h1>
+        </div>
+    </header>
+    <div class="text body">
+            <h1>随机点名</h1>
+            <p>初三B2</p >
+            <h1 class="a"></h1>
+    </div>
+    <div class="box" id="box"></div>
+    <div id="menu">
+        <div id="unselected">
+            <input type="range" min="0" step="1" value="1">
+            <div class="flex row space-between">
+                <div class="number_div">1</div>
+            </div>
+        </div>
+        <button id="btn" value="inactive">点名</button>
+        <div>
+        <div><input type="checkbox" id="selectedInGroup" checked><label for="selectedInGroup">以组抽出</label></div>
+                <div><input type="checkbox" id="soundEnable"><label for="soundEnable">读出名字</label></div>
+                <div>人声:<select name="cars" id="cars">
+                    <option value="1">度小宇</option>
+                    <option value="0">度小美</option>
+                    <option value="3">度逍遥</option>
+                    <option value="4">度丫丫</option>
+                    <option value="106">度博文</option>
+                    <option value="110">度小童</option>
+                    <option value="111">度小萌</option>
+                    <option value="103">度米朵</option>
+                    <option value="5">度小娇</option>
+                </select></div></div>
+    </div>
+    <script type="text/javascript">
+        //创造虚拟后台数据
+        const arrs = ['何思辰','王鸣悦','袁佳怡','张芷萱','朱伊萱','蔡君豪','陆顺吉','马云龙','王奕盛','魏文昭','孙嘉艺','王馨杨','苑壹','赵司璇','李秉均','罗苇杭','杨竞坤','赵梓钦','丁皞柔','余艺琳','赵楚钰','安岳洋','江博卿','刘天泽','蒙思彤','任书萱','张祐瑄','金盛熙','金翔宇','魏烜成','陈颖心','管云瑶','郭启月','郭杨','赫斯威','胡清扬','郝瀚','刘宗尧','王春博','许佳睿','杨硕','张宸珲']
+        const groups = [
+        ]
+
+        const totalNum = arrs.length
+        const drawSet = new Set()
+        //获取父元素
+        let boxNode = document.getElementById("box");
+        let statusNodes = [...document.getElementsByClassName("a")]
+        let childNodes = new Array(totalNum)
+        let selectedHistory = []
+        let selectedGroupHistory = []
+        let unselectNum = 1
+        for (var i = 0; i < totalNum; i++) {
+            //创建新元素
+            var divNode = document.createElement("div");
+            divNode.className = "name";
+            boxNode.appendChild(divNode);
+            divNode.innerText = arrs[i]
+            childNodes[i] = divNode
+
+            drawSet.add(arrs[i])
+        }
+
+        //Random
+        function listRandom() {
+            let arr = [...drawSet].sort(() => 0.5 - Math.random())
+            let len = arr.length
+            for (let i = 0; i < len; i++) {
+                const elem = childNodes[i]
+                elem.innerHTML = arr[i]
+                elem.classList.remove("unselectable")
+            }
+            for (let i = len; i < totalNum; i++) {
+                const elem = childNodes[i]
+                elem.innerHTML = selectedHistory[i - len]
+                elem.classList.add("unselectable")
+            }
+        }
+
+        function clearHistory() {
+            selectedHistory.forEach(x=>{
+                drawSet.add(x)
+            })
+            selectedHistory.length = 0
+        }
+
+        function findInGroup(name) {
+            for (let i = 0; i < groups.length; i++) {
+                const members = groups[i];
+                // console.log(members);
+                // console.log(members.indexOf(name)!=-1 );
+                if(members.indexOf(name) != -1){
+                    return i
+                }
+            }
+        }
+        //点名
+        var btn = document.getElementById("btn");
+        btn.onclick = function () {
+            // let timeId
+            if (this.value === "inactive") {
+                console.log(selectedHistory);
+                console.log(drawSet);
+                listRandom();
+                statusNodes.map(x => x.innerHTML = "让我瞧瞧是哪个幸运儿！");
+                [...boxNode.getElementsByClassName("name active")].map(x => x.classList.remove("active"))
+                let currDraw = boxNode.children[parseInt(Math.random() * drawSet.size)];
+                //定时
+                timeId = setInterval(function () {
+                    currDraw.classList.remove("active");
+                    currDraw = boxNode.children[parseInt(Math.random() * drawSet.size)]
+                    currDraw.classList.add("active");
+                }, 16.6);
+
+                this.value = "active";
+                this.innerHTML = "停止"
+            } else {
+                //清除计时器
+                clearInterval(timeId);
+                this.value = "inactive";
+                this.innerHTML = "点名";
+                let drawed = document.getElementsByClassName("name active")[0].innerText
+                statusNodes.map(x => x.innerText = "就是你了！" + drawed)
+                if (document.getElementById("soundEnable").checked) {
+                    playSound(drawed)
+                }
+                if (document.getElementById("selectedInGroup").checked) {
+                    let groupId = findInGroup(drawed)
+                    console.log(groupId);
+                    if (selectedGroupHistory.length >= unselectNum && selectedGroupHistory.length != 0) {
+                        let team = groups[selectedGroupHistory.shift()]
+                        team.forEach(x=>{
+                            selectedHistory.shift()
+                            drawSet.add(x)
+                        })
+                    }
+                    if (unselectNum > 0) {
+                        selectedGroupHistory.push(groupId)
+                        let team = groups[groupId]
+
+                        team.forEach(x=>{
+                            selectedHistory.push(x)
+                            drawSet.delete(x)
+                        })
+                    }
+                } else {
+                    if (selectedHistory.length >= unselectNum && selectedHistory.length != 0) {
+                        drawSet.add(selectedHistory.shift())
+                    }
+                    if (unselectNum > 0) {
+                        selectedHistory.push(drawed)
+                        drawSet.delete(drawed)
+                    }
+                }
+
+
+            }
+        };
+        (function () {
+            let menu = document.getElementById("unselected")
+            let rangeInput = menu.getElementsByTagName("input")[0]
+            let numberDiv = menu.getElementsByClassName("number_div")[0]
+            let inGroup = document.getElementById("selectedInGroup")
+            function numUpdate(e) {
+                console.log(e);
+                numberDiv.innerText = rangeInput.value
+                unselectNum = parseInt(rangeInput.value)
+                if (inGroup.checked) {
+                    while (selectedGroupHistory.length>unselectNum&& selectedGroupHistory.length != 0) {
+                        let team = groups[selectedGroupHistory.shift()]
+                        team.forEach(x=>{
+                            selectedHistory.shift()
+                            drawSet.add(x)
+                        })
+                    }
+                }else{
+                    while (selectedHistory.length > unselectNum) {
+                        drawSet.add(selectedHistory.shift())
+                    }
+                }
+                
+            }
+
+            function maxUpdate() {
+                if (inGroup.checked) {
+                    let max = Math.max(groups.length-1, 0)
+                    rangeInput.max = max
+                    rangeInput.value = Math.min(max, rangeInput.value)
+                    numUpdate()
+                }else{
+                    rangeInput.max = Math.max(arrs.length - 1, 0)
+                }
+                clearHistory()
+            }
+            numUpdate()
+            maxUpdate()
+            inGroup.onchange = maxUpdate
+            rangeInput.oninput = numUpdate
+            rangeInput.onchange = numUpdate
+        })()
+        function playSound(text) {
+            console.log(text);
+
+            let data = encodeURI(encodeURI(text))
+            const baseURL = `https://tsn.baidu.com/text2audio?tex=${data}&lan=zh&cuid=${_uuid()}&ctp=1&aue=3&per=${document.getElementById("cars").value}&spd=5&tok=24.0ce642feef62ee691986bd2a10a3e775.2592000.1674024900.282335-20514154`
+            fetch(baseURL).then(res => {
+                if (!res.ok) {
+                    throw new Error(`${res.status} = ${res.statusText}`)
+                }
+                var reader = res.body.getReader();
+                return reader.read().then(result => result)
+            }).then(res => {
+                let blob = new Blob([res.value], { type: "audio/mp3" })
+                let url = URL.createObjectURL(blob)
+                window.audio = new Audio();
+                window.audio.src = url;
+                window.audio.play();
+            }).catch(err => {
+                console.error(err);
+            })
+        }
+
+        function _uuid() {
+            var d = Date.now();
+            if (typeof performance !== 'undefined' && typeof performance.now === 'function') {
+                d += performance.now(); //use high-precision timer if available
+            }
+            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+                var r = (d + Math.random() * 16) % 16 | 0;
+                d = Math.floor(d / 16);
+                return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+            });
+        }
+    </script>
+</body>
+
+</html>
