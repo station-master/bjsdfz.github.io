@@ -1,0 +1,12 @@
+bllb
+1=az
+2=azz
+3=azzz
+4=azzzz
+5=azzzzz
+6=azzzzzz
+7=azzzzzzz
+8=azzzzzzzz
+9=azzzzzzzzz
+bllb
+ts #9#

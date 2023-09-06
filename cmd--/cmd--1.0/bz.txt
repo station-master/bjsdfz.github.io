@@ -1,0 +1,34 @@
+#结束进程
+kill 进程名或PID 
+例：kill explorer.exe
+#打开进程
+run 指定的程序   
+例：run explorer.exe
+#用管理员身份打开程序
+runadmin 指定的程序 
+例：runadmin explorer.exe
+#文件删除
+del 文件 
+例：del c:\az.txt
+#文件移动
+wjyd 文件 文件荚 
+例：wjyd c:\az.txt d:\
+#文件替换
+wjth 文件1 文件2 
+例：wjyd c:\az.txt d:\az.txt
+#文件拷贝
+wjkb 文件 文件夹 
+例：wjyd c:\az.txt d:\
+#文件写入
+xr 文件 写入的内容
+例：xr c:\az.txt 233
+#文件写入并替换
+xrth 文件 文件夹 
+例：xrth c:\az.txt 233
+#文件重命名
+cmm 文件 新的文件名 
+例：cmm c:\az.txt 233.txt
+#提示窗
+（标题和显示时间不是必填）
+ts 内容 标题 显示时间
+例：ts az! cmd-- 5
