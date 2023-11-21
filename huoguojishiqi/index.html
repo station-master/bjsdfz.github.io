@@ -1,0 +1,69 @@
+<html>
+	<head>
+		<link rel="shortcut  icon" href="" type="image/x-icon" />
+		<meta charset="utf-8">
+		<title>火锅计时器</title>
+        <style type="text/css" >
+        </style>
+<style type="text/css">@import"";</style>
+        <script type="text/javascript">
+                var time=0
+                var l=["六秒测试","0.1","麻辣牛肉","3","肥牛","2","脑花","15","鸭血","10","藕片","2","青笋","1","黄喉","3","苕粉","5","冬瓜","5","香菜","1","莴笋","5","平菇","6","藕片","2","笋尖","5","海白菜","5"]
+        function chazhao(item) {
+                for (let i = 0; i < l.length; i++) {
+                        const element = l[i];
+                        if (element==item) {
+                                return Number(l[i+1])*60*1000//ms
+                        }
+                }
+        }
+        window.onload=function(){
+                for (let i = 0; i < l.length; i++) {
+                        if (i%2==0) {
+                               var c=document.getElementById('xvanzekuang').innerHTML
+                               document.getElementById('xvanzekuang').innerHTML=c+"<option value='"+l[i]+"'>"+l[i]+"</option>"
+                        }
+                }
+        }
+        function start() {
+                var c=document.getElementById('xvanzekuang').value
+                time=chazhao(c)
+                xianshi(time)
+
+        }
+        function xianshi(t) {
+                var miao=Math.ceil(t/1000)
+                var fen=Math.floor(miao/60)
+                var miao=miao%60
+                document.getElementById('shijianxianshi').innerHTML='00:'+fen+':'+miao
+        }
+
+        function startjishi() {
+                start()
+                var qishi=new Date().getTime()
+                var h=setInterval(() => {
+                        var yiguo=new Date().getTime()-qishi
+                        xianshi(time-yiguo)
+                        if (yiguo>=time) {
+                                document.getElementById('shijianxianshi').innerHTML='00:0:0'
+                                clearInterval(h)
+                                alert('发出声响')
+                        }
+                }, 500);
+        }
+        
+        
+        
+        
+        </script>
+<script type="text/javascript" src=""></script>
+        </head>
+        <body>
+                <select style="" class="" id="xvanzekuang" onchange="start()">
+                        
+                </select>
+                <button onclick="startjishi()">开始计时</button>
+                <br>
+                <h6 style="font-size: 60px;" id="shijianxianshi">00:00:00</h6>
+        </body>
+        </html>
