@@ -1,8 +1,7 @@
 <!DOCTYPE html>
-<html lang="zh">
-
-<head>
-    <meta charset="UTF-8">
+<!-- saved from url=(0037)https://www.bjsdfz.net/suijidianming/ -->
+<html lang="zh"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>随机点名</title>
     <style>
@@ -167,26 +166,28 @@
     <header>
         <div class="text header">
             <h1>随机点名</h1>
-            <p>初三B2</p >
+            <p>高一11</p>
             <h1 class="a"></h1>
         </div>
     </header>
     <div class="text body">
             <h1>随机点名</h1>
-            <p>初三B2</p >
+            <p>高一11</p>
             <h1 class="a"></h1>
     </div>
-    <div class="box" id="box"></div>
+    <div class="box" id="box">
+        <!--<div class="name">陈张俍</div><div class="name">陈照方</div><div class="name">陈致远</div><div class="name">胡懿珈</div><div class="name">李柏勋</div><div class="name">李明轩</div><div class="name">李汶隽</div><div class="name">梁实实</div><div class="name">刘滨鸿</div><div class="name">刘执中</div><div class="name">刘子墨</div><div class="name">刘宗尧</div><div class="name">柳懿宸</div><div class="name">齐武睿</div><div class="name">秦思源</div><div class="name">任秋尘</div><div class="name">任禹龙</div><div class="name">苏子菡</div><div class="name">孙安琪</div><div class="name">孙奥翔</div><div class="name">孙光远</div><div class="name">唐原</div><div class="name">王德黎</div><div class="name">王梦莎</div><div class="name">王梦姿</div><div class="name">王思睿</div><div class="name">王溪屿</div><div class="name">王玥冉</div><div class="name">王子轩</div><div class="name">魏诗涵</div><div class="name">邢如言</div><div class="name">修一鸣</div><div class="name">闫泽宣</div><div class="name">燕禹铮</div><div class="name">杨辰安</div><div class="name">张陶然</div><div class="name">张翼远</div><div class="name">张宇宸</div><div class="name">张子含</div><div class="name">章学晨</div><div class="name">赵展</div><div class="name">周子愉</div><div class="name">朱韵溪</div>-->
+    </div>
     <div id="menu">
         <div id="unselected">
-            <input type="range" min="0" step="1" value="1">
+            <input type="range" min="0" step="1" value="1" max="10">
             <div class="flex row space-between">
-                <div class="number_div">1</div>
+                <div class="number_div">0</div>
             </div>
         </div>
         <button id="btn" value="inactive">点名</button>
         <div>
-        <div><input type="checkbox" id="selectedInGroup" checked><label for="selectedInGroup">以组抽出</label></div>
+        <div><input type="checkbox" id="selectedInGroup" checked=""><label for="selectedInGroup">以组抽出</label></div>
                 <div><input type="checkbox" id="soundEnable"><label for="soundEnable">读出名字</label></div>
                 <div>人声:<select name="cars" id="cars">
                     <option value="1">度小宇</option>
@@ -202,7 +203,7 @@
     </div>
     <script type="text/javascript">
         //创造虚拟后台数据
-        const arrs = ['何思辰','王鸣悦','袁佳怡','张芷萱','朱伊萱','蔡君豪','陆顺吉','马云龙','王奕盛','魏文昭','孙嘉艺','王馨杨','苑壹','赵司璇','李秉均','罗苇杭','杨竞坤','赵梓钦','丁皞柔','余艺琳','赵楚钰','安岳洋','江博卿','刘天泽','蒙思彤','任书萱','张祐瑄','金盛熙','金翔宇','魏烜成','陈颖心','管云瑶','郭启月','郭杨','赫斯威','胡清扬','郝瀚','刘宗尧','王春博','许佳睿','杨硕','张宸珲']
+        const arrs = ['陈张俍','陈照方','陈致远','胡懿珈','李柏勋','李明轩','李汶隽','梁实实','刘滨鸿','刘执中','刘子墨','刘宗尧','柳懿宸','齐武睿','秦思源','任秋尘','任禹龙','苏子菡','孙安琪','孙奥翔','孙光远','唐原','王德黎','王梦莎','王梦姿','王思睿','王溪屿','王玥冉','王子轩','魏诗涵','邢如言','修一鸣','闫泽宣','燕禹铮','杨辰安','张陶然','张翼远','张宇宸','张子含','章学晨','赵展','周子愉','朱韵溪']
         const groups = [
         ]
 
@@ -348,7 +349,8 @@
 
             function maxUpdate() {
                 if (inGroup.checked) {
-                    let max = Math.max(groups.length-1, 0)
+                  //  let max = Math.max(groups.length-1, 0)
+                  max =10
                     rangeInput.max = max
                     rangeInput.value = Math.min(max, rangeInput.value)
                     numUpdate()
@@ -397,6 +399,7 @@
             });
         }
     </script>
-</body>
 
-</html>
+
+
+</body></html>
