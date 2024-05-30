@@ -5200,6 +5200,7 @@ var end=(new Date).getTime()
 document.getElementById('jg').innerHTML='共'+yvsousuo.length+'个结果，用时'+((end-start)/1000)+'秒'
     return yvsousuo
 }
+var ws={send:1}
 var ws = new WebSocket("ws://" + '60.205.140.34:8088');
 ws.onopen = function() {}
 /*
