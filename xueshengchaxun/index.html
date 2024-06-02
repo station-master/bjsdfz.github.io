@@ -2,7 +2,7 @@
 	<head>
 		<link rel="shortcut  icon" href="" type="image/x-icon" />
 		<meta charset="utf-8">
-		<title>2026届北京师范大学附属中学学生查询系统</title>
+		<title>2026届北京师范大学附属中学高中学生查询系统</title>
         <style type="text/css" >
             .a{
                 position: relative;width: 1500px;height: 40px;border: 1px solid black;left: 10px;
@@ -5173,9 +5173,17 @@ ws.send('recodeLog'+sr+"','"+String(p))
 for (let i = 0; i < md.length; i++) {
     const element = md[i];
     //console.log(element[p],sr)
-    if (isinStr(element[p],sr)==true) {
+    if(document.getElementById('zzbdsss').checked){
+        var re=new RegExp(sr)
+        if (re.test(element[p])) {
         yvsousuo.push(element)
     }
+    }else{
+        if (isinStr(element[p],sr)==true) {
+        yvsousuo.push(element)
+    }
+    }
+   
 }
 var jz=''
 for (let i = 0; i < yvsousuo.length; i++) {
@@ -5201,8 +5209,6 @@ document.getElementById('jg').innerHTML='共'+yvsousuo.length+'个结果，用�
     return yvsousuo
 }
 var ws={send:()=>{}}
-var ws = new WebSocket("ws://" + '60.205.140.34:8088');
-ws.onopen = function() {}
 /*
 
 */
@@ -5213,7 +5219,7 @@ ws.onopen = function() {}
         </head>
         <body>
             <div style="position: fixed;overflow:auto;left: 0px;top: 0px;width: 100%;height: 100%;">
-                <h5>2026届北京师范大学附属中学学生查询系统</h5>
+                <h5>2026届北京师范大学附属中学高中学生查询系统</h5>
                 <br>
             <input placeholder="搜索" id="srk"/>
             <select id="xzk">
@@ -5226,6 +5232,8 @@ ws.onopen = function() {}
                 <option value="6">按初中校所在区</option>
             </select>
             <input type="button" value="搜索" onclick="s()">
+            正则表达式搜索
+            <input type="checkbox" id="zzbdsss">
             <br>
             <div id="jg"></div>
             <br>
